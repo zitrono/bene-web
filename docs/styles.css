@@ -1086,3 +1086,90 @@ a:focus {
         --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 }
+
+/* ==========================================================================
+   SVG Graphics Styles
+   ========================================================================== */
+
+/* Hero SVG */
+.hero-svg {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: var(--spacing-lg) 0;
+}
+
+/* Section SVGs */
+.section-svg {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: var(--spacing-md) 0;
+}
+
+/* Feature Icon SVGs */
+.feature-icon-svg {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 0 auto var(--spacing-sm);
+}
+
+/* Process Arrow SVGs */
+.process-arrow-svg {
+    width: 40px;
+    height: 40px;
+    display: block;
+}
+
+/* Mobile responsiveness for SVGs */
+@media (max-width: 768px) {
+    .hero-svg {
+        max-width: 100%;
+        margin: var(--spacing-md) 0;
+    }
+    
+    .section-svg {
+        max-width: 100%;
+        margin: var(--spacing-sm) 0;
+    }
+    
+    .feature-icon-svg {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .process-arrow-svg {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Ensure SVGs scale properly */
+.hero-visual img,
+.ecosystem-visual img,
+.problem-visual img,
+.agent-visual img,
+.benefits-visual img,
+.event-visual img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Feature icon containers */
+.feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Process arrow containers */
+.process-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 var(--spacing-sm);
+}
