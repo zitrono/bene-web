@@ -6,24 +6,15 @@
     </linearGradient>
   </defs>
   
-  <!-- Input documents flowing in -->
-  <rect x="8" y="15" width="18" height="12" rx="2" fill="none" stroke="#E9ECEF" stroke-width="4" />
-  <rect x="12" y="35" width="16" height="10" rx="2" fill="none" stroke="#E9ECEF" stroke-width="4" />
-  <rect x="5" y="52" width="20" height="13" rx="2" fill="none" stroke="#E9ECEF" stroke-width="4" />
-  <rect x="10" y="72" width="17" height="11" rx="2" fill="none" stroke="#E9ECEF" stroke-width="4" />
+  <!-- Simplified inputs (2 instead of 4) -->
+  <rect x="8" y="25" width="20" height="16" rx="3" fill="#E9ECEF" />
+  <rect x="8" y="60" width="20" height="16" rx="3" fill="#E9ECEF" />
   
-  <!-- Central processing circle -->
-  <circle cx="50" cy="50" r="18" fill="url(#processing-gradient)" stroke="#FFFFFF" stroke-width="2" />
+  <!-- Larger, more prominent central processing circle -->
+  <circle cx="50" cy="50" r="22" fill="url(#processing-gradient)" />
+  <circle cx="50" cy="50" r="10" fill="#FFFFFF" opacity="0.9" />
   
-  <!-- Output organized documents -->
-  <rect x="75" y="25" width="18" height="12" rx="2" fill="none" stroke="#3A5BC8" stroke-width="4" />
-  <rect x="75" y="45" width="18" height="12" rx="2" fill="none" stroke="#3A5BC8" stroke-width="4" />
-  <rect x="75" y="65" width="18" height="12" rx="2" fill="none" stroke="#3A5BC8" stroke-width="4" />
-  
-  <!-- Flow lines -->
-  <path d="M 30 25 Q 40 30 32 50" fill="none" stroke="url(#processing-gradient)" stroke-width="3" opacity="0.7" />
-  <path d="M 30 45 Q 35 48 32 50" fill="none" stroke="url(#processing-gradient)" stroke-width="3" opacity="0.7" />
-  <path d="M 68 50 Q 72 35 75 31" fill="none" stroke="url(#processing-gradient)" stroke-width="3" opacity="0.7" />
-  <path d="M 68 50 Q 72 50 75 51" fill="none" stroke="url(#processing-gradient)" stroke-width="3" opacity="0.7" />
-  <path d="M 68 50 Q 72 65 75 71" fill="none" stroke="url(#processing-gradient)" stroke-width="3" opacity="0.7" />
+  <!-- Simplified outputs (2 instead of 3) -->
+  <rect x="72" y="35" width="20" height="16" rx="3" fill="#3A5BC8" />
+  <rect x="72" y="50" width="20" height="16" rx="3" fill="#3A5BC8" />
 </svg>

@@ -15,7 +15,7 @@
     <!-- Document color progression -->
     <linearGradient id="doc-progression" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#E9ECEF;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3A5BC8;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#3A5BC8;stop-opacity:1" />
     </linearGradient>
   </defs>
   
@@ -25,68 +25,49 @@
   <!-- Main content group -->
   <g class="ralph-hero-content">
     
-    <!-- Left side: Scattered documents (chaos) -->
+    <!-- Left side: Reduced scattered documents (chaos) - 8 documents instead of 15 -->
     <g class="chaos-documents">
-      <rect x="50" y="120" width="28" height="20" rx="3" fill="#E9ECEF" transform="rotate(15)" />
-      <rect x="90" y="160" width="24" height="18" rx="3" fill="#E9ECEF" transform="rotate(-20)" />
-      <rect x="120" y="100" width="32" height="22" rx="3" fill="#E9ECEF" transform="rotate(45)" />
-      <rect x="80" y="200" width="26" height="19" rx="3" fill="#E9ECEF" transform="rotate(-10)" />
-      <rect x="140" y="180" width="30" height="21" rx="3" fill="#E9ECEF" transform="rotate(30)" />
-      <rect x="60" y="250" width="28" height="20" rx="3" fill="#E9ECEF" transform="rotate(-35)" />
-      <rect x="110" y="280" width="25" height="18" rx="3" fill="#E9ECEF" transform="rotate(10)" />
-      <rect x="150" y="240" width="29" height="21" rx="3" fill="#E9ECEF" transform="rotate(-25)" />
-      <rect x="70" y="320" width="27" height="19" rx="3" fill="#E9ECEF" transform="rotate(40)" />
-      <rect x="130" y="340" width="31" height="22" rx="3" fill="#E9ECEF" transform="rotate(-15)" />
-      <rect x="40" y="380" width="26" height="18" rx="3" fill="#E9ECEF" transform="rotate(25)" />
-      <rect x="100" y="400" width="28" height="20" rx="3" fill="#E9ECEF" transform="rotate(-40)" />
-      <rect x="160" y="380" width="24" height="17" rx="3" fill="#E9ECEF" transform="rotate(35)" />
-      <rect x="80" y="450" width="30" height="21" rx="3" fill="#E9ECEF" transform="rotate(-5)" />
-      <rect x="140" y="420" width="27" height="19" rx="3" fill="#E9ECEF" transform="rotate(20)" />
+      <rect x="50" y="150" width="32" height="24" rx="4" fill="#E9ECEF" transform="rotate(15)" />
+      <rect x="90" y="190" width="28" height="22" rx="4" fill="#E9ECEF" transform="rotate(-20)" />
+      <rect x="120" y="130" width="36" height="26" rx="4" fill="#E9ECEF" transform="rotate(45)" />
+      <rect x="80" y="230" width="30" height="23" rx="4" fill="#E9ECEF" transform="rotate(-10)" />
+      <rect x="140" y="210" width="34" height="25" rx="4" fill="#E9ECEF" transform="rotate(30)" />
+      <rect x="60" y="280" width="32" height="24" rx="4" fill="#E9ECEF" transform="rotate(-35)" />
+      <rect x="110" y="320" width="29" height="22" rx="4" fill="#E9ECEF" transform="rotate(10)" />
+      <rect x="150" y="270" width="33" height="25" rx="4" fill="#E9ECEF" transform="rotate(-25)" />
     </g>
     
-    <!-- Center: Ralph processor (large circle with internal pattern) -->
+    <!-- Center: Ralph processor (simplified with single pattern) -->
     <g class="ralph-processor">
       <circle cx="400" cy="300" r="80" fill="url(#primary-gradient)" />
-      <!-- Internal geometric pattern -->
-      <circle cx="400" cy="300" r="50" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
-      <circle cx="400" cy="300" r="30" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.4" />
-      <circle cx="400" cy="300" r="15" fill="#FFFFFF" opacity="0.8" />
+      <!-- Single simple internal pattern instead of 3 concentric circles -->
+      <circle cx="400" cy="300" r="35" fill="#FFFFFF" opacity="0.9" />
     </g>
     
-    <!-- Right side: Organized documents (intelligent clusters) -->
+    <!-- Right side: Organized documents (simplified clusters) -->
     <g class="organized-documents">
-      <!-- Cluster 1 -->
-      <rect x="580" y="140" width="28" height="20" rx="3" fill="url(#doc-progression)" />
-      <rect x="580" y="165" width="28" height="20" rx="3" fill="url(#doc-progression)" />
-      <rect x="580" y="190" width="28" height="20" rx="3" fill="url(#doc-progression)" />
-      <rect x="615" y="140" width="28" height="20" rx="3" fill="url(#doc-progression)" />
-      <rect x="615" y="165" width="28" height="20" rx="3" fill="url(#doc-progression)" />
+      <!-- Cluster 1 (3 documents) -->
+      <rect x="580" y="160" width="32" height="24" rx="4" fill="url(#doc-progression)" />
+      <rect x="580" y="190" width="32" height="24" rx="4" fill="url(#doc-progression)" />
+      <rect x="580" y="220" width="32" height="24" rx="4" fill="url(#doc-progression)" />
       
-      <!-- Cluster 2 -->
-      <rect x="580" y="260" width="28" height="20" rx="3" fill="url(#doc-progression)" />
-      <rect x="580" y="285" width="28" height="20" rx="3" fill="url(#doc-progression)" />
-      <rect x="580" y="310" width="28" height="20" rx="3" fill="url(#doc-progression)" />
-      <rect x="615" y="260" width="28" height="20" rx="3" fill="url(#doc-progression)" />
+      <!-- Cluster 2 (3 documents) -->
+      <rect x="630" y="160" width="32" height="24" rx="4" fill="url(#doc-progression)" />
+      <rect x="630" y="190" width="32" height="24" rx="4" fill="url(#doc-progression)" />
+      <rect x="630" y="220" width="32" height="24" rx="4" fill="url(#doc-progression)" />
       
-      <!-- Cluster 3 -->
-      <rect x="580" y="380" width="28" height="20" rx="3" fill="url(#doc-progression)" />
-      <rect x="580" y="405" width="28" height="20" rx="3" fill="url(#doc-progression)" />
-      <rect x="580" y="430" width="28" height="20" rx="3" fill="url(#doc-progression)" />
-      <rect x="615" y="380" width="28" height="20" rx="3" fill="url(#doc-progression)" />
-      <rect x="615" y="405" width="28" height="20" rx="3" fill="url(#doc-progression)" />
-      <rect x="615" y="430" width="28" height="20" rx="3" fill="url(#doc-progression)" />
+      <!-- Cluster 3 (2 documents) -->
+      <rect x="605" y="320" width="32" height="24" rx="4" fill="url(#doc-progression)" />
+      <rect x="605" y="350" width="32" height="24" rx="4" fill="url(#doc-progression)" />
     </g>
     
-    <!-- Flow lines connecting chaos through processor to organization -->
+    <!-- Strengthened flow lines (6px instead of 4px) -->
     <g class="flow-lines">
       <!-- Flow line 1: Top cluster -->
-      <path d="M 180 140 Q 280 120 320 200 Q 360 280 480 180" fill="none" stroke="url(#primary-gradient)" stroke-width="4" opacity="0.6" />
+      <path d="M 180 180 Q 280 160 320 220 Q 360 280 480 190" fill="none" stroke="url(#primary-gradient)" stroke-width="6" opacity="0.8" />
       
-      <!-- Flow line 2: Middle cluster -->
-      <path d="M 180 250 Q 280 270 320 300 Q 360 300 480 300" fill="none" stroke="url(#primary-gradient)" stroke-width="4" opacity="0.6" />
-      
-      <!-- Flow line 3: Bottom cluster -->
-      <path d="M 180 400 Q 280 420 320 380 Q 360 320 480 420" fill="none" stroke="url(#primary-gradient)" stroke-width="4" opacity="0.6" />
+      <!-- Flow line 2: Bottom cluster -->
+      <path d="M 180 300 Q 280 320 320 340 Q 360 320 480 340" fill="none" stroke="url(#primary-gradient)" stroke-width="6" opacity="0.8" />
     </g>
     
   </g>

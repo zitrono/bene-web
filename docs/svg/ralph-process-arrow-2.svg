@@ -6,11 +6,7 @@
     </linearGradient>
   </defs>
   
-  <!-- Bold arrow pointing right with rounded cap -->
-  <path d="M 10 30 L 40 30 M 35 20 L 45 30 L 35 40" 
-        fill="none" 
-        stroke="url(#arrow-gradient-2)" 
-        stroke-width="6" 
-        stroke-linecap="round" 
-        stroke-linejoin="round" />
+  <!-- Strengthened arrow with bold polygon head and thicker line -->
+  <line x1="10" y1="30" x2="35" y2="30" stroke="url(#arrow-gradient-2)" stroke-width="8" stroke-linecap="round" />
+  <polygon points="40,20 50,30 40,40 35,30" fill="url(#arrow-gradient-2)" />
 </svg>

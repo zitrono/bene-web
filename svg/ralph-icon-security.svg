@@ -6,21 +6,10 @@
     </linearGradient>
   </defs>
   
-  <!-- Hexagonal security boundary -->
-  <polygon points="50,15 75,30 75,60 50,75 25,60 25,30" fill="none" stroke="url(#security-gradient)" stroke-width="4" />
+  <!-- Single hexagonal security boundary -->
+  <polygon points="50,15 75,30 75,60 50,75 25,60 25,30" fill="none" stroke="url(#security-gradient)" stroke-width="5" />
   
-  <!-- Inner hexagonal boundary for depth -->
-  <polygon points="50,25 65,35 65,55 50,65 35,55 35,35" fill="none" stroke="url(#security-gradient)" stroke-width="2" opacity="0.6" />
-  
-  <!-- Central protected circle -->
-  <circle cx="50" cy="50" r="12" fill="url(#security-gradient)" />
-  <circle cx="50" cy="50" r="6" fill="#FFFFFF" opacity="0.9" />
-  
-  <!-- Security indicators at hexagon vertices -->
-  <circle cx="50" cy="15" r="3" fill="#FFFFFF" stroke="url(#security-gradient)" stroke-width="2" />
-  <circle cx="75" cy="30" r="3" fill="#FFFFFF" stroke="url(#security-gradient)" stroke-width="2" />
-  <circle cx="75" cy="60" r="3" fill="#FFFFFF" stroke="url(#security-gradient)" stroke-width="2" />
-  <circle cx="50" cy="75" r="3" fill="#FFFFFF" stroke="url(#security-gradient)" stroke-width="2" />
-  <circle cx="25" cy="60" r="3" fill="#FFFFFF" stroke="url(#security-gradient)" stroke-width="2" />
-  <circle cx="25" cy="30" r="3" fill="#FFFFFF" stroke="url(#security-gradient)" stroke-width="2" />
+  <!-- Larger, more prominent central protected circle -->
+  <circle cx="50" cy="50" r="18" fill="url(#security-gradient)" />
+  <circle cx="50" cy="50" r="8" fill="#FFFFFF" opacity="0.9" />
 </svg>

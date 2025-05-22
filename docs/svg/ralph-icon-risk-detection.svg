@@ -6,19 +6,16 @@
     </linearGradient>
   </defs>
   
-  <!-- Central scanning circle -->
-  <circle cx="50" cy="50" r="20" fill="url(#scanning-gradient)" opacity="0.8" />
-  <circle cx="50" cy="50" r="12" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+  <!-- Simplified central scanning circle (no inner pattern) -->
+  <circle cx="50" cy="50" r="20" fill="url(#scanning-gradient)" />
   
-  <!-- Detection lines radiating outward -->
+  <!-- Reduced detection lines (3 instead of 4) -->
   <line x1="50" y1="30" x2="50" y2="8" stroke="url(#scanning-gradient)" stroke-width="4" stroke-linecap="round" />
   <line x1="67" y1="37" x2="82" y2="22" stroke="url(#scanning-gradient)" stroke-width="4" stroke-linecap="round" />
   <line x1="70" y1="50" x2="92" y2="50" stroke="url(#scanning-gradient)" stroke-width="4" stroke-linecap="round" />
-  <line x1="63" y1="67" x2="78" y2="82" stroke="url(#scanning-gradient)" stroke-width="4" stroke-linecap="round" />
   
-  <!-- Warning triangles at endpoints -->
-  <polygon points="50,8 46,2 54,2" fill="#FF7851" />
-  <polygon points="82,22 86,16 78,16" fill="#FF7851" />
-  <polygon points="92,50 98,46 98,54" fill="#FF7851" />
-  <polygon points="78,82 82,88 74,88" fill="#FF7851" />
+  <!-- Larger, more prominent warning triangles -->
+  <polygon points="50,8 44,0 56,0" fill="#FF7851" />
+  <polygon points="82,22 88,14 76,14" fill="#FF7851" />
+  <polygon points="92,50 100,44 100,56" fill="#FF7851" />
 </svg>
