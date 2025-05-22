@@ -1088,83 +1088,22 @@ a:focus {
 }
 
 /* ==========================================================================
-   SVG Graphics Styles
+   Emoji Icons and Simple Graphics
    ========================================================================== */
 
-/* Hero SVG - Decorative accent */
-.hero-visual .hero-svg {
-    width: 100%;
-    max-width: 300px !important;
-    height: auto;
-    margin: var(--spacing-md) 0;
-    opacity: 0.8;
-}
-
-/* Section SVGs - Subtle decorative elements */
-.ecosystem-visual .section-svg,
-.problem-visual .section-svg,
-.agent-visual .section-svg,
-.benefits-visual .section-svg,
-.event-visual .section-svg {
-    width: 100%;
-    max-width: 250px !important;
-    height: auto;
-    margin: var(--spacing-sm) 0;
-    opacity: 0.7;
-}
-
-/* Feature Icon SVGs - Compact icons */
-.feature-icon-svg {
-    width: 48px;
-    height: 48px;
+/* Feature emoji styling */
+.feature-emoji {
+    font-size: 3rem;
     display: block;
-    margin: 0 auto var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+    filter: grayscale(20%);
 }
 
-/* Process Arrow SVGs - Small connectors */
-.process-arrow-svg {
-    width: 28px;
-    height: 28px;
-    display: block;
-}
-
-/* Mobile responsiveness for SVGs */
-@media (max-width: 768px) {
-    .hero-visual .hero-svg {
-        max-width: 200px !important;
-        margin: var(--spacing-sm) 0;
-    }
-    
-    .ecosystem-visual .section-svg,
-    .problem-visual .section-svg,
-    .agent-visual .section-svg,
-    .benefits-visual .section-svg,
-    .event-visual .section-svg {
-        max-width: 180px !important;
-        margin: var(--spacing-xs) 0;
-    }
-    
-    .feature-icon-svg {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .process-arrow-svg {
-        width: 24px;
-        height: 24px;
-    }
-}
-
-/* Ensure SVGs scale properly - removed conflicting max-width rule */
-.hero-visual img,
-.ecosystem-visual img,
-.problem-visual img,
-.agent-visual img,
-.benefits-visual img,
-.event-visual img {
-    height: auto;
-    display: block;
-    margin: 0 auto;
+/* Process arrow emoji styling */
+.arrow-emoji {
+    font-size: 1.5rem;
+    color: var(--color-accent-primary);
+    font-weight: bold;
 }
 
 /* Feature icon containers */
@@ -1181,4 +1120,15 @@ a:focus {
     align-items: center;
     justify-content: center;
     margin: 0 var(--spacing-sm);
+}
+
+/* Mobile responsiveness for emojis */
+@media (max-width: 768px) {
+    .feature-emoji {
+        font-size: 2.5rem;
+    }
+    
+    .arrow-emoji {
+        font-size: 1.2rem;
+    }
 }
