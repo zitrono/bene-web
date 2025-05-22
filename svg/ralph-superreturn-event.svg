@@ -57,10 +57,10 @@
     
     <!-- Simple connection lines to main circles only -->
     <g class="networking-connections">
-      <line x1="280" y1="140" x2="240" y2="170" stroke="url(#event-primary)" stroke-width="3" opacity="0.6" />
-      <line x1="320" y1="140" x2="360" y2="170" stroke="url(#event-primary)" stroke-width="3" opacity="0.6" />
-      <line x1="280" y1="260" x2="240" y2="230" stroke="url(#event-primary)" stroke-width="3" opacity="0.6" />
-      <line x1="320" y1="260" x2="360" y2="230" stroke="url(#event-primary)" stroke-width="3" opacity="0.6" />
+      <line x1="280" y1="140" x2="240" y2="170" stroke="url(#event-primary)" stroke-width="4" opacity="0.7" />
+      <line x1="320" y1="140" x2="360" y2="170" stroke="url(#event-primary)" stroke-width="4" opacity="0.7" />
+      <line x1="280" y1="260" x2="240" y2="230" stroke="url(#event-primary)" stroke-width="4" opacity="0.7" />
+      <line x1="320" y1="260" x2="360" y2="230" stroke="url(#event-primary)" stroke-width="4" opacity="0.7" />
     </g>
     
   </g>

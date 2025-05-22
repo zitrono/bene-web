@@ -32,7 +32,7 @@
     </g>
     
     <!-- Dividing line -->
-    <line x1="300" y1="80" x2="300" y2="320" stroke="url(#metrics-primary)" stroke-width="4" opacity="0.4" />
+    <line x1="300" y1="80" x2="300" y2="320" stroke="url(#metrics-primary)" stroke-width="4" opacity="0.5" />
     
     <!-- Ralph-powered approach (right side - dramatically larger and more powerful) -->
     <g class="ralph-approach">
