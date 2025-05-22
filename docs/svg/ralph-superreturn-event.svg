@@ -1,0 +1,102 @@
+<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Primary gradient -->
+    <linearGradient id="event-primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3A5BC8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00A3B4;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Premium gradient for professional atmosphere -->
+    <linearGradient id="event-premium" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3A5BC8;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#00A3B4;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <!-- Background -->
+    <linearGradient id="event-bg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F8F9FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E9ECEF;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#event-bg)" />
+  
+  <!-- Professional networking visualization -->
+  <g class="networking-scene">
+    
+    <!-- Central connection opportunity (two main circles) -->
+    <g class="main-connection">
+      <!-- Ralph team circle -->
+      <circle cx="220" cy="200" r="50" fill="url(#event-primary)" />
+      <circle cx="220" cy="200" r="30" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.8" />
+      <circle cx="220" cy="200" r="15" fill="#FFFFFF" opacity="0.9" />
+      
+      <!-- Client/prospect circle -->
+      <circle cx="380" cy="200" r="50" fill="url(#event-premium)" />
+      <circle cx="380" cy="200" r="30" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.8" />
+      <circle cx="380" cy="200" r="15" fill="#FFFFFF" opacity="0.9" />
+      
+      <!-- Highlighted connection between main parties -->
+      <line x1="270" y1="200" x2="330" y2="200" stroke="url(#event-primary)" stroke-width="6" stroke-linecap="round" />
+      <circle cx="300" cy="200" r="8" fill="#FF7851" />
+    </g>
+    
+    <!-- Network of professional contacts around the main connection -->
+    <g class="professional-network">
+      <!-- Top network nodes -->
+      <circle cx="150" cy="120" r="20" fill="url(#event-premium)" opacity="0.7" />
+      <circle cx="300" cy="100" r="20" fill="url(#event-premium)" opacity="0.7" />
+      <circle cx="450" cy="120" r="20" fill="url(#event-premium)" opacity="0.7" />
+      
+      <!-- Side network nodes -->
+      <circle cx="100" cy="200" r="20" fill="url(#event-premium)" opacity="0.7" />
+      <circle cx="500" cy="200" r="20" fill="url(#event-premium)" opacity="0.7" />
+      
+      <!-- Bottom network nodes -->
+      <circle cx="150" cy="280" r="20" fill="url(#event-premium)" opacity="0.7" />
+      <circle cx="300" cy="300" r="20" fill="url(#event-premium)" opacity="0.7" />
+      <circle cx="450" cy="280" r="20" fill="url(#event-premium)" opacity="0.7" />
+      
+      <!-- Additional networking contacts -->
+      <circle cx="200" cy="120" r="15" fill="url(#event-premium)" opacity="0.5" />
+      <circle cx="400" cy="120" r="15" fill="url(#event-premium)" opacity="0.5" />
+      <circle cx="200" cy="280" r="15" fill="url(#event-premium)" opacity="0.5" />
+      <circle cx="400" cy="280" r="15" fill="url(#event-premium)" opacity="0.5" />
+    </g>
+    
+    <!-- Connection lines showing networking relationships -->
+    <g class="networking-connections">
+      <!-- Connections to main Ralph team circle -->
+      <line x1="170" y1="160" x2="200" y2="200" stroke="url(#event-primary)" stroke-width="2" opacity="0.6" />
+      <line x1="280" y1="130" x2="240" y2="170" stroke="url(#event-primary)" stroke-width="2" opacity="0.6" />
+      <line x1="120" y1="200" x2="170" y2="200" stroke="url(#event-primary)" stroke-width="2" opacity="0.6" />
+      <line x1="170" y1="240" x2="200" y2="220" stroke="url(#event-primary)" stroke-width="2" opacity="0.6" />
+      
+      <!-- Connections to client circle -->
+      <line x1="430" y1="160" x2="400" y2="200" stroke="url(#event-premium)" stroke-width="2" opacity="0.6" />
+      <line x1="320" y1="130" x2="360" y2="170" stroke="url(#event-premium)" stroke-width="2" opacity="0.6" />
+      <line x1="480" y1="200" x2="430" y2="200" stroke="url(#event-premium)" stroke-width="2" opacity="0.6" />
+      <line x1="430" y1="240" x2="400" y2="220" stroke="url(#event-premium)" stroke-width="2" opacity="0.6" />
+      
+      <!-- Inter-network connections -->
+      <line x1="150" y1="140" x2="200" y2="130" stroke="url(#event-premium)" stroke-width="1" opacity="0.4" />
+      <line x1="450" y1="140" x2="400" y2="130" stroke="url(#event-premium)" stroke-width="1" opacity="0.4" />
+      <line x1="300" y1="120" x2="300" y2="280" stroke="url(#event-premium)" stroke-width="1" opacity="0.4" />
+    </g>
+    
+    <!-- Conference environment suggestion (geometric patterns) -->
+    <g class="conference-atmosphere">
+      <!-- Subtle background patterns suggesting professional conference space -->
+      <rect x="50" y="50" width="500" height="5" rx="2" fill="url(#event-premium)" opacity="0.2" />
+      <rect x="50" y="345" width="500" height="5" rx="2" fill="url(#event-premium)" opacity="0.2" />
+      
+      <!-- Professional gathering indicators -->
+      <rect x="80" y="80" width="60" height="8" rx="4" fill="url(#event-premium)" opacity="0.3" />
+      <rect x="460" y="80" width="60" height="8" rx="4" fill="url(#event-premium)" opacity="0.3" />
+      <rect x="80" y="312" width="60" height="8" rx="4" fill="url(#event-premium)" opacity="0.3" />
+      <rect x="460" y="312" width="60" height="8" rx="4" fill="url(#event-premium)" opacity="0.3" />
+    </g>
+    
+  </g>
+</svg>

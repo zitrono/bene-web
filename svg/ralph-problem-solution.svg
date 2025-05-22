@@ -1,0 +1,100 @@
+<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Transformation gradient -->
+    <linearGradient id="transform-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E9ECEF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3A5BC8;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#3A5BC8;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Primary gradient -->
+    <linearGradient id="solution-primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3A5BC8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00A3B4;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Background -->
+    <linearGradient id="problem-bg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F8F9FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E9ECEF;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#problem-bg)" />
+  
+  <!-- Document chaos to organization transformation -->
+  <g class="chaos-to-order">
+    
+    <!-- Left third: Document chaos -->
+    <g class="document-chaos">
+      <rect x="30" y="120" width="22" height="16" rx="3" fill="#E9ECEF" transform="rotate(25 41 128)" />
+      <rect x="60" y="90" width="18" height="14" rx="3" fill="#E9ECEF" transform="rotate(-30 69 97)" />
+      <rect x="45" y="160" width="25" height="18" rx="3" fill="#E9ECEF" transform="rotate(45 57 169)" />
+      <rect x="80" y="140" width="20" height="15" rx="3" fill="#E9ECEF" transform="rotate(-15 90 147)" />
+      <rect x="25" y="200" width="24" height="17" rx="3" fill="#E9ECEF" transform="rotate(35 37 208)" />
+      <rect x="70" y="180" width="19" height="13" rx="3" fill="#E9ECEF" transform="rotate(-40 79 186)" />
+      <rect x="50" y="240" width="26" height="19" rx="3" fill="#E9ECEF" transform="rotate(20 63 249)" />
+      <rect x="85" y="220" width="21" height="16" rx="3" fill="#E9ECEF" transform="rotate(-25 95 228)" />
+      <rect x="40" y="280" width="23" height="17" rx="3" fill="#E9ECEF" transform="rotate(40 51 288)" />
+      <rect x="75" y="260" width="20" height="14" rx="3" fill="#E9ECEF" transform="rotate(-10 85 267)" />
+      <rect x="35" y="320" width="27" height="20" rx="3" fill="#E9ECEF" transform="rotate(30 48 330)" />
+      <rect x="65" y="300" width="22" height="16" rx="3" fill="#E9ECEF" transform="rotate(-35 76 308)" />
+      <rect x="90" y="100" width="18" height="13" rx="3" fill="#E9ECEF" transform="rotate(50 99 106)" />
+      <rect x="55" y="350" width="24" height="18" rx="3" fill="#E9ECEF" transform="rotate(-20 67 359)" />
+      <rect x="95" y="340" width="20" height="15" rx="3" fill="#E9ECEF" transform="rotate(15 105 347)" />
+    </g>
+    
+    <!-- Center third: Transformation arrow -->
+    <g class="transformation-arrow">
+      <path d="M 200 200 L 350 200" fill="none" stroke="url(#solution-primary)" stroke-width="6" stroke-linecap="round" />
+      <polygon points="350,200 335,190 335,195 320,195 320,205 335,205 335,210" fill="url(#solution-primary)" />
+    </g>
+    
+    <!-- Right third: Organized structure -->
+    <g class="organized-structure">
+      <!-- Neat grid arrangement -->
+      <!-- Row 1 -->
+      <rect x="420" y="120" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      <rect x="455" y="120" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      <rect x="490" y="120" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      <rect x="525" y="120" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      
+      <!-- Row 2 -->
+      <rect x="420" y="150" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      <rect x="455" y="150" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      <rect x="490" y="150" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      <rect x="525" y="150" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      
+      <!-- Row 3 -->
+      <rect x="420" y="180" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      <rect x="455" y="180" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      <rect x="490" y="180" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      <rect x="525" y="180" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      
+      <!-- Row 4 -->
+      <rect x="420" y="210" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      <rect x="455" y="210" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      <rect x="490" y="210" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      <rect x="525" y="210" width="28" height="20" rx="3" fill="url(#transform-gradient)" />
+      
+      <!-- Warning triangles (risk indicators) -->
+      <polygon points="430,260 438,245 422,245" fill="#FF7851" />
+      <polygon points="475,270 483,255 467,255" fill="#FF7851" />
+      <polygon points="520,265 528,250 512,250" fill="#FF7851" />
+      
+      <!-- Opportunity circles -->
+      <circle cx="445" cy="290" r="6" fill="url(#solution-primary)" />
+      <circle cx="490" cy="285" r="6" fill="url(#solution-primary)" />
+      <circle cx="465" cy="320" r="6" fill="url(#solution-primary)" />
+      <circle cx="510" cy="315" r="6" fill="url(#solution-primary)" />
+    </g>
+    
+    <!-- Color flow visualization -->
+    <g class="color-flow">
+      <!-- Gradient flow showing transformation -->
+      <rect x="180" y="180" width="200" height="40" rx="20" fill="url(#transform-gradient)" opacity="0.3" />
+    </g>
+    
+  </g>
+</svg>

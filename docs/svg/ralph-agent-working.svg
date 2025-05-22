@@ -1,0 +1,111 @@
+<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Primary Intelligence Gradient -->
+    <linearGradient id="agent-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3A5BC8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00A3B4;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Subtle Background Gradient -->
+    <linearGradient id="secure-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8F9FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E9ECEF;stop-opacity:0.8" />
+    </linearGradient>
+    
+    <!-- Processing indicator animation -->
+    <linearGradient id="processing-flow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00A3B4;stop-opacity:0.3" />
+      <stop offset="50%" style="stop-color:#3A5BC8;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#00A3B4;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Secure environment background -->
+  <rect width="600" height="400" fill="url(#secure-bg)" />
+  
+  <!-- Security boundary container -->
+  <rect x="80" y="60" width="440" height="280" rx="20" fill="none" stroke="url(#agent-gradient)" stroke-width="3" opacity="0.6" />
+  <rect x="90" y="70" width="420" height="260" rx="15" fill="none" stroke="url(#agent-gradient)" stroke-width="1" opacity="0.3" />
+  
+  <!-- Main content group -->
+  <g class="ralph-agent-content">
+    
+    <!-- Input data streams -->
+    <g class="input-streams">
+      <!-- Stream 1 -->
+      <path d="M 20 120 Q 60 100 80 140" fill="none" stroke="url(#processing-flow)" stroke-width="4" opacity="0.7" />
+      <circle cx="20" cy="120" r="6" fill="#E9ECEF" />
+      
+      <!-- Stream 2 -->
+      <path d="M 30 180 Q 50 160 80 180" fill="none" stroke="url(#processing-flow)" stroke-width="4" opacity="0.7" />
+      <circle cx="30" cy="180" r="6" fill="#E9ECEF" />
+      
+      <!-- Stream 3 -->
+      <path d="M 40 240 Q 60 220 80 240" fill="none" stroke="url(#processing-flow)" stroke-width="4" opacity="0.7" />
+      <circle cx="40" cy="240" r="6" fill="#E9ECEF" />
+      
+      <!-- Stream 4 -->
+      <path d="M 25 300 Q 55 280 80 300" fill="none" stroke="url(#processing-flow)" stroke-width="4" opacity="0.7" />
+      <circle cx="25" cy="300" r="6" fill="#E9ECEF" />
+    </g>
+    
+    <!-- Central Ralph processor -->
+    <g class="ralph-central-processor">
+      <circle cx="300" cy="200" r="80" fill="url(#agent-gradient)" />
+      
+      <!-- Internal processing pattern -->
+      <circle cx="300" cy="200" r="55" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+      <circle cx="300" cy="200" r="35" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.5" />
+      <circle cx="300" cy="200" r="20" fill="#FFFFFF" opacity="0.8" />
+      
+      <!-- Processing activity indicators -->
+      <circle cx="260" cy="160" r="8" fill="#FFFFFF" opacity="0.7" />
+      <circle cx="340" cy="160" r="8" fill="#FFFFFF" opacity="0.7" />
+      <circle cx="260" cy="240" r="8" fill="#FFFFFF" opacity="0.7" />
+      <circle cx="340" cy="240" r="8" fill="#FFFFFF" opacity="0.7" />
+    </g>
+    
+    <!-- Processing nodes around central processor -->
+    <g class="processing-nodes">
+      <circle cx="200" cy="120" r="12" fill="url(#agent-gradient)" opacity="0.8" />
+      <circle cx="400" cy="120" r="12" fill="url(#agent-gradient)" opacity="0.8" />
+      <circle cx="180" cy="200" r="12" fill="url(#agent-gradient)" opacity="0.8" />
+      <circle cx="420" cy="200" r="12" fill="url(#agent-gradient)" opacity="0.8" />
+      <circle cx="200" cy="280" r="12" fill="url(#agent-gradient)" opacity="0.8" />
+      <circle cx="400" cy="280" r="12" fill="url(#agent-gradient)" opacity="0.8" />
+      
+      <!-- Connections between processing nodes -->
+      <line x1="212" y1="130" x2="240" y2="170" stroke="url(#agent-gradient)" stroke-width="2" opacity="0.5" />
+      <line x1="388" y1="130" x2="360" y2="170" stroke="url(#agent-gradient)" stroke-width="2" opacity="0.5" />
+      <line x1="192" y1="200" x2="220" y2="200" stroke="url(#agent-gradient)" stroke-width="2" opacity="0.5" />
+      <line x1="408" y1="200" x2="380" y2="200" stroke="url(#agent-gradient)" stroke-width="2" opacity="0.5" />
+    </g>
+    
+    <!-- Output streams -->
+    <g class="output-streams">
+      <!-- Output 1 -->
+      <path d="M 520 160 Q 560 140 580 180" fill="none" stroke="url(#agent-gradient)" stroke-width="4" opacity="0.8" />
+      <circle cx="580" cy="180" r="8" fill="url(#agent-gradient)" />
+      
+      <!-- Output 2 -->
+      <path d="M 520 200 Q 550 190 570 220" fill="none" stroke="url(#agent-gradient)" stroke-width="4" opacity="0.8" />
+      <circle cx="570" cy="220" r="8" fill="url(#agent-gradient)" />
+      
+      <!-- Output 3 -->
+      <path d="M 520 240 Q 560 260 580 220" fill="none" stroke="url(#agent-gradient)" stroke-width="4" opacity="0.8" />
+      <circle cx="580" cy="220" r="8" fill="url(#agent-gradient)" />
+    </g>
+    
+    <!-- Connection lines from input to processor -->
+    <line x1="80" y1="140" x2="220" y2="170" stroke="url(#processing-flow)" stroke-width="3" opacity="0.6" />
+    <line x1="80" y1="180" x2="220" y2="190" stroke="url(#processing-flow)" stroke-width="3" opacity="0.6" />
+    <line x1="80" y1="240" x2="220" y2="220" stroke="url(#processing-flow)" stroke-width="3" opacity="0.6" />
+    <line x1="80" y1="300" x2="220" y2="250" stroke="url(#processing-flow)" stroke-width="3" opacity="0.6" />
+    
+    <!-- Connection lines from processor to output -->
+    <line x1="380" y1="170" x2="520" y2="160" stroke="url(#agent-gradient)" stroke-width="3" opacity="0.7" />
+    <line x1="380" y1="200" x2="520" y2="200" stroke="url(#agent-gradient)" stroke-width="3" opacity="0.7" />
+    <line x1="380" y1="230" x2="520" y2="240" stroke="url(#agent-gradient)" stroke-width="3" opacity="0.7" />
+    
+  </g>
+</svg>

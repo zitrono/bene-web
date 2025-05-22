@@ -1,0 +1,126 @@
+<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Primary Intelligence Gradient -->
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3A5BC8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00A3B4;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Future Agent Gradient -->
+    <linearGradient id="futureGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E9ECEF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F8F9FA;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Connection Line Gradient -->
+    <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3A5BC8;stop-opacity:0.6" />
+      <stop offset="50%" style="stop-color:#00A3B4;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#3A5BC8;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <!-- Data Flow Animation -->
+    <animate id="dataFlowAnimation" attributeName="stroke-dashoffset" values="0;-20" dur="2s" repeatCount="indefinite" />
+  </defs>
+  
+  <!-- Background PE Landscape Elements -->
+  <g class="pe-landscape" opacity="0.1">
+    <rect x="50" y="50" width="40" height="30" rx="4" fill="#3A5BC8" />
+    <rect x="500" y="60" width="35" height="25" rx="3" fill="#00A3B4" />
+    <rect x="80" y="320" width="45" height="35" rx="4" fill="#3A5BC8" />
+    <rect x="480" y="300" width="38" height="28" rx="3" fill="#00A3B4" />
+    <circle cx="120" cy="80" r="15" fill="#FF7851" opacity="0.3" />
+    <circle cx="520" cy="340" r="12" fill="#FF7851" opacity="0.3" />
+  </g>
+  
+  <!-- Central Ralph Node -->
+  <g class="ralph-node">
+    <circle cx="300" cy="200" r="45" fill="url(#primaryGradient)" stroke="#FFFFFF" stroke-width="3" />
+    <circle cx="300" cy="200" r="35" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.5" />
+    
+    <!-- Internal Processing Pattern -->
+    <g class="internal-pattern" opacity="0.8">
+      <path d="M 285 185 L 315 185 M 285 200 L 315 200 M 285 215 L 315 215" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+      <circle cx="290" cy="190" r="2" fill="#FFFFFF" />
+      <circle cx="310" cy="190" r="2" fill="#FFFFFF" />
+      <circle cx="290" cy="210" r="2" fill="#FFFFFF" />
+      <circle cx="310" cy="210" r="2" fill="#FFFFFF" />
+    </g>
+    
+    <!-- Ralph Label -->
+    <text x="300" y="270" text-anchor="middle" font-family="Inter" font-size="14" font-weight="600" fill="#3A5BC8">Ralph</text>
+    <text x="300" y="285" text-anchor="middle" font-family="Inter" font-size="10" fill="#6C757D">Active</text>
+  </g>
+  
+  <!-- Future Agent Nodes -->
+  <!-- Scout Node (Deal Sourcing) -->
+  <g class="future-agent scout">
+    <circle cx="150" cy="100" r="30" fill="url(#futureGradient)" stroke="#00A3B4" stroke-width="2" opacity="0.7" />
+    <circle cx="150" cy="100" r="20" fill="none" stroke="#00A3B4" stroke-width="1" opacity="0.3" />
+    <text x="150" y="145" text-anchor="middle" font-family="Inter" font-size="11" font-weight="500" fill="#6C757D">Scout</text>
+    <text x="150" y="158" text-anchor="middle" font-family="Inter" font-size="8" fill="#ADB5BD">Coming Soon</text>
+  </g>
+  
+  <!-- Navigator Node (Portfolio Optimization) -->
+  <g class="future-agent navigator">
+    <circle cx="450" cy="100" r="30" fill="url(#futureGradient)" stroke="#00A3B4" stroke-width="2" opacity="0.7" />
+    <circle cx="450" cy="100" r="20" fill="none" stroke="#00A3B4" stroke-width="1" opacity="0.3" />
+    <text x="450" y="145" text-anchor="middle" font-family="Inter" font-size="11" font-weight="500" fill="#6C757D">Navigator</text>
+    <text x="450" y="158" text-anchor="middle" font-family="Inter" font-size="8" fill="#ADB5BD">Coming Soon</text>
+  </g>
+  
+  <!-- Surveyor Node (Exit Planning) -->
+  <g class="future-agent surveyor">
+    <circle cx="450" cy="300" r="30" fill="url(#futureGradient)" stroke="#00A3B4" stroke-width="2" opacity="0.7" />
+    <circle cx="450" cy="300" r="20" fill="none" stroke="#00A3B4" stroke-width="1" opacity="0.3" />
+    <text x="450" y="345" text-anchor="middle" font-family="Inter" font-size="11" font-weight="500" fill="#6C757D">Surveyor</text>
+    <text x="450" y="358" text-anchor="middle" font-family="Inter" font-size="8" fill="#ADB5BD">Coming Soon</text>
+  </g>
+  
+  <!-- Ambassador Node (Investor Relations) -->
+  <g class="future-agent ambassador">
+    <circle cx="150" cy="300" r="30" fill="url(#futureGradient)" stroke="#00A3B4" stroke-width="2" opacity="0.7" />
+    <circle cx="150" cy="300" r="20" fill="none" stroke="#00A3B4" stroke-width="1" opacity="0.3" />
+    <text x="150" y="345" text-anchor="middle" font-family="Inter" font-size="11" font-weight="500" fill="#6C757D">Ambassador</text>
+    <text x="150" y="358" text-anchor="middle" font-family="Inter" font-size="8" fill="#ADB5BD">Coming Soon</text>
+  </g>
+  
+  <!-- Connection Lines -->
+  <g class="connections">
+    <!-- Ralph to Scout -->
+    <line x1="270" y1="165" x2="175" y2="125" stroke="url(#connectionGradient)" stroke-width="3" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" values="0;-10" dur="3s" repeatCount="indefinite" />
+    </line>
+    
+    <!-- Ralph to Navigator -->
+    <line x1="330" y1="165" x2="425" y2="125" stroke="url(#connectionGradient)" stroke-width="3" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" values="0;-10" dur="3s" repeatCount="indefinite" />
+    </line>
+    
+    <!-- Ralph to Surveyor -->
+    <line x1="330" y1="235" x2="425" y2="275" stroke="url(#connectionGradient)" stroke-width="3" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" values="0;-10" dur="3s" repeatCount="indefinite" />
+    </line>
+    
+    <!-- Ralph to Ambassador -->
+    <line x1="270" y1="235" x2="175" y2="275" stroke="url(#connectionGradient)" stroke-width="3" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" values="0;-10" dur="3s" repeatCount="indefinite" />
+    </line>
+  </g>
+  
+  <!-- Data Flow Indicators -->
+  <g class="data-flow-indicators" opacity="0.6">
+    <circle cx="220" cy="145" r="3" fill="#FF7851">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="380" cy="145" r="3" fill="#FF7851">
+      <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="380" cy="255" r="3" fill="#FF7851">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="220" cy="255" r="3" fill="#FF7851">
+      <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite" />
+    </circle>
+  </g>
+</svg>

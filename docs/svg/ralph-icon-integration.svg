@@ -1,0 +1,26 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="integration-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3A5BC8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00A3B4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Three main system circles in triangular arrangement -->
+  <circle cx="50" cy="25" r="16" fill="url(#integration-gradient)" />
+  <circle cx="25" cy="65" r="16" fill="url(#integration-gradient)" />
+  <circle cx="75" cy="65" r="16" fill="url(#integration-gradient)" />
+  
+  <!-- Connection lines between systems -->
+  <line x1="42" y1="38" x2="33" y2="52" stroke="url(#integration-gradient)" stroke-width="4" stroke-linecap="round" />
+  <line x1="58" y1="38" x2="67" y2="52" stroke="url(#integration-gradient)" stroke-width="4" stroke-linecap="round" />
+  <line x1="41" y1="65" x2="59" y2="65" stroke="url(#integration-gradient)" stroke-width="4" stroke-linecap="round" />
+  
+  <!-- Central connection point -->
+  <circle cx="50" cy="50" r="6" fill="#FFFFFF" stroke="url(#integration-gradient)" stroke-width="3" />
+  
+  <!-- Inner connection indicators -->
+  <circle cx="50" cy="25" r="8" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.7" />
+  <circle cx="25" cy="65" r="8" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.7" />
+  <circle cx="75" cy="65" r="8" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.7" />
+</svg>

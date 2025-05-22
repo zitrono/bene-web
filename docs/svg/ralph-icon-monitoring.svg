@@ -1,0 +1,22 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="monitoring-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3A5BC8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00A3B4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Central monitoring circle -->
+  <circle cx="50" cy="50" r="15" fill="url(#monitoring-gradient)" />
+  <circle cx="50" cy="50" r="8" fill="#FFFFFF" opacity="0.8" />
+  
+  <!-- Monitoring wave lines (radar-like) -->
+  <path d="M 50 15 Q 75 25 85 50 Q 75 75 50 85" fill="none" stroke="url(#monitoring-gradient)" stroke-width="4" opacity="0.6" />
+  <path d="M 50 25 Q 70 32 75 50 Q 70 68 50 75" fill="none" stroke="url(#monitoring-gradient)" stroke-width="4" opacity="0.7" />
+  <path d="M 50 35 Q 60 40 65 50 Q 60 60 50 65" fill="none" stroke="url(#monitoring-gradient)" stroke-width="4" opacity="0.8" />
+  
+  <!-- Mirror waves on left side -->
+  <path d="M 50 15 Q 25 25 15 50 Q 25 75 50 85" fill="none" stroke="url(#monitoring-gradient)" stroke-width="4" opacity="0.6" />
+  <path d="M 50 25 Q 30 32 25 50 Q 30 68 50 75" fill="none" stroke="url(#monitoring-gradient)" stroke-width="4" opacity="0.7" />
+  <path d="M 50 35 Q 40 40 35 50 Q 40 60 50 65" fill="none" stroke="url(#monitoring-gradient)" stroke-width="4" opacity="0.8" />
+</svg>
