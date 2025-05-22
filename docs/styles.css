@@ -1092,18 +1092,22 @@ a:focus {
    ========================================================================== */
 
 /* Hero SVG - Decorative accent */
-.hero-svg {
+.hero-visual .hero-svg {
     width: 100%;
-    max-width: 300px;
+    max-width: 300px !important;
     height: auto;
     margin: var(--spacing-md) 0;
     opacity: 0.8;
 }
 
 /* Section SVGs - Subtle decorative elements */
-.section-svg {
+.ecosystem-visual .section-svg,
+.problem-visual .section-svg,
+.agent-visual .section-svg,
+.benefits-visual .section-svg,
+.event-visual .section-svg {
     width: 100%;
-    max-width: 250px;
+    max-width: 250px !important;
     height: auto;
     margin: var(--spacing-sm) 0;
     opacity: 0.7;
@@ -1126,13 +1130,17 @@ a:focus {
 
 /* Mobile responsiveness for SVGs */
 @media (max-width: 768px) {
-    .hero-svg {
-        max-width: 200px;
+    .hero-visual .hero-svg {
+        max-width: 200px !important;
         margin: var(--spacing-sm) 0;
     }
     
-    .section-svg {
-        max-width: 180px;
+    .ecosystem-visual .section-svg,
+    .problem-visual .section-svg,
+    .agent-visual .section-svg,
+    .benefits-visual .section-svg,
+    .event-visual .section-svg {
+        max-width: 180px !important;
         margin: var(--spacing-xs) 0;
     }
     
@@ -1147,14 +1155,13 @@ a:focus {
     }
 }
 
-/* Ensure SVGs scale properly */
+/* Ensure SVGs scale properly - removed conflicting max-width rule */
 .hero-visual img,
 .ecosystem-visual img,
 .problem-visual img,
 .agent-visual img,
 .benefits-visual img,
 .event-visual img {
-    max-width: 100%;
     height: auto;
     display: block;
     margin: 0 auto;
