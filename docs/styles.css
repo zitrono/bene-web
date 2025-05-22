@@ -1091,57 +1091,59 @@ a:focus {
    SVG Graphics Styles
    ========================================================================== */
 
-/* Hero SVG */
+/* Hero SVG - Decorative accent */
 .hero-svg {
     width: 100%;
-    max-width: 600px;
-    height: auto;
-    margin: var(--spacing-lg) 0;
-}
-
-/* Section SVGs */
-.section-svg {
-    width: 100%;
-    max-width: 500px;
+    max-width: 300px;
     height: auto;
     margin: var(--spacing-md) 0;
+    opacity: 0.8;
 }
 
-/* Feature Icon SVGs */
+/* Section SVGs - Subtle decorative elements */
+.section-svg {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin: var(--spacing-sm) 0;
+    opacity: 0.7;
+}
+
+/* Feature Icon SVGs - Compact icons */
 .feature-icon-svg {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     display: block;
-    margin: 0 auto var(--spacing-sm);
+    margin: 0 auto var(--spacing-xs);
 }
 
-/* Process Arrow SVGs */
+/* Process Arrow SVGs - Small connectors */
 .process-arrow-svg {
-    width: 40px;
-    height: 40px;
+    width: 28px;
+    height: 28px;
     display: block;
 }
 
 /* Mobile responsiveness for SVGs */
 @media (max-width: 768px) {
     .hero-svg {
-        max-width: 100%;
-        margin: var(--spacing-md) 0;
-    }
-    
-    .section-svg {
-        max-width: 100%;
+        max-width: 200px;
         margin: var(--spacing-sm) 0;
     }
     
+    .section-svg {
+        max-width: 180px;
+        margin: var(--spacing-xs) 0;
+    }
+    
     .feature-icon-svg {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
     }
     
     .process-arrow-svg {
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
     }
 }
 
