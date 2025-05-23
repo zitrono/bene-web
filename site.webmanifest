@@ -1,0 +1,39 @@
+{
+    "name": "Ralph - Autonomous Data Room Intelligence",
+    "short_name": "Ralph",
+    "description": "Autonomous AI data room intelligence for private equity firms",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#3A5BC8",
+    "background_color": "#F8F9FA",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "start_url": "/",
+    "scope": "/",
+    "lang": "en",
+    "categories": ["business", "finance", "productivity"],
+    "screenshots": [
+        {
+            "src": "/images/ralph-screenshot-mobile.png",
+            "sizes": "320x640",
+            "type": "image/png",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "/images/ralph-screenshot-desktop.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+        }
+    ]
+}

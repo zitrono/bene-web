@@ -1,0 +1,61 @@
+# Robots.txt for Beneficious Ralph Website
+# https://beneficious.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Important pages for crawlers
+Allow: /index.html
+Allow: /privacy-policy.html
+Allow: /terms-of-service.html
+
+# Disallow common administrative files
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.well-known/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /temp/
+
+# Allow CSS and JavaScript for better rendering
+Allow: /styles.css
+Allow: /script.js
+Allow: *.css
+Allow: *.js
+
+# Allow important image files
+Allow: /images/
+Allow: *.png
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.svg
+Allow: *.webp
+
+# Sitemap location
+Sitemap: https://beneficious.com/sitemap.xml
+
+# Crawl delay (in seconds) - be respectful
+Crawl-delay: 1
+
+# Specific bot configurations
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 1
+
+# Block problematic crawlers that don't respect robots.txt
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

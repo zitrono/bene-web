@@ -2,23 +2,69 @@
  * Ralph Website JavaScript
  * Handles interactive elements, form submissions, and mobile navigation
  * This file provides enhanced user experience while maintaining GitHub Pages compatibility
+ * Optimized for performance and Core Web Vitals
  */
 
-// Document ready state handling for better performance
-document.addEventListener('DOMContentLoaded', function() {
-    initializeWebsite();
+// Performance monitoring
+const perfObserver = new PerformanceObserver((list) => {
+    for (const entry of list.getEntries()) {
+        if (entry.entryType === 'largest-contentful-paint') {
+            console.log('LCP:', entry.startTime);
+        }
+        if (entry.entryType === 'first-input') {
+            console.log('FID:', entry.processingStart - entry.startTime);
+        }
+        if (entry.entryType === 'layout-shift' && !entry.hadRecentInput) {
+            console.log('CLS:', entry.value);
+        }
+    }
 });
+
+// Observe Web Vitals
+if ('PerformanceObserver' in window) {
+    try {
+        perfObserver.observe({entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift']});
+    } catch (e) {
+        // Fallback for older browsers
+        console.log('Performance Observer not fully supported');
+    }
+}
+
+// Optimize loading sequence
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeWebsite);
+} else {
+    // DOM already loaded
+    initializeWebsite();
+}
 
 /**
  * Main initialization function that sets up all website functionality
  * This approach ensures all DOM elements are available before binding events
+ * Optimized for performance with requestIdleCallback
  */
 function initializeWebsite() {
+    // Critical functionality first
     initializeMobileNavigation();
     initializeSmoothScrolling();
-    initializeFormValidation();
-    initializeVisualEnhancements();
-    initializeAnalytics();
+    
+    // Non-critical functionality during idle time
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+            initializeFormValidation();
+            initializeVisualEnhancements();
+            initializeAnalytics();
+            initializePerformanceOptimizations();
+        });
+    } else {
+        // Fallback for browsers without requestIdleCallback
+        setTimeout(() => {
+            initializeFormValidation();
+            initializeVisualEnhancements();
+            initializeAnalytics();
+            initializePerformanceOptimizations();
+        }, 100);
+    }
 }
 
 /**
@@ -618,14 +664,69 @@ function initializePerformanceOptimizations() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                    }
                     observer.unobserve(img);
                 }
             });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.01
         });
         
         const lazyImages = document.querySelectorAll('img[data-src]');
         lazyImages.forEach(img => imageObserver.observe(img));
     }
+    
+    // Preload critical resources
+    preloadCriticalResources();
+    
+    // Resource hints for better performance
+    addResourceHints();
+    
+    // Initialize service worker for caching
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .catch(err => console.log('SW registration failed'));
+        });
+    }
+}
+
+/**
+ * Preload critical resources that will be needed soon
+ */
+function preloadCriticalResources() {
+    const criticalResources = [
+        { href: '/privacy-policy.html', as: 'document' },
+        { href: '/terms-of-service.html', as: 'document' }
+    ];
+    
+    criticalResources.forEach(resource => {
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = resource.href;
+        if (resource.as) link.as = resource.as;
+        document.head.appendChild(link);
+    });
+}
+
+/**
+ * Add resource hints for better performance
+ */
+function addResourceHints() {
+    // DNS prefetch for external domains
+    const externalDomains = [
+        'https://forms.google.com',
+        'https://www.google-analytics.com'
+    ];
+    
+    externalDomains.forEach(domain => {
+        const link = document.createElement('link');
+        link.rel = 'dns-prefetch';
+        link.href = domain;
+        document.head.appendChild(link);
+    });
 }
