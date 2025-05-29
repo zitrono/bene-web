@@ -29,11 +29,11 @@ html {
     /* Color Palette */
     --color-primary-bg: #F8F9FA;
     --color-secondary-bg: #E9ECEF;
-    --color-accent-primary: #3A5BC8;
-    --color-accent-secondary: #00A3B4;
+    --color-accent-primary: #3F5765; /* Dark Slate-Blue */
+    --color-accent-secondary: #FE530D; /* Bright Orange */
     --color-text-primary: #212529;
     --color-text-secondary: #6C757D;
-    --color-highlight: #FF7851;
+    --color-highlight: #FE530D; /* Bright Orange */
     --color-white: #FFFFFF;
     --color-glass-bg: rgba(255, 255, 255, 0.25);
     --color-glass-border: rgba(255, 255, 255, 0.18);
@@ -209,7 +209,7 @@ p {
 }
 
 .cta-primary {
-    background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+    background: linear-gradient(135deg, var(--color-accent-secondary), #E04A0B); /* Bright Orange gradient */
     color: var(--color-white);
     box-shadow: var(--shadow-md);
 }
@@ -217,16 +217,17 @@ p {
 .cta-primary:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, #E04A0B, var(--color-accent-secondary)); /* Darker orange on hover */
 }
 
 .cta-secondary {
     background: var(--color-white);
-    color: var(--color-accent-primary);
+    color: var(--color-accent-primary); /* Dark Slate-Blue text */
     border: 2px solid var(--color-accent-primary);
 }
 
 .cta-secondary:hover {
-    background: var(--color-accent-primary);
+    background: var(--color-accent-primary); /* Dark Slate-Blue background */
     color: var(--color-white);
     transform: translateY(-2px);
 }
@@ -267,6 +268,16 @@ p {
     font-size: 1.5rem;
     font-weight: var(--font-weight-bold);
     color: var(--color-accent-primary);
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.footer-logo {
+    filter: brightness(0) invert(1); /* Makes logo white for dark footer */
 }
 
 .product-name {
@@ -662,12 +673,12 @@ p {
 
 .superreturn .cta-primary {
     background: var(--color-white);
-    color: var(--color-accent-primary);
+    color: var(--color-accent-secondary); /* Bright Orange text */
     margin-top: var(--spacing-lg);
 }
 
 .superreturn .cta-primary:hover {
-    background: var(--color-highlight);
+    background: var(--color-accent-secondary); /* Bright Orange background */
     color: var(--color-white);
 }
 
@@ -922,6 +933,42 @@ p {
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* Signup Options Styles */
+.signup-options {
+    text-align: left;
+}
+
+.signup-options h3 {
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.signup-option {
+    margin-bottom: var(--spacing-xl);
+}
+
+.signup-option h4 {
+    color: var(--color-accent-primary);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+}
+
+.signup-option p {
+    margin-bottom: var(--spacing-md);
+}
+
+.email-link {
+    color: var(--color-accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.email-link:hover {
+    color: var(--color-accent-secondary);
+    text-decoration: underline;
+}
+
 /* ==========================================================================
    Responsive Design - Mobile First Approach
    ========================================================================== */
@@ -974,10 +1021,6 @@ p {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-    }
-    
-    .process-arrow {
-        transform: rotate(90deg);
     }
     
     .demo-grid {

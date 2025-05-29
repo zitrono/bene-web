@@ -154,25 +154,6 @@ function initializeSmoothScrolling() {
  * Provides client-side validation and user feedback for all forms
  */
 function initializeFormValidation() {
-    // Enhanced validation for the demo request form
-    const demoForm = document.querySelector('.contact-form');
-    if (demoForm) {
-        enhanceFormExperience(demoForm);
-        
-        // Add real-time validation
-        const requiredFields = demoForm.querySelectorAll('input[required], select[required]');
-        requiredFields.forEach(field => {
-            field.addEventListener('blur', function() {
-                validateField(this);
-            });
-            
-            field.addEventListener('input', function() {
-                // Clear error state when user starts typing
-                clearFieldError(this);
-            });
-        });
-    }
-    
     // Enhanced validation for newsletter form
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
@@ -453,112 +434,16 @@ function trackScrollDepth() {
 
 /**
  * Handles SuperReturn CTA click
- * This function will redirect to a Google Calendar or Google Form
+ * Redirects to the new calendar scheduling URL
  */
 function handleSuperReturnCTA() {
-    // Add loading state
-    const button = event.target;
-    const originalText = button.textContent;
-    button.textContent = 'Loading...';
-    button.disabled = true;
-    
     // Track the interaction
     console.log('SuperReturn CTA clicked');
     
-    // Simulate brief loading for better UX
-    setTimeout(() => {
-        // Replace with actual Google Form or Calendar URL
-        const googleFormUrl = 'https://forms.google.com/your-superreturn-form-id';
-        window.open(googleFormUrl, '_blank');
-        
-        // Reset button state
-        button.textContent = originalText;
-        button.disabled = false;
-    }, 500);
+    // Open the calendar scheduling link
+    window.open('https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3M9SPgwXBs6D46gwHZPOoEty84sRO6BYk1wZ0Jh8sk-j9AKKs2jNRWLtgJcE9OILGot8J4q7O5', '_blank');
 }
 
-/**
- * Handles demo form submission
- * Validates form and redirects to Google Form with pre-filled data
- * @param {Event} event - Form submission event
- */
-function handleDemoForm(event) {
-    event.preventDefault();
-    
-    const form = event.target;
-    const formData = new FormData(form);
-    
-    // Validate all required fields
-    const requiredFields = form.querySelectorAll('input[required], select[required]');
-    let isValid = true;
-    
-    requiredFields.forEach(field => {
-        if (!validateField(field)) {
-            isValid = false;
-        }
-    });
-    
-    if (!isValid) {
-        // Show general error message
-        showFormMessage(form, 'Please correct the errors above', 'error');
-        return;
-    }
-    
-    // Show loading state
-    const submitButton = form.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
-    submitButton.textContent = 'Processing...';
-    submitButton.disabled = true;
-    
-    // Prepare Google Form URL with pre-filled data
-    const baseUrl = 'https://forms.google.com/your-demo-form-id';
-    const params = new URLSearchParams();
-    
-    // Map form fields to Google Form entry IDs (you'll need to get these from Google Forms)
-    const fieldMapping = {
-        'name': 'entry.123456789',
-        'company': 'entry.987654321',
-        'email': 'entry.456789123',
-        'phone': 'entry.789123456',
-        'aum': 'entry.321654987',
-        'deals': 'entry.654987321',
-        'message': 'entry.147258369'
-    };
-    
-    // Add form data to URL parameters
-    for (const [key, value] of formData.entries()) {
-        if (fieldMapping[key] && value) {
-            params.append(fieldMapping[key], value);
-        }
-    }
-    
-    const googleFormUrl = `${baseUrl}?${params.toString()}`;
-    
-    // Simulate processing time for better UX
-    setTimeout(() => {
-        // Open Google Form in new tab
-        window.open(googleFormUrl, '_blank');
-        
-        // Show success message
-        showFormMessage(form, 'Thank you! The demo request form will open in a new tab.', 'success');
-        
-        // Reset form
-        form.reset();
-        
-        // Reset button state
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-        
-        // Clear focused states
-        const focusedGroups = form.querySelectorAll('.form-group.focused');
-        focusedGroups.forEach(group => {
-            if (!group.querySelector('input, textarea, select').value) {
-                group.classList.remove('focused');
-            }
-        });
-        
-    }, 1000);
-}
 
 /**
  * Handles newsletter form submission

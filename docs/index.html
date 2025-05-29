@@ -47,8 +47,8 @@
         /* Critical above-the-fold CSS */
         :root {
             --color-primary-bg: #F8F9FA;
-            --color-accent-primary: #3A5BC8;
-            --color-accent-secondary: #00A3B4;
+            --color-accent-primary: #3F5765; /* Dark Slate-Blue */
+            --color-accent-secondary: #FE530D; /* Bright Orange */
             --color-text-primary: #212529;
             --color-glass-bg: rgba(255, 255, 255, 0.25);
             --color-glass-border: rgba(255, 255, 255, 0.18);
@@ -85,6 +85,12 @@
             padding: 8rem 0 4rem;
             text-align: center;
             background: linear-gradient(135deg, var(--color-primary-bg) 0%, #E9ECEF 100%);
+        }
+        
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
         }
     </style>
     
@@ -184,7 +190,7 @@
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
-                <span class="logo">Beneficious</span>
+                <img src="bene logo.png" alt="Beneficious Logo" class="logo-img">
                 <span class="product-name">Ra<strong>LP</strong>h</span>
             </div>
             <div class="nav-links">
@@ -455,57 +461,21 @@
                 </div>
                 
                 <div class="demo-form glass-card">
-                    <form class="contact-form" onsubmit="handleDemoForm(event)">
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
+                    <div class="signup-options">
+                        <h3>Get Started</h3>
+                        <div class="signup-option">
+                            <h4>1. Contact Us Directly</h4>
+                            <p>Email us at <a href="mailto:konstantin@beneficious.com" class="email-link">konstantin@beneficious.com</a></p>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="company">Company *</label>
-                            <input type="text" id="company" name="company" required>
+                        <div class="signup-option">
+                            <h4>2. Meet Us at SuperReturn Berlin</h4>
+                            <p>Schedule a meeting with our team at Europe's premier private equity event</p>
+                            <!-- Google Calendar Appointment Scheduling begin -->
+                            <iframe src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3M9SPgwXBs6D46gwHZPOoEty84sRO6BYk1wZ0Jh8sk-j9AKKs2jNRWLtgJcE9OILGot8J4q7O5?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+                            <!-- end Google Calendar Appointment Scheduling -->
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="aum">Assets Under Management</label>
-                            <select id="aum" name="aum">
-                                <option value="">Select range</option>
-                                <option value="<100m">Under €100M</option>
-                                <option value="100m-500m">€100M - €500M</option>
-                                <option value="500m-1b">€500M - €1B</option>
-                                <option value="1b-5b">€1B - €5B</option>
-                                <option value="5b+">€5B+</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="deals">Deals Evaluated Annually</label>
-                            <select id="deals" name="deals">
-                                <option value="">Select range</option>
-                                <option value="1-10">1-10</option>
-                                <option value="11-25">11-25</option>
-                                <option value="26-50">26-50</option>
-                                <option value="50+">50+</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Specific Interest Areas</label>
-                            <textarea id="message" name="message" rows="3" placeholder="Tell us about your current due diligence challenges or specific use cases..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="cta-primary">Request Demo</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -522,7 +492,7 @@
                     <div class="contact-details">
                         <div class="contact-item">
                             <h3>Contact</h3>
-                            <p>Email: <a href="mailto:contact@beneficious.com">contact@beneficious.com</a></p>
+                            <p>Email: <a href="mailto:konstantin@beneficious.com">konstantin@beneficious.com</a></p>
                         </div>
                         
                         <div class="contact-item">
@@ -563,7 +533,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <span class="logo">Beneficious</span>
+                    <img src="bene logo.png" alt="Beneficious Logo" class="logo-img footer-logo">
                     <span class="product-name">Ra<strong>LP</strong>h</span>
                 </div>
                 
