@@ -30,17 +30,17 @@ class ABTestingFramework {
                     weight: 34
                 },
                 ai_native: {
-                    title: 'AI-Native Due Diligence for Private Equity',
-                    tagline: 'Purpose-built autonomous intelligence that understands your investment process',
+                    title: 'AI-Native Intelligence for Private Equity',
+                    tagline: 'Transform your entire portfolio into structured intelligence that agents can access and act upon',
                     weight: 33
                 },
-                efficiency_focused: {
-                    title: 'Accelerate Due Diligence by 70% with AI',
-                    tagline: 'Autonomous data room analysis that finds what human reviewers miss',
+                platform_focused: {
+                    title: 'The AI-Native Platform for Private Equity',
+                    tagline: 'Making portfolio intelligence available to AI agents across the entire investment lifecycle',
                     weight: 33
                 }
             },
-            conversion_events: ['demo_request', 'superreturn_meeting', 'email_contact'],
+            conversion_events: ['demo_request', 'platform_demo', 'email_contact'],
             success_metrics: ['conversion_rate', 'engagement_time', 'scroll_depth']
         };
         
