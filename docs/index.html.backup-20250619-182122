@@ -214,35 +214,23 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <div class="market-urgency">
-                        <span class="market-stat">$11 Trillion PE Industry</span>
-                        <span class="urgency-separator">•</span>
-                        <span class="adoption-paradox">82% want AI but can't adopt due to security concerns</span>
-                    </div>
                     <h1 class="hero-title">Autonomous Intelligence for Private Equity Data Rooms</h1>
                     <p class="hero-tagline">Where natural and artificial intelligence converge to transform due diligence</p>
-                    <div class="urgency-message">
-                        <p class="urgency-text">While competitors remain stuck with manual processes, first movers are already gaining 30-45 day advantages with AI-native due diligence. The security breakthrough is here—don't wait for your competitors to discover it first.</p>
-                    </div>
                 
                 
                 <div class="hero-cta">
-                    <a href="#superreturn" class="cta-primary">Join 82% of PE Firms - Meet Us at SuperReturn</a>
-                    <a href="#demo" class="cta-secondary">Start Your 30-Day Pilot Today</a>
+                    <a href="#superreturn" class="cta-primary">Meet Us at SuperReturn Berlin</a>
+                    <a href="#demo" class="cta-secondary">Schedule a Demo</a>
                 </div>
                 
                 <div class="trust-badges">
                     <div class="badge-item">
                         <span class="badge-icon">🔒</span>
-                        <span class="badge-text">SOC 2 Type II Certified</span>
+                        <span class="badge-text">SOC 2 Type II</span>
                     </div>
                     <div class="badge-item">
                         <span class="badge-icon">🇪🇺</span>
                         <span class="badge-text">GDPR Compliant</span>
-                    </div>
-                    <div class="badge-item">
-                        <span class="badge-icon">🏠</span>
-                        <span class="badge-text">Data Sovereignty Guaranteed</span>
                     </div>
                     <div class="badge-item">
                         <span class="badge-icon">🛡️</span>
@@ -250,11 +238,7 @@
                     </div>
                     <div class="badge-item">
                         <span class="badge-icon">🚫</span>
-                        <span class="badge-text">Zero Third-Party LLM Exposure</span>
-                    </div>
-                    <div class="badge-item">
-                        <span class="badge-icon">📍</span>
-                        <span class="badge-text">EU Data Residency Available</span>
+                        <span class="badge-text">No Third-Party LLMs</span>
                     </div>
                 </div>
             </div>
@@ -373,30 +357,25 @@
             <h2>Due Diligence Reimagined</h2>
             <div class="problem-grid">
                 <div class="problem-content">
-                    <p>Private equity firms face a critical inflection point in due diligence operations. While competitors leverage AI to accelerate deal evaluation, traditional approaches create mounting operational inefficiencies and competitive disadvantages. <strong>27% of firms remain restricted by security concerns</strong> when adopting AI solutions, falling further behind in deal competition.</p>
+                    <p>Private equity firms face critical challenges with traditional data room analysis that constrain their ability to make optimal investment decisions. <strong>27% of firms remain restricted by security concerns</strong> when adopting AI solutions.</p>
                     
                     <div class="challenge-list">
                         <div class="challenge-item">
-                            <h3>Manual Review Bottleneck</h3>
-                            <p><strong>70% of deal team time</strong> consumed by manual document review, leaving insufficient resources for strategic analysis and value creation planning</p>
+                            <h3>Volume Overload</h3>
+                            <p>Thousands of documents to review in compressed timeframes</p>
                         </div>
                         <div class="challenge-item">
-                            <h3>Data Accuracy Crisis</h3>
-                            <p><strong>65% of PE firms struggle with data accuracy</strong> in due diligence, leading to missed risks and suboptimal investment decisions</p>
+                            <h3>Hidden Intelligence</h3>
+                            <p>Critical information buried within mountains of unstructured data</p>
                         </div>
                         <div class="challenge-item">
-                            <h3>Competitive Time Lag</h3>
-                            <p>Traditional processes lag <strong>30-45 days behind AI-enabled competitors</strong>, often losing deals to faster-moving rivals in competitive auctions</p>
+                            <h3>Resource Constraints</h3>
+                            <p>Limited human resources to conduct truly thorough analysis</p>
                         </div>
                         <div class="challenge-item">
-                            <h3>Scaling Constraints</h3>
-                            <p>Human-dependent analysis limits deal evaluation capacity precisely when market opportunities require rapid, parallel processing of multiple targets</p>
+                            <h3>Risk Exposure</h3>
+                            <p>Potential for missing crucial details that could impact investment outcomes</p>
                         </div>
-                    </div>
-                    
-                    <div class="urgency-callout">
-                        <h4>The Competitive Reality</h4>
-                        <p>First-mover PE firms using AI are already processing <strong>3x more opportunities</strong> while maintaining higher diligence standards. Every month of delay compounds the competitive disadvantage as AI-native approaches become the market standard.</p>
                     </div>
                 </div>
                 
@@ -414,27 +393,7 @@
                 
                 <div class="security-highlight">
                     <h3>Private & Secure by Design</h3>
-                    <p>Ralph operates on SOC 2 Type II certified, private infrastructure with proprietary AI models, ensuring your sensitive deal data never leaves your control or gets processed by third-party LLM providers.</p>
-                    
-                    <div class="security-features-preview">
-                        <div class="security-feature-item">
-                            <span class="feature-icon">🏆</span>
-                            <span class="feature-text">SOC 2 Type II Certified</span>
-                        </div>
-                        <div class="security-feature-item">
-                            <span class="feature-icon">🏠</span>
-                            <span class="feature-text">Data Sovereignty Guaranteed</span>
-                        </div>
-                        <div class="security-feature-item">
-                            <span class="feature-icon">🚫</span>
-                            <span class="feature-text">Zero Third-Party LLM Exposure</span>
-                        </div>
-                        <div class="security-feature-item">
-                            <span class="feature-icon">🛡️</span>
-                            <span class="feature-text">Private Infrastructure Only</span>
-                        </div>
-                    </div>
-                    
+                    <p>Ralph operates on a secure, private infrastructure with proprietary AI models, ensuring your sensitive deal data never leaves your control or gets processed by third-party LLM providers.</p>
                     <a href="#security" class="security-link">Learn more about our security architecture →</a>
                 </div>
             </div>
@@ -491,13 +450,7 @@
                         <span class="feature-emoji">🔒</span>
                     </div>
                     <h3>Enterprise Security Architecture</h3>
-                    <p>SOC 2 Type II certified infrastructure with end-to-end encryption, zero-trust architecture, and guaranteed data sovereignty. Built specifically for institutional finance security requirements.</p>
-                    <div class="security-highlights">
-                        <span class="security-badge">✓ SOC 2 Type II Certified</span>
-                        <span class="security-badge">✓ Private Infrastructure</span>
-                        <span class="security-badge">✓ Data Sovereignty</span>
-                        <span class="security-badge">✓ GDPR Compliant</span>
-                    </div>
+                    <p>SOC 2 certified infrastructure with end-to-end encryption, zero-trust architecture, and complete data sovereignty.</p>
                     <a href="#security" class="feature-link">Explore security features →</a>
                 </div>
             </div>
@@ -771,30 +724,7 @@
         <div class="container">
             <div class="security-header">
                 <h2>Enterprise-Grade Security Built for Private Equity</h2>
-                <p class="security-intro">Ralph addresses the security concerns of 27% of PE firms restricted by traditional AI solutions. Our infrastructure is purpose-built for the most sensitive financial data with institutional-grade compliance.</p>
-                
-                <div class="security-trust-indicators">
-                    <div class="trust-indicator">
-                        <span class="indicator-icon">🏆</span>
-                        <span class="indicator-text">SOC 2 Type II Certified</span>
-                        <span class="indicator-subtext">Annual third-party security audits</span>
-                    </div>
-                    <div class="trust-indicator">
-                        <span class="indicator-icon">🏛️</span>
-                        <span class="indicator-text">Institutional Grade</span>
-                        <span class="indicator-subtext">Built for Fortune 500 & PE security standards</span>
-                    </div>
-                    <div class="trust-indicator">
-                        <span class="indicator-icon">🌍</span>
-                        <span class="indicator-text">Global Compliance</span>
-                        <span class="indicator-subtext">GDPR, CCPA, MAS FEAT, EU AI Act ready</span>
-                    </div>
-                    <div class="trust-indicator">
-                        <span class="indicator-icon">🔐</span>
-                        <span class="indicator-text">Private by Design</span>
-                        <span class="indicator-subtext">Zero third-party LLM exposure</span>
-                    </div>
-                </div>
+                <p class="security-intro">Ralph addresses the security concerns of 27% of PE firms restricted by traditional AI solutions. Our infrastructure is purpose-built for the most sensitive financial data.</p>
             </div>
             
             <!-- Security Architecture Visualization -->
@@ -1072,61 +1002,30 @@
             <!-- Trust Indicators -->
             <div class="trust-section">
                 <h3>Why Leading PE Firms Trust Ralph</h3>
-                <div class="trust-messaging">
-                    <div class="sovereignty-highlight">
-                        <h4>🏠 Complete Data Sovereignty</h4>
-                        <p>Your sensitive deal data remains under your complete control with geographic residency guarantees. Choose EU, US, UK, or Asia-Pacific data centers to meet your compliance requirements.</p>
-                    </div>
-                    
-                    <div class="infrastructure-highlight">
-                        <h4>🏗️ Private Infrastructure Advantage</h4>
-                        <p>Unlike cloud AI services that share infrastructure, Ralph operates on dedicated, single-tenant architecture. Your data never comingles with other organizations' information.</p>
-                    </div>
-                </div>
-                
                 <div class="trust-grid">
                     <div class="trust-metric">
                         <div class="metric-number">100%</div>
                         <div class="metric-label">Data Sovereignty</div>
                         <p>Your data never leaves your designated region or infrastructure</p>
-                        <div class="trust-badge">🏠 Geographic Control</div>
                     </div>
                     
                     <div class="trust-metric">
                         <div class="metric-number">0</div>
                         <div class="metric-label">Third-Party LLM Exposure</div>
                         <p>Proprietary AI models mean no data sharing with external providers</p>
-                        <div class="trust-badge">🚫 Zero External Sharing</div>
                     </div>
                     
                     <div class="trust-metric">
                         <div class="metric-number">24/7</div>
                         <div class="metric-label">Security Monitoring</div>
                         <p>Continuous threat detection and incident response capabilities</p>
-                        <div class="trust-badge">🛡️ SOC 2 Monitored</div>
                     </div>
                     
                     <div class="trust-metric">
                         <div class="metric-number">99.99%</div>
                         <div class="metric-label">Uptime SLA</div>
                         <p>Enterprise-grade reliability with redundancy and failover</p>
-                        <div class="trust-badge">📊 Guaranteed Availability</div>
                     </div>
-                </div>
-                
-                <div class="compliance-summary">
-                    <h4>Comprehensive Compliance Coverage</h4>
-                    <div class="compliance-badges">
-                        <span class="compliance-badge soc2">SOC 2 Type II</span>
-                        <span class="compliance-badge gdpr">GDPR</span>
-                        <span class="compliance-badge ccpa">CCPA</span>
-                        <span class="compliance-badge iso">ISO 27001</span>
-                        <span class="compliance-badge mas">MAS FEAT</span>
-                        <span class="compliance-badge eu-ai">EU AI Act Ready</span>
-                        <span class="compliance-badge private">Private Infrastructure</span>
-                        <span class="compliance-badge sovereignty">Data Sovereignty</span>
-                    </div>
-                    <p class="compliance-note">All certifications maintained through continuous monitoring and annual third-party audits. Documentation available for your security review process.</p>
                 </div>
             </div>
             
@@ -1135,8 +1034,8 @@
                 <h3>Security Review & Documentation</h3>
                 <p>Our security team is ready to support your due diligence process with detailed documentation, architecture reviews, and custom security assessments.</p>
                 <div class="cta-buttons">
-                    <a href="#demo" class="cta-primary">Get Security Docs - Start Pilot</a>
-                    <a href="mailto:security@beneficious.com" class="cta-secondary">Fast-Track Security Review</a>
+                    <a href="#demo" class="cta-primary">Request Security Documentation</a>
+                    <a href="mailto:security@beneficious.com" class="cta-secondary">Contact Security Team</a>
                 </div>
             </div>
         </div>
@@ -1315,10 +1214,10 @@
                     
                     <div class="calculator-cta">
                         <h4>Ready to realize these savings?</h4>
-                        <p>Join leading PE firms already gaining 30-45 day advantages with AI-native due diligence</p>
+                        <p>Get a personalized analysis of Ralph's impact on your specific workflows</p>
                         <div class="cta-buttons">
-                            <button class="cta-primary" onclick="handleROICalculatorCTA()">Start Risk-Free Pilot - See 3:1 ROI</button>
-                            <button class="cta-secondary" onclick="exportROIReport()">Download ROI Analysis</button>
+                            <button class="cta-primary" onclick="handleROICalculatorCTA()">Schedule Custom Demo</button>
+                            <button class="cta-secondary" onclick="exportROIReport()">Download Full Report</button>
                         </div>
                     </div>
                 </div>
@@ -1525,7 +1424,7 @@
                             <li>Success metrics reporting</li>
                             <li>Implementation planning</li>
                         </ul>
-                        <button class="cta-secondary option-cta" onclick="handlePilotCTA()">Join the 82% - Start Free Pilot</button>
+                        <button class="cta-secondary option-cta" onclick="handlePilotCTA()">Start Pilot</button>
                     </div>
                     
                     <div class="option-card recommended">
@@ -1542,7 +1441,7 @@
                             <li>Quarterly business reviews</li>
                             <li>Custom integrations</li>
                         </ul>
-                        <button class="cta-primary option-cta" onclick="handlePricingCTA()">Get Quote - 28 Day Payback</button>
+                        <button class="cta-primary option-cta" onclick="handlePricingCTA()">Get Custom Quote</button>
                     </div>
                     
                     <div class="option-card">
@@ -1558,7 +1457,7 @@
                             <li>Guaranteed ROI metrics</li>
                             <li>Strategic partnership</li>
                         </ul>
-                        <button class="cta-secondary option-cta" onclick="handlePartnershipCTA()">Performance-Based Partnership</button>
+                        <button class="cta-secondary option-cta" onclick="handlePartnershipCTA()">Discuss Terms</button>
                     </div>
                 </div>
             </div>
@@ -1600,7 +1499,7 @@
                     Schedule a meeting with our team</p>
                 </div>
                 
-                <a href="#" class="cta-primary" onclick="handleSuperReturnCTA()">Don't Miss Out - Meet at SuperReturn</a>
+                <a href="#" class="cta-primary" onclick="handleSuperReturnCTA()">Schedule Meeting at SuperReturn</a>
             </div>
         </div>
     </section>
@@ -1617,27 +1516,20 @@
                     <div class="beta-benefits">
                         <p><strong>Beta Program Includes:</strong></p>
                         <p>Customized setup for your specific workflows, priority influence on feature development, dedicated support team, flexible integration with existing systems, and early access to new capabilities.</p>
-                        <div class="competitive-advantage">
-                            <p><strong>Why Act Now:</strong> First-mover PE firms are already processing 3x more opportunities while your competitors remain stuck with manual processes. Every month of delay compounds the competitive disadvantage.</p>
-                        </div>
                     </div>
                 </div>
                 
                 <div class="demo-form glass-card">
                     <div class="signup-options">
-                        <h3>Join the AI Advantage</h3>
-                        <div class="urgency-banner">
-                            <p><strong>Limited Beta Spots:</strong> Only 15 pilot slots remaining for Q1 2025</p>
-                        </div>
+                        <h3>Get Started</h3>
                         <div class="signup-option">
-                            <h4>1. Fast Track - Direct Contact</h4>
+                            <h4>1. Contact Us Directly</h4>
                             <p>Email us at <a href="mailto:konstantin@beneficious.com" class="email-link">konstantin@beneficious.com</a></p>
-                            <p><em>Guaranteed 48-hour response for qualified PE firms</em></p>
                         </div>
                         
                         <div class="signup-option">
                             <h4>2. Meet Us at SuperReturn Berlin</h4>
-                            <p>Join 82% of PE firms exploring AI - Don't let competitors get ahead</p>
+                            <p>Schedule a meeting with our team at Europe's premier private equity event</p>
                             <!-- Google Calendar Appointment Scheduling begin -->
                             <iframe src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3M9SPgwXBs6D46gwHZPOoEty84sRO6BYk1wZ0Jh8sk-j9AKKs2jNRWLtgJcE9OILGot8J4q7O5?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
                             <!-- end Google Calendar Appointment Scheduling -->
@@ -1687,7 +1579,7 @@
                             </label>
                         </div>
                         
-                        <button type="submit" class="cta-secondary">Stay Ahead - Join 2,000+ PE Leaders</button>
+                        <button type="submit" class="cta-secondary">Join Mailing List</button>
                     </form>
                 </div>
             </div>

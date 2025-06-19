@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ralph Analytics Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+            line-height: 1.6;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, #3F5765 0%, #2c4151 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .dashboard-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .dashboard-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e9ecef;
+        }
+        
+        .metric-card h3 {
+            color: #3F5765;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FE530D;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-change {
+            font-size: 0.9rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .metric-change.positive {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .metric-change.negative {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .metric-change.neutral {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+        
+        .chart-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e9ecef;
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chart-title {
+            font-size: 1.5rem;
+            color: #3F5765;
+            font-weight: 600;
+        }
+        
+        .chart-filters {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #dee2e6;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #3F5765;
+            color: white;
+            border-color: #3F5765;
+        }
+        
+        .chart-placeholder {
+            height: 300px;
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 1.1rem;
+            border-radius: 8px;
+        }
+        
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .persona-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e9ecef;
+        }
+        
+        .persona-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .persona-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        .persona-partner { background: #e3f2fd; }
+        .persona-operations { background: #f3e5f5; }
+        .persona-security { background: #e8f5e8; }
+        .persona-decision { background: #fff3e0; }
+        
+        .persona-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        
+        .persona-stat {
+            text-align: center;
+        }
+        
+        .persona-stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #3F5765;
+        }
+        
+        .persona-stat-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .ab-test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .ab-test-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e9ecef;
+        }
+        
+        .ab-test-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .ab-test-title {
+            font-size: 1.25rem;
+            color: #3F5765;
+            font-weight: 600;
+        }
+        
+        .ab-test-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .status-running {
+            background: #cce5ff;
+            color: #0066cc;
+        }
+        
+        .status-complete {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-planned {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .variant-comparison {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        
+        .variant {
+            text-align: center;
+            flex: 1;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 0 0.5rem;
+        }
+        
+        .variant-name {
+            font-weight: 600;
+            color: #3F5765;
+            margin-bottom: 0.5rem;
+        }
+        
+        .variant-rate {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FE530D;
+            margin-bottom: 0.25rem;
+        }
+        
+        .variant-visitors {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .significance-indicator {
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+        
+        .significance-yes {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .significance-no {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .significance-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .regional-map {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e9ecef;
+        }
+        
+        .regional-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .regional-stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .regional-flag {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .regional-name {
+            font-weight: 600;
+            color: #3F5765;
+            margin-bottom: 0.5rem;
+        }
+        
+        .regional-conversion {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FE530D;
+            margin-bottom: 0.25rem;
+        }
+        
+        .regional-visitors {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .insights-panel {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e9ecef;
+        }
+        
+        .insights-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .insights-icon {
+            width: 48px;
+            height: 48px;
+            background: #e3f2fd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        .insights-title {
+            font-size: 1.5rem;
+            color: #3F5765;
+            font-weight: 600;
+        }
+        
+        .insight-item {
+            background: #f8f9fa;
+            border-left: 4px solid #FE530D;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .insight-priority {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #FE530D;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        
+        .insight-text {
+            color: #3F5765;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 1rem;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .ab-test-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .chart-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .chart-filters {
+                width: 100%;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-header">
+        <h1>Ralph Analytics Dashboard</h1>
+        <p>Comprehensive analytics and A/B testing insights for private equity website optimization</p>
+    </div>
+    
+    <div class="dashboard-container">
+        <!-- Key Metrics Overview -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3>Total Conversions</h3>
+                <div class="metric-value">247</div>
+                <span class="metric-change positive">+23% vs last month</span>
+            </div>
+            
+            <div class="metric-card">
+                <h3>Conversion Rate</h3>
+                <div class="metric-value">3.2%</div>
+                <span class="metric-change positive">+0.8% vs last month</span>
+            </div>
+            
+            <div class="metric-card">
+                <h3>Demo Requests</h3>
+                <div class="metric-value">142</div>
+                <span class="metric-change positive">+31% vs last month</span>
+            </div>
+            
+            <div class="metric-card">
+                <h3>Avg. Session Duration</h3>
+                <div class="metric-value">4m 32s</div>
+                <span class="metric-change positive">+18% vs last month</span>
+            </div>
+            
+            <div class="metric-card">
+                <h3>Bounce Rate</h3>
+                <div class="metric-value">32%</div>
+                <span class="metric-change positive">-5% vs last month</span>
+            </div>
+            
+            <div class="metric-card">
+                <h3>Pages per Session</h3>
+                <div class="metric-value">2.8</div>
+                <span class="metric-change positive">+12% vs last month</span>
+            </div>
+        </div>
+        
+        <!-- Conversion Funnel Chart -->
+        <div class="chart-container">
+            <div class="chart-header">
+                <h2 class="chart-title">Conversion Funnel Analysis</h2>
+                <div class="chart-filters">
+                    <button class="filter-btn active">7 Days</button>
+                    <button class="filter-btn">30 Days</button>
+                    <button class="filter-btn">90 Days</button>
+                </div>
+            </div>
+            <div class="chart-placeholder">
+                Conversion Funnel Visualization
+                <br><small>Landing Page → Hero Section → Features → Demo Request → Form Completion</small>
+            </div>
+        </div>
+        
+        <!-- Persona Performance -->
+        <div class="chart-container">
+            <div class="chart-header">
+                <h2 class="chart-title">Performance by Persona</h2>
+            </div>
+            
+            <div class="persona-grid">
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-icon persona-partner">👥</div>
+                        <div>
+                            <h3>Partners</h3>
+                            <p>Managing Directors, Partners</p>
+                        </div>
+                    </div>
+                    <div class="persona-stats">
+                        <div class="persona-stat">
+                            <div class="persona-stat-value">4.2%</div>
+                            <div class="persona-stat-label">Conv. Rate</div>
+                        </div>
+                        <div class="persona-stat">
+                            <div class="persona-stat-value">156</div>
+                            <div class="persona-stat-label">Visitors</div>
+                        </div>
+                        <div class="persona-stat">
+                            <div class="persona-stat-value">5m 23s</div>
+                            <div class="persona-stat-label">Avg. Session</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-icon persona-operations">⚙️</div>
+                        <div>
+                            <h3>Operations</h3>
+                            <p>Analysts, Associates</p>
+                        </div>
+                    </div>
+                    <div class="persona-stats">
+                        <div class="persona-stat">
+                            <div class="persona-stat-value">2.8%</div>
+                            <div class="persona-stat-label">Conv. Rate</div>
+                        </div>
+                        <div class="persona-stat">
+                            <div class="persona-stat-value">423</div>
+                            <div class="persona-stat-label">Visitors</div>
+                        </div>
+                        <div class="persona-stat">
+                            <div class="persona-stat-value">3m 45s</div>
+                            <div class="persona-stat-label">Avg. Session</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-icon persona-security">🔒</div>
+                        <div>
+                            <h3>IT & Security</h3>
+                            <p>CTOs, Security Officers</p>
+                        </div>
+                    </div>
+                    <div class="persona-stats">
+                        <div class="persona-stat">
+                            <div class="persona-stat-value">5.1%</div>
+                            <div class="persona-stat-label">Conv. Rate</div>
+                        </div>
+                        <div class="persona-stat">
+                            <div class="persona-stat-value">89</div>
+                            <div class="persona-stat-label">Visitors</div>
+                        </div>
+                        <div class="persona-stat">
+                            <div class="persona-stat-value">6m 12s</div>
+                            <div class="persona-stat-label">Avg. Session</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-icon persona-decision">🎯</div>
+                        <div>
+                            <h3>Decision Makers</h3>
+                            <p>CEOs, Founders, Heads</p>
+                        </div>
+                    </div>
+                    <div class="persona-stats">
+                        <div class="persona-stat">
+                            <div class="persona-stat-value">3.9%</div>
+                            <div class="persona-stat-label">Conv. Rate</div>
+                        </div>
+                        <div class="persona-stat">
+                            <div class="persona-stat-value">234</div>
+                            <div class="persona-stat-label">Visitors</div>
+                        </div>
+                        <div class="persona-stat">
+                            <div class="persona-stat-value">4m 56s</div>
+                            <div class="persona-stat-label">Avg. Session</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- A/B Testing Results -->
+        <div class="chart-container">
+            <div class="chart-header">
+                <h2 class="chart-title">A/B Testing Results</h2>
+            </div>
+            
+            <div class="ab-test-grid">
+                <div class="ab-test-card">
+                    <div class="ab-test-header">
+                        <h3 class="ab-test-title">Hero Messaging</h3>
+                        <span class="ab-test-status status-running">Running</span>
+                    </div>
+                    
+                    <div class="variant-comparison">
+                        <div class="variant">
+                            <div class="variant-name">Control</div>
+                            <div class="variant-rate">3.2%</div>
+                            <div class="variant-visitors">1,247 visitors</div>
+                        </div>
+                        <div class="variant">
+                            <div class="variant-name">AI-Native</div>
+                            <div class="variant-rate">3.8%</div>
+                            <div class="variant-visitors">1,195 visitors</div>
+                        </div>
+                        <div class="variant">
+                            <div class="variant-name">Efficiency</div>
+                            <div class="variant-rate">4.1%</div>
+                            <div class="variant-visitors">1,203 visitors</div>
+                        </div>
+                    </div>
+                    
+                    <div class="significance-indicator significance-pending">
+                        Need 312 more visitors for significance
+                    </div>
+                </div>
+                
+                <div class="ab-test-card">
+                    <div class="ab-test-header">
+                        <h3 class="ab-test-title">CTA Optimization</h3>
+                        <span class="ab-test-status status-complete">Complete</span>
+                    </div>
+                    
+                    <div class="variant-comparison">
+                        <div class="variant">
+                            <div class="variant-name">Control</div>
+                            <div class="variant-rate">2.8%</div>
+                            <div class="variant-visitors">2,156 visitors</div>
+                        </div>
+                        <div class="variant">
+                            <div class="variant-name">Action-Oriented</div>
+                            <div class="variant-rate">3.6%</div>
+                            <div class="variant-visitors">2,203 visitors</div>
+                        </div>
+                    </div>
+                    
+                    <div class="significance-indicator significance-yes">
+                        ✓ Statistically significant (95% confidence)
+                        <br>Winner: Action-Oriented (+28.6% lift)
+                    </div>
+                </div>
+                
+                <div class="ab-test-card">
+                    <div class="ab-test-header">
+                        <h3 class="ab-test-title">Security Prominence</h3>
+                        <span class="ab-test-status status-running">Running</span>
+                    </div>
+                    
+                    <div class="variant-comparison">
+                        <div class="variant">
+                            <div class="variant-name">Standard</div>
+                            <div class="variant-rate">3.1%</div>
+                            <div class="variant-visitors">890 visitors</div>
+                        </div>
+                        <div class="variant">
+                            <div class="variant-name">High Prominence</div>
+                            <div class="variant-rate">3.9%</div>
+                            <div class="variant-visitors">923 visitors</div>
+                        </div>
+                        <div class="variant">
+                            <div class="variant-name">Security-First</div>
+                            <div class="variant-rate">4.3%</div>
+                            <div class="variant-visitors">887 visitors</div>
+                        </div>
+                    </div>
+                    
+                    <div class="significance-indicator significance-pending">
+                        Need 567 more visitors for significance
+                    </div>
+                </div>
+                
+                <div class="ab-test-card">
+                    <div class="ab-test-header">
+                        <h3 class="ab-test-title">Pricing Transparency</h3>
+                        <span class="ab-test-status status-planned">Planned</span>
+                    </div>
+                    
+                    <div class="variant-comparison">
+                        <div class="variant">
+                            <div class="variant-name">Contact Only</div>
+                            <div class="variant-rate">-</div>
+                            <div class="variant-visitors">Launching next week</div>
+                        </div>
+                        <div class="variant">
+                            <div class="variant-name">Value-Based</div>
+                            <div class="variant-rate">-</div>
+                            <div class="variant-visitors">-</div>
+                        </div>
+                    </div>
+                    
+                    <div class="significance-indicator significance-pending">
+                        Test launching Monday, April 15th
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Regional Performance -->
+        <div class="regional-map">
+            <div class="chart-header">
+                <h2 class="chart-title">Regional Performance Analysis</h2>
+            </div>
+            
+            <div class="regional-stats">
+                <div class="regional-stat">
+                    <div class="regional-flag">🇪🇺</div>
+                    <div class="regional-name">Europe</div>
+                    <div class="regional-conversion">3.8%</div>
+                    <div class="regional-visitors">1,456 visitors</div>
+                </div>
+                
+                <div class="regional-stat">
+                    <div class="regional-flag">🇺🇸</div>
+                    <div class="regional-name">North America</div>
+                    <div class="regional-conversion">2.9%</div>
+                    <div class="regional-visitors">2,234 visitors</div>
+                </div>
+                
+                <div class="regional-stat">
+                    <div class="regional-flag">🇸🇬</div>
+                    <div class="regional-name">Asia-Pacific</div>
+                    <div class="regional-conversion">4.2%</div>
+                    <div class="regional-visitors">634 visitors</div>
+                </div>
+                
+                <div class="regional-stat">
+                    <div class="regional-flag">🌍</div>
+                    <div class="regional-name">Other</div>
+                    <div class="regional-conversion">2.1%</div>
+                    <div class="regional-visitors">321 visitors</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- User Behavior Heatmap -->
+        <div class="chart-container">
+            <div class="chart-header">
+                <h2 class="chart-title">User Behavior Insights</h2>
+                <div class="chart-filters">
+                    <button class="filter-btn active">Scroll Depth</button>
+                    <button class="filter-btn">Click Heatmap</button>
+                    <button class="filter-btn">Exit Points</button>
+                </div>
+            </div>
+            <div class="chart-placeholder">
+                User Behavior Heatmap Visualization
+                <br><small>Shows scroll depth, click patterns, and user interaction hotspots</small>
+            </div>
+        </div>
+        
+        <!-- AI-Generated Insights -->
+        <div class="insights-panel">
+            <div class="insights-header">
+                <div class="insights-icon">🤖</div>
+                <h2 class="insights-title">AI-Generated Insights & Recommendations</h2>
+            </div>
+            
+            <div class="insight-item">
+                <div class="insight-priority">High Priority</div>
+                <div class="insight-text">
+                    <strong>Security-focused messaging shows 38% higher conversion for IT personas.</strong>
+                    Consider implementing the "Security-First" hero variant site-wide, especially for visitors from security-focused referrers or with IT-related UTM parameters.
+                </div>
+            </div>
+            
+            <div class="insight-item">
+                <div class="insight-priority">Medium Priority</div>
+                <div class="insight-text">
+                    <strong>European visitors have 31% higher engagement with compliance messaging.</strong>
+                    A/B test prominent GDPR and data residency messaging for EU traffic to potentially increase the already strong 3.8% conversion rate.
+                </div>
+            </div>
+            
+            <div class="insight-item">
+                <div class="insight-priority">Medium Priority</div>
+                <div class="insight-text">
+                    <strong>Mobile users drop off 23% more at the features section.</strong>
+                    Consider mobile-specific feature presentation or progressive disclosure to improve mobile conversion rates.
+                </div>
+            </div>
+            
+            <div class="insight-item">
+                <div class="insight-priority">Low Priority</div>
+                <div class="insight-text">
+                    <strong>Users who view the security section have 2.3x higher demo completion rates.</strong>
+                    Consider adding more prominent security CTAs or security-focused nurture emails for leads who don't initially convert.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Conversion Path Analysis -->
+        <div class="chart-container">
+            <div class="chart-header">
+                <h2 class="chart-title">Conversion Path Analysis</h2>
+            </div>
+            <div class="chart-placeholder">
+                Sankey Diagram: User Journey Visualization
+                <br><small>Shows the most common paths from landing to conversion</small>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Simulate real-time data updates
+        function updateMetrics() {
+            // This would connect to your actual analytics data
+            console.log('Updating metrics...');
+        }
+        
+        // Filter button interactions
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from siblings
+                this.parentNode.querySelectorAll('.filter-btn').forEach(sibling => {
+                    sibling.classList.remove('active');
+                });
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Update chart based on filter
+                console.log('Filter changed to:', this.textContent);
+            });
+        });
+        
+        // Auto-refresh data every 5 minutes
+        setInterval(updateMetrics, 300000);
+        
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            updateMetrics();
+            console.log('Ralph Analytics Dashboard initialized');
+        });
+    </script>
+</body>
+</html>

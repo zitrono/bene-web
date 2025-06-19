@@ -1,0 +1,314 @@
+<!-- Enhanced Pilot Application Section -->
+<section class="pilot-section" id="pilot">
+    <div class="container">
+        <div class="glass-card">
+            <h2>Apply for Your Free 30-Day Pilot</h2>
+            <p class="pilot-intro">Join leading PE firms transforming their due diligence process. Our pilot program includes full Ralph access, dedicated support, and custom configuration for your workflow.</p>
+            
+            <div class="pilot-benefits">
+                <h3>What's Included in Your Pilot:</h3>
+                <div class="benefit-grid">
+                    <div class="pilot-benefit">
+                        <span class="benefit-icon">🚀</span>
+                        <h4>Full Platform Access</h4>
+                        <p>Complete Ralph functionality for 30 days</p>
+                    </div>
+                    <div class="pilot-benefit">
+                        <span class="benefit-icon">🎯</span>
+                        <h4>Custom Configuration</h4>
+                        <p>Tailored to your specific workflow</p>
+                    </div>
+                    <div class="pilot-benefit">
+                        <span class="benefit-icon">🤝</span>
+                        <h4>Dedicated Support</h4>
+                        <p>Direct access to our PE experts</p>
+                    </div>
+                    <div class="pilot-benefit">
+                        <span class="benefit-icon">📊</span>
+                        <h4>Success Metrics</h4>
+                        <p>ROI analysis and performance reports</p>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="pilot-form" id="pilot-application">
+                <p class="required-note">* Required fields</p>
+                
+                <!-- Contact Information -->
+                <div class="form-section">
+                    <h3>Contact Information</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="first-name">First Name *</label>
+                            <input type="text" id="first-name" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name *</label>
+                            <input type="text" id="last-name" name="lastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Business Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Your Title *</label>
+                            <input type="text" id="title" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Primary Role *</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select your role</option>
+                                <option value="partner">Partner</option>
+                                <option value="principal">Principal</option>
+                                <option value="cfo">CFO</option>
+                                <option value="cto">CTO/Innovation Lead</option>
+                                <option value="vp">VP/Director</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Firm Information -->
+                <div class="form-section">
+                    <h3>Firm Information</h3>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="firm-name">Firm Name *</label>
+                            <input type="text" id="firm-name" name="firmName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="aum">AUM (€ Billions) *</label>
+                            <select id="aum" name="aum" required>
+                                <option value="">Select AUM range</option>
+                                <option value="<10">Less than €10B</option>
+                                <option value="10-25">€10B - €25B</option>
+                                <option value="25-50">€25B - €50B</option>
+                                <option value="50-100">€50B - €100B</option>
+                                <option value=">100">More than €100B</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="team-size">Due Diligence Team Size *</label>
+                            <input type="number" id="team-size" name="teamSize" min="1" max="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="deals-annual">Annual Deal Volume *</label>
+                            <input type="number" id="deals-annual" name="dealsAnnual" min="1" max="500" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Headquarters Location *</label>
+                            <input type="text" id="location" name="location" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Current Process -->
+                <div class="form-section">
+                    <h3>Current Due Diligence Process</h3>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="current-tools">Current Data Room Tools (e.g., Intralinks, Datasite)</label>
+                            <input type="text" id="current-tools" name="currentTools" placeholder="List your current tools">
+                        </div>
+                        <div class="form-group">
+                            <label for="dd-duration">Average DD Duration (weeks) *</label>
+                            <input type="number" id="dd-duration" name="ddDuration" min="1" max="52" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pain-points">Primary Challenge *</label>
+                            <select id="pain-points" name="painPoints" required>
+                                <option value="">Select main challenge</option>
+                                <option value="time">Time constraints</option>
+                                <option value="volume">Document volume</option>
+                                <option value="quality">Analysis quality</option>
+                                <option value="integration">System integration</option>
+                                <option value="cost">Cost efficiency</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pilot Goals -->
+                <div class="form-section">
+                    <h3>Pilot Objectives</h3>
+                    <div class="form-group full-width">
+                        <label for="pilot-goals">What would make this pilot successful for you? *</label>
+                        <textarea id="pilot-goals" name="pilotGoals" required 
+                                  placeholder="E.g., Reduce DD time by 50%, improve risk identification, evaluate ROI..."></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="timeline">Preferred Pilot Start Date</label>
+                        <input type="date" id="timeline" name="timeline">
+                    </div>
+                </div>
+                
+                <!-- Security Requirements -->
+                <div class="form-section">
+                    <h3>Security & Compliance</h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="requirements" value="on-premise">
+                            <span class="checkmark"></span>
+                            On-premise deployment required
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="requirements" value="soc2">
+                            <span class="checkmark"></span>
+                            SOC 2 compliance required
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="requirements" value="gdpr">
+                            <span class="checkmark"></span>
+                            GDPR compliance required
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="requirements" value="custom">
+                            <span class="checkmark"></span>
+                            Custom security requirements
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Consent and Submit -->
+                <div class="form-section">
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="consent" required>
+                            <span class="checkmark"></span>
+                            I agree to the pilot program terms and authorize Beneficious to contact me about Ralph
+                        </label>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="cta-primary">Submit Pilot Application</button>
+                        <p class="form-note">We'll review your application and respond within 24 hours</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Additional CSS for Pilot Form -->
+<style>
+.pilot-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: var(--color-text-secondary);
+}
+
+.pilot-benefits {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-md);
+}
+
+.pilot-benefits h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-accent-primary);
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.pilot-benefit {
+    text-align: center;
+}
+
+.benefit-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.pilot-benefit h4 {
+    margin-bottom: 0.5rem;
+    color: var(--color-accent-primary);
+}
+
+.pilot-benefit p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 2px solid #E9ECEF;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label:hover .checkmark {
+    border-color: var(--color-accent-secondary);
+}
+
+.checkbox-label input:checked ~ .checkmark {
+    background-color: var(--color-accent-secondary);
+    border-color: var(--color-accent-secondary);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.form-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+</style>
