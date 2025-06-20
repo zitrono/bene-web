@@ -5,14 +5,17 @@ function initMobileMenu() {
   const menuToggle = document.querySelector('.mobile-menu-toggle');
   const menuClose = document.querySelector('.mobile-menu-close');
   const navMenu = document.querySelector('.nav-menu');
+  const overlay = document.querySelector('.mobile-menu-overlay');
   
   function openMenu() {
     navMenu.classList.add('active');
+    overlay.classList.add('active');
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
   }
   
   function closeMenu() {
     navMenu.classList.remove('active');
+    overlay.classList.remove('active');
     document.body.style.overflow = ''; // Restore scrolling
     menuToggle.textContent = '☰';
   }
