@@ -218,7 +218,7 @@ nav {
 /* Primary Button */
 .btn-primary {
   background-color: var(--accent-yellow);
-  color: rgb(41, 48, 69) !important;
+  color: rgb(41, 48, 69);
   font-weight: 500;
 }
 
@@ -240,7 +240,7 @@ nav {
 /* Secondary Button */
 .btn-secondary {
   background-color: rgb(53, 53, 53);
-  color: rgb(255, 246, 238) !important;
+  color: rgb(255, 246, 238);
   border: 1px solid rgba(255, 255, 255, 0.1);
   font-weight: 500;
 }
@@ -260,6 +260,17 @@ nav {
 .btn-secondary:focus {
   outline: 2px solid var(--accent-yellow);
   outline-offset: 2px;
+}
+
+/* Ensure button colors are maintained in navigation */
+.nav-menu .btn-primary,
+.nav-menu a.btn-primary {
+  color: rgb(41, 48, 69);
+}
+
+.nav-menu .btn-secondary,
+.nav-menu a.btn-secondary {
+  color: rgb(255, 246, 238);
 }
 
 /* Small Button */
@@ -885,13 +896,11 @@ footer {
   
   .nav-menu .btn-primary {
     display: flex;
-    color: rgb(41, 48, 69); /* Maintain button color, override nav-menu a color */
   }
   
   .nav-menu .btn-secondary {
     display: flex;
     margin-bottom: var(--space-2);
-    color: var(--text-primary); /* Maintain button color, override nav-menu a color */
   }
   
   .mobile-menu-header {
