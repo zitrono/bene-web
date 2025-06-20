@@ -885,11 +885,13 @@ footer {
   
   .nav-menu .btn-primary {
     display: flex;
+    color: rgb(41, 48, 69); /* Maintain button color, override nav-menu a color */
   }
   
   .nav-menu .btn-secondary {
     display: flex;
     margin-bottom: var(--space-2);
+    color: var(--text-primary); /* Maintain button color, override nav-menu a color */
   }
   
   .mobile-menu-header {
