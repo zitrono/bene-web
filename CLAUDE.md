@@ -4,9 +4,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
+**IMPORTANT: This is a template website with intentional placeholder content.**
+
 This is the Beneficious company website - a static HTML/CSS/JavaScript site hosted on GitHub Pages. Beneficious is the company that develops Ralph, an AI-native private equity platform that transforms unstructured PE data into AI-discoverable intelligence.
 
 The website recently underwent a complete redesign with a jace.ai-inspired dark theme, replacing all content with placeholder text while maintaining the exact visual structure.
+
+### Template Site Status
+- **All content is placeholder** - "Hero Product" instead of actual product names
+- **Links use href="#"** - This is intentional for template purposes
+- **Forms don't submit** - Template behavior, not production functionality
+- **Generic testimonials** - "User Name" placeholders are expected
+- **Development alerts** - JavaScript alerts for template demonstration
+- **Missing images** - favicon.png, og-image.png are not needed for template
+- **Branding mixing** - "Hero" vs "Beneficious" is intentional template design
+
+When performing code reviews or checkups, these placeholder elements should NOT be flagged as issues since this is a template site, not a production website.
 
 ## Development Commands
 
