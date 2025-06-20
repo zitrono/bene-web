@@ -941,8 +941,8 @@ footer {
   display: none;
 }
 
-/* Mobile and Small Tablets: 768px and below */
-@media (max-width: 768px) {
+/* Mobile and Tablets: 1023px and below */
+@media (max-width: 1023px) {
   /* Body and container */
   body {
     touch-action: pan-y;
