@@ -10,6 +10,8 @@ This is the Beneficious company website - a static HTML/CSS/JavaScript site host
 
 The website recently underwent a complete redesign with a jace.ai-inspired dark theme, replacing all content with placeholder text while maintaining the exact visual structure.
 
+**IMPORTANT: The original reference site is jace.ai - we need to maintain FULL PARITY with their design, functionality, and behavior across all viewports and interactions (desktop, tablet, mobile).**
+
 ### Template Site Status
 - **All content is placeholder** - "Hero Product" instead of actual product names
 - **Links use href="#"** - This is intentional for template purposes
