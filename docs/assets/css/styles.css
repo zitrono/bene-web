@@ -140,8 +140,11 @@ a.btn:hover {
 
 /* Navigation */
 nav {
-  position: static;
-  background-color: var(--bg-primary);
+  position: sticky;
+  top: 0;
+  background-color: rgba(40, 40, 40, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   z-index: 1000;
   padding: var(--space-1) 0;
   height: 88px;
@@ -331,6 +334,68 @@ a.btn-secondary {
   margin: 0 auto var(--space-5);
   color: var(--text-secondary);
   line-height: 24px;
+}
+
+/* Desktop: Pull hero content under sticky header */
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Ultra-wide screens: Constrain content width */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+  }
+}
+
+/* Desktop: 1024px and up */
+@media (min-width: 1024px) {
+  .hero {
+    margin-top: -5.5rem;
+    padding-top: calc(var(--space-16) + 5.5rem);
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .company-logos {
+    gap: var(--space-6);
+  }
+}
+
+/* Tablet: 768px to 1023px */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .container {
+    padding: 0 var(--space-4);
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+  
+  .nav-menu {
+    gap: var(--space-3);
+  }
+  
+  .nav-menu a:not(.btn) {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 48px;
+    line-height: 48px;
+  }
+  
+  .trust-badges {
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .badge {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
 }
 
 /* Trust Badges */
@@ -766,15 +831,14 @@ footer {
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
   display: none;
-  background-color: var(--bg-primary);
-  border: none;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--text-primary);
-  font-size: 1.5rem;
   cursor: pointer;
-  width: 44px;
-  height: 52px;
-  padding: 10px;
-  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 8px;
   align-items: center;
   justify-content: center;
   transition: var(--transition-hover);
@@ -783,14 +847,23 @@ footer {
   appearance: none;
 }
 
+.mobile-menu-toggle svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--text-primary);
+  stroke-width: 1.5;
+}
+
 .mobile-menu-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Safari-specific fix for hamburger visibility */
 @supports (-webkit-touch-callout: none) {
   .mobile-menu-toggle {
-    background-color: rgb(40, 40, 40);
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
   }
 }
 
@@ -840,39 +913,6 @@ footer {
   }
 }
 
-/* Ensure menu is visible on iOS */
-@media (max-width: 768px) {
-  .nav-menu.active {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  
-  /* Prevent iOS bounce effect */
-  body.menu-open {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-  }
-}
-
-/* Force mobile menu display on iOS */
-@media screen and (max-width: 768px) {
-  body.menu-open .nav-menu {
-    display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    background-color: rgb(40, 40, 40) !important;
-    background: rgb(40, 40, 40) !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
-}
 
 /* Mobile Header CTA */
 .mobile-cta {
@@ -888,11 +928,32 @@ footer {
   display: none;
 }
 
-/* Mobile-specific overflow prevention */
+/* Mobile and Small Tablets: 768px and below */
 @media (max-width: 768px) {
+  /* Body and container */
   body {
     touch-action: pan-y;
     -webkit-overflow-scrolling: touch;
+  }
+  
+  /* When menu is open, hide main content */
+  body.menu-open {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  /* Hide all page content when menu is open */
+  body.menu-open main,
+  body.menu-open .hero,
+  body.menu-open .features,
+  body.menu-open .companies,
+  body.menu-open .pricing,
+  body.menu-open .testimonials,
+  body.menu-open footer,
+  body.menu-open .cookie-banner {
+    display: none !important;
   }
   
   .container {
@@ -900,10 +961,8 @@ footer {
     position: relative;
     padding: 0 var(--container-padding-mobile);
   }
-}
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
+  /* Typography */
   h1 {
     font-size: 36px;
     line-height: 36px;
@@ -927,12 +986,13 @@ footer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: rgb(40, 40, 40);
+    background: rgb(40, 40, 40); /* Fallback for older browsers */
     flex-direction: column;
-    padding: var(--space-3) var(--space-4) var(--space-3) var(--space-4);
-    z-index: 999;
+    padding: var(--space-3) var(--space-4);
+    z-index: 9999;
     gap: 0;
     align-items: flex-start !important;
     list-style: none;
@@ -942,24 +1002,31 @@ footer {
     backface-visibility: hidden;
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
+    overflow-x: hidden;
+    /* Ensure menu has its own layer */
+    isolation: isolate;
   }
   
   .nav-menu.active {
     display: flex !important;
     opacity: 1;
     visibility: visible;
+    background-color: rgb(40, 40, 40) !important;
+    background: rgb(40, 40, 40) !important;
   }
   
   .nav-menu li:not(.mobile-menu-header):not(.mobile-menu-buttons) {
-    padding: var(--space-2) 0;
+    padding: 12px 0;
     width: 100%;
     text-align: left;
   }
   
-  .nav-menu li:not(.mobile-menu-buttons) a:not(.btn) {
+  .nav-menu li a:not(.btn) {
     font-size: 18px;
-    color: var(--text-primary) !important;
+    color: #ffffff !important;
     font-weight: 400;
+    padding: var(--space-2) 0;
+    display: block;
   }
   
   .nav-menu li:not(.mobile-menu-buttons) a:not(.btn):hover {
@@ -970,33 +1037,43 @@ footer {
     display: flex;
   }
   
+  /* Mobile navigation layout */
+  .nav-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  
   .mobile-cta {
     display: flex;
     align-items: center;
-    margin-right: var(--space-2);
+    justify-self: end;
+    margin-right: var(--space-1);
+  }
+  
+  .mobile-menu-toggle {
+    margin-left: var(--space-1);
   }
   
   .mobile-menu-buttons {
     display: flex;
-    gap: var(--space-2);
-    margin-top: auto;
-    align-self: stretch;
-    padding-top: var(--space-2);
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
   
-  .mobile-menu-buttons .btn {
-    flex: 1;
-    text-align: center;
-  }
   
   .mobile-menu-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--space-5);
-    padding-bottom: var(--space-3);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: var(--space-3);
+    padding-bottom: 0;
+    border-bottom: none;
   }
   
   .mobile-menu-close {
@@ -1072,6 +1149,25 @@ footer {
     left: var(--space-2);
     right: var(--space-2);
     bottom: var(--space-2);
+    max-width: calc(100vw - var(--space-4));
+    font-size: 14px;
+  }
+  
+  .cookie-banner p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  .cookie-banner .button-group {
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-top: var(--space-2);
+  }
+  
+  .cookie-banner button {
+    width: 100%;
+    padding: var(--space-1) var(--space-2);
+    font-size: 14px;
   }
   
   .company-logos {
@@ -1083,6 +1179,236 @@ footer {
     width: 100px;
     height: 40px;
     font-size: 0.75rem;
+  }
+}
+
+/* Small Tablets and Large Mobile: 600px and below */
+@media (max-width: 600px) {
+  /* Gradual text scaling */
+  h1 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+  
+  p {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  
+  /* Button scaling */
+  .btn {
+    font-size: 15px;
+    height: 38px;
+    padding: 0 20px;
+  }
+  
+  .mobile-cta .btn {
+    font-size: 14px;
+    padding: 0 16px;
+    height: 36px;
+  }
+}
+
+/* Small Mobile: 480px and below */
+@media (max-width: 480px) {
+  /* Typography adjustments for small screens - scale down by ~12.5% */
+  h1 {
+    font-size: 28px !important;
+    line-height: 32px !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  /* Button scaling */
+  .btn {
+    font-size: 14px;
+    height: 36px;
+    padding: 0 14px;
+  }
+  
+  .btn-small {
+    font-size: 12px;
+    height: 28px;
+    padding: 0 12px;
+  }
+  
+  /* Navigation adjustments */
+  .nav-menu li a:not(.btn) {
+    font-size: 16px;
+  }
+  
+  /* Mobile menu toggle scaling */
+  .mobile-menu-toggle {
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+  }
+  
+  .mobile-menu-toggle svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Mobile menu buttons - keep side by side but smaller */
+  .mobile-menu-buttons {
+    flex-direction: row;
+    gap: var(--space-2);
+    justify-content: center;
+  }
+  
+  .mobile-menu-buttons .btn {
+    flex: 1;
+    justify-content: center;
+    font-size: 14px;
+    padding: 0 var(--space-2);
+    height: 36px;
+  }
+  
+  /* Top navigation button */
+  .mobile-cta .btn {
+    font-size: 13px;
+    padding: 0 12px;
+    height: 34px;
+  }
+  
+  /* Smaller hamburger */
+  .mobile-menu-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+  
+  /* Trust badges - stack vertically on small screens */
+  .trust-badges {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  
+  .badge {
+    font-size: 10px;
+    padding: 4px 8px;
+    text-align: center;
+    min-width: 120px;
+  }
+  
+  /* Company logos - smaller grid */
+  .company-logos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+  }
+  
+  .company-logo {
+    width: 80px;
+    height: 32px;
+    font-size: 0.7rem;
+  }
+  
+  /* Container padding for very small screens */
+  .container {
+    padding: 0 var(--space-2);
+  }
+  
+  /* Sections with reduced padding */
+  .hero,
+  .features,
+  .pricing,
+  .companies,
+  .testimonials {
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
+  }
+}
+
+/* Very Small Mobile: 320px and below */
+@media (max-width: 320px) {
+  /* Further typography reduction */
+  h1 {
+    font-size: 24px !important;
+    line-height: 28px !important;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
+  
+  p {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  
+  /* Minimal spacing */
+  .container {
+    padding: 0 var(--space-1);
+  }
+  
+  /* Mobile menu buttons - keep side by side with smaller text */
+  .mobile-menu-buttons .btn {
+    font-size: 13px;
+    padding: 0 var(--space-1);
+    height: 34px;
+  }
+  
+  /* Top navigation button even smaller */
+  .mobile-cta .btn {
+    font-size: 12px;
+    padding: 0 10px;
+    height: 32px;
+  }
+  
+  /* Even smaller hamburger */
+  .mobile-menu-toggle {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    padding: 6px;
+  }
+  
+  /* Stack badges completely */
+  .trust-badges {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .badge {
+    font-size: 9px;
+    padding: 3px 6px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Single column company logos */
+  .company-logos {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+  
+  .company-logo {
+    width: 100%;
+    height: 28px;
+    font-size: 0.65rem;
+  }
+  
+  /* Cookie banner adjustments */
+  .cookie-banner {
+    font-size: 12px;
+    padding: var(--space-2);
+  }
+  
+  .cookie-banner p {
+    font-size: 11px;
+  }
+  
+  .cookie-banner button {
+    font-size: 12px;
+    padding: 6px 12px;
   }
 }
 

@@ -20,7 +20,7 @@ function initMobileMenu() {
     
     // iOS Safari fix - prevent background scrolling
     document.body.style.top = `-${scrollY}px`;
-    menuToggle.textContent = '✕';
+    updateMenuIcon(true);
   }
   
   function closeMenu() {
@@ -36,17 +36,26 @@ function initMobileMenu() {
     document.body.style.top = '';
     window.scrollTo(0, scrollY);
     
-    menuToggle.textContent = '☰';
+    updateMenuIcon(false);
+  }
+  
+  function updateMenuIcon(isOpen) {
+    const svg = menuToggle.querySelector('svg');
+    if (svg) {
+      if (isOpen) {
+        svg.innerHTML = '<path d="M18 6L6 18M6 6l12 12"></path>';
+      } else {
+        svg.innerHTML = '<path d="M3 12h18M3 6h18M3 18h18"></path>';
+      }
+    }
   }
   
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
       if (navMenu.classList.contains('active')) {
         closeMenu();
-        menuToggle.textContent = '☰';
       } else {
         openMenu();
-        menuToggle.textContent = '✕';
       }
     });
     
