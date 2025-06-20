@@ -794,6 +794,12 @@ footer {
   }
 }
 
+/* iOS fix for mobile menu background */
+.nav-menu.active {
+  background-color: rgb(40, 40, 40) !important;
+  background: rgb(40, 40, 40) !important;
+}
+
 /* Mobile Header CTA */
 .mobile-cta {
   display: none;
