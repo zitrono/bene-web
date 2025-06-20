@@ -806,8 +806,9 @@ footer {
   display: none;
 }
 
-/* Mobile-specific overflow prevention */
+/* Responsive Design - Tablet and Mobile */
 @media (max-width: 1023px) {
+  /* Mobile-specific overflow prevention */
   body {
     touch-action: pan-y;
     -webkit-overflow-scrolling: touch;
@@ -818,10 +819,8 @@ footer {
     position: relative;
     padding: 0 var(--container-padding-mobile);
   }
-}
-
-/* Responsive Design */
-@media (max-width: 1023px) {
+  
+  /* Typography */
   h1 {
     font-size: 36px;
     line-height: 36px;
