@@ -120,6 +120,15 @@ a:hover {
   opacity: 0.8;
 }
 
+/* Ensure button links don't inherit default link color */
+a.btn {
+  opacity: 1;
+}
+
+a.btn:hover {
+  opacity: 1;
+}
+
 /* Container */
 .container {
   max-width: var(--container-max-width);
@@ -192,6 +201,15 @@ nav {
   text-decoration: none;
   position: relative;
   white-space: nowrap;
+}
+
+/* Button as link should not inherit link styles */
+a.btn-primary {
+  color: rgb(41, 48, 69);
+}
+
+a.btn-secondary {
+  color: rgb(255, 246, 238);
 }
 
 /* Primary Button */
@@ -872,9 +890,6 @@ footer {
   .mobile-menu-buttons .btn {
     flex: 1;
     text-align: center;
-    height: 48px;
-    font-size: 16px;
-    padding: 0 20px;
   }
   
   .mobile-menu-header {
