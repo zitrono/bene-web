@@ -870,12 +870,14 @@ footer {
   .nav-menu {
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
+    /* Ensure menu content is visible */
+    -webkit-font-smoothing: antialiased;
   }
   
   .nav-menu.active {
     -webkit-overflow-scrolling: touch;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-  }
+    /* Remove border that might cause issues */
+    border: none;
 }
 
 /* Mobile Menu Overlay - Solid background behind menu */
@@ -1031,6 +1033,10 @@ footer {
     /* iOS safe area support */
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
+    /* Force rendering context */
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    will-change: transform;
   }
   
   .nav-menu li:not(.mobile-menu-header):not(.mobile-menu-buttons) {
@@ -1045,6 +1051,8 @@ footer {
     font-weight: 400;
     padding: var(--space-2) 0;
     display: block;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   
   .nav-menu li:not(.mobile-menu-buttons) a:not(.btn):hover {
@@ -1086,12 +1094,19 @@ footer {
   
   
   .mobile-menu-header {
-    display: flex;
+    display: flex !important;
     justify-content: space-between;
     align-items: center;
     margin-bottom: var(--space-3);
     padding-bottom: 0;
     border-bottom: none;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .mobile-menu-header .logo {
+    color: #ffffff !important;
+    font-size: 24px;
   }
   
   .mobile-menu-close {

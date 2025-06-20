@@ -14,26 +14,37 @@ function initMobileMenu() {
     navMenu.classList.add('active');
     document.body.classList.add('menu-open');
     
-    // Force background color with inline style for iOS
-    navMenu.style.backgroundColor = 'rgb(40, 40, 40)';
-    navMenu.style.background = 'rgb(40, 40, 40)';
-    
     // iOS Safari fix - prevent background scrolling
+    document.body.style.position = 'fixed';
     document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+    
+    // Force repaint on iOS
+    navMenu.offsetHeight;
+    
     updateMenuIcon(true);
+    
+    // Debug: Check if menu items are visible
+    if (window.location.hostname === 'localhost') {
+      console.log('Menu opened', {
+        menuActive: navMenu.classList.contains('active'),
+        bodyMenuOpen: document.body.classList.contains('menu-open'),
+        menuDisplay: window.getComputedStyle(navMenu).display,
+        menuVisibility: window.getComputedStyle(navMenu).visibility,
+        menuItemsCount: navMenu.querySelectorAll('li').length
+      });
+    }
   }
   
   function closeMenu() {
     navMenu.classList.remove('active');
     document.body.classList.remove('menu-open');
     
-    // Clear inline styles
-    navMenu.style.backgroundColor = '';
-    navMenu.style.background = '';
-    
     // Restore scroll position for iOS
     const scrollY = parseInt(document.body.dataset.scrollY || '0');
+    document.body.style.position = '';
     document.body.style.top = '';
+    document.body.style.width = '';
     window.scrollTo(0, scrollY);
     
     updateMenuIcon(false);
