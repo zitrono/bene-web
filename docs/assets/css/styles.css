@@ -1209,3 +1209,165 @@ footer {
 .w-full {
   width: 100%;
 }
+
+/* Height utilities */
+.min-h-60 {
+  min-height: 60vh;
+}
+
+.min-h-50 {
+  min-height: 50vh;
+}
+
+.min-h-70 {
+  min-height: 70vh;
+}
+
+/* Max width utilities */
+.max-w-600 {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Font size utilities */
+.text-lg {
+  font-size: 1.25rem;
+}
+
+.text-base {
+  font-size: 1rem;
+}
+
+/* Line height utilities */
+.leading-relaxed {
+  line-height: 1.8;
+}
+
+/* Display utilities */
+.inline-block {
+  display: inline-block;
+}
+
+/* Color utilities */
+.text-yellow {
+  color: var(--accent-yellow);
+}
+
+/* Margin utilities */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Avatar utilities */
+.avatar-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+}
+
+/* Button padding utilities */
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Form select styles */
+.form-select {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+}
+
+/* Form input styles */
+.form-input {
+  padding: 0.75rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--border-radius);
+  color: white;
+}
+
+/* Flex utilities */
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+/* Padding utilities */
+.py-12 {
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
+}
+
+/* Max width utilities */
+.max-w-400 {
+  max-width: 400px;
+}
+
+/* Heading utilities */
+.m-0 {
+  margin: 0;
+}
+
+/* Status badge styles */
+.badge {
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.badge-success {
+  background: var(--accent-green);
+  color: white;
+}
+
+.badge-warning {
+  background: var(--accent-yellow);
+  color: #293045;
+}
+
+.badge-default {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+/* Specific badge styles */
+.savings-badge {
+  background: var(--accent-yellow);
+  color: #293045;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+/* Margin utilities */
+.ml-2 {
+  margin-left: 0.5rem;
+}
