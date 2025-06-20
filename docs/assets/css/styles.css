@@ -858,13 +858,13 @@ footer {
     text-align: left;
   }
   
-  .nav-menu a {
+  .nav-menu li:not(.mobile-menu-buttons) a:not(.btn) {
     font-size: 24px;
     font-weight: 600;
     color: var(--text-primary);
   }
   
-  .nav-menu a:hover {
+  .nav-menu li:not(.mobile-menu-buttons) a:not(.btn):hover {
     color: var(--accent-yellow);
   }
   
