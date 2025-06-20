@@ -858,6 +858,15 @@ footer {
   }
 }
 
+/* Force mobile menu display on iOS */
+@media screen and (max-width: 768px) {
+  body.menu-open .nav-menu {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
 /* Mobile Header CTA */
 .mobile-cta {
   display: none;
@@ -887,7 +896,7 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   h1 {
     font-size: 36px;
     line-height: 36px;
@@ -931,6 +940,7 @@ footer {
   .nav-menu.active {
     display: flex !important;
     opacity: 1;
+    visibility: visible;
   }
   
   .nav-menu li:not(.mobile-menu-header):not(.mobile-menu-buttons) {
