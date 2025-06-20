@@ -803,11 +803,24 @@ footer {
   right: 0;
   bottom: 0;
   background-color: rgb(40, 40, 40);
+  background: rgb(40, 40, 40);
   z-index: 1000;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .mobile-menu-overlay.active {
   display: block;
+}
+
+/* Ensure menu is visible on iOS */
+@media (max-width: 768px) {
+  .nav-menu.active {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
 }
 
 /* Mobile Header CTA */
@@ -887,7 +900,7 @@ footer {
   
   .nav-menu li:not(.mobile-menu-buttons) a:not(.btn) {
     font-size: 18px;
-    color: var(--text-primary);
+    color: var(--text-primary) !important;
     font-weight: 400;
   }
   
