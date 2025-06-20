@@ -798,6 +798,23 @@ footer {
 .nav-menu.active {
   background-color: rgb(40, 40, 40) !important;
   background: rgb(40, 40, 40) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Additional iOS fixes */
+@supports (-webkit-touch-callout: none) {
+  .nav-menu {
+    background-color: rgb(40, 40, 40) !important;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  .nav-menu.active {
+    background-color: rgb(40, 40, 40) !important;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
 }
 
 /* Mobile Header CTA */
