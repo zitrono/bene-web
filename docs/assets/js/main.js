@@ -5,40 +5,28 @@ function initMobileMenu() {
   const menuToggle = document.querySelector('.mobile-menu-toggle');
   const menuClose = document.querySelector('.mobile-menu-close');
   const navMenu = document.querySelector('.nav-menu');
-  const overlay = document.querySelector('.mobile-menu-overlay');
   
   function openMenu() {
     // Store scroll position for iOS
     const scrollY = window.scrollY;
     document.body.dataset.scrollY = scrollY;
     
-    // First show the overlay
-    overlay.style.display = 'block';
-    // Force reflow to ensure the display change is applied
-    overlay.offsetHeight;
-    // Then add active class for animation
-    overlay.classList.add('active');
     navMenu.classList.add('active');
     document.body.classList.add('menu-open');
     
     // iOS Safari fix - prevent background scrolling
     document.body.style.top = `-${scrollY}px`;
+    menuToggle.textContent = '✕';
   }
   
   function closeMenu() {
     navMenu.classList.remove('active');
-    overlay.classList.remove('active');
     document.body.classList.remove('menu-open');
     
     // Restore scroll position for iOS
     const scrollY = parseInt(document.body.dataset.scrollY || '0');
     document.body.style.top = '';
     window.scrollTo(0, scrollY);
-    
-    // Wait for animation to complete before hiding
-    setTimeout(() => {
-      overlay.style.display = 'none';
-    }, 300);
     
     menuToggle.textContent = '☰';
   }
@@ -59,14 +47,14 @@ function initMobileMenu() {
       menuClose.addEventListener('click', closeMenu);
     }
     
-    // Close menu when clicking outside (on overlay area)
-    if (overlay) {
-      overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-          closeMenu();
-        }
-      });
-    }
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('active') && 
+          !menuToggle.contains(e.target) && 
+          !navMenu.contains(e.target)) {
+        closeMenu();
+      }
+    });
     
     // Also handle clicks on nav menu items to close menu
     const navLinks = navMenu.querySelectorAll('a');
