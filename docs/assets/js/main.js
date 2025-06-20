@@ -6,25 +6,37 @@ function initMobileMenu() {
   const menuClose = document.querySelector('.mobile-menu-close');
   const navMenu = document.querySelector('.nav-menu');
   
+  function updateMenuIcon(isOpen) {
+    if (menuToggle) {
+      menuToggle.innerHTML = isOpen 
+        ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"></path></svg>'
+        : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>';
+    }
+  }
+  
   function openMenu() {
     navMenu.classList.add('active');
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    updateMenuIcon(true);
   }
   
   function closeMenu() {
     navMenu.classList.remove('active');
     document.body.style.overflow = ''; // Restore scrolling
-    menuToggle.textContent = '☰';
+    updateMenuIcon(false);
   }
   
   if (menuToggle && navMenu) {
+    // Remove any existing Unicode content
+    if (menuToggle.textContent.trim() === '☰') {
+      menuToggle.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>';
+    }
+    
     menuToggle.addEventListener('click', () => {
       if (navMenu.classList.contains('active')) {
         closeMenu();
-        menuToggle.textContent = '☰';
       } else {
         openMenu();
-        menuToggle.textContent = '✕';
       }
     });
     
@@ -45,6 +57,13 @@ function initMobileMenu() {
     // Close menu on escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        closeMenu();
+      }
+    });
+    
+    // Close mobile menu when resizing to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1023 && navMenu.classList.contains('active')) {
         closeMenu();
       }
     });

@@ -751,15 +751,20 @@ footer {
   background: none;
   border: none;
   color: var(--text-primary);
-  font-size: 1.5rem;
   cursor: pointer;
   width: 44px;
-  height: 52px;
+  height: 44px;
   padding: 10px;
   border-radius: 6px;
   align-items: center;
   justify-content: center;
   transition: var(--transition-hover);
+}
+
+.mobile-menu-toggle svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--text-primary);
 }
 
 .mobile-menu-toggle:hover {
@@ -781,7 +786,7 @@ footer {
 }
 
 /* Mobile-specific overflow prevention */
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   body {
     touch-action: pan-y;
     -webkit-overflow-scrolling: touch;
@@ -795,7 +800,7 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   h1 {
     font-size: 36px;
     line-height: 36px;
