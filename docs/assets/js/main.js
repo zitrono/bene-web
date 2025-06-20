@@ -21,9 +21,12 @@ function initMobileMenu() {
   
   function updateMenuIcon(isOpen) {
     if (menuToggle) {
-      menuToggle.innerHTML = isOpen 
-        ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"></path></svg>'
-        : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>';
+      const svg = menuToggle.querySelector('svg');
+      if (svg) {
+        svg.innerHTML = isOpen 
+          ? '<path d="M18 6L6 18M6 6l12 12"></path>'
+          : '<path d="M3 12h18M3 6h18M3 18h18"></path>';
+      }
     }
   }
   
@@ -44,16 +47,20 @@ function initMobileMenu() {
   }
   
   if (menuToggle && navMenu) {
-    // Remove any existing Unicode content
-    if (menuToggle.textContent.trim() === '☰') {
-      menuToggle.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>';
-    }
+    // Ensure button has proper type attribute
+    menuToggle.setAttribute('type', 'button');
     
     // Set initial ARIA attributes
     menuToggle.setAttribute('aria-expanded', 'false');
     navMenu.setAttribute('aria-hidden', 'true');
     
-    menuToggle.addEventListener('click', () => {
+    // Ensure menu starts closed
+    navMenu.classList.remove('active');
+    
+    menuToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
       if (navMenu.classList.contains('active')) {
         closeMenu();
       } else {
