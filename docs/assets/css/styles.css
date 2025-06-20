@@ -766,7 +766,7 @@ footer {
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
   display: none;
-  background-color: transparent;
+  background-color: var(--bg-primary);
   border: none;
   color: var(--text-primary);
   font-size: 1.5rem;
@@ -779,10 +779,19 @@ footer {
   justify-content: center;
   transition: var(--transition-hover);
   -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .mobile-menu-toggle:hover {
   background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Safari-specific fix for hamburger visibility */
+@supports (-webkit-touch-callout: none) {
+  .mobile-menu-toggle {
+    background-color: rgb(40, 40, 40);
+  }
 }
 
 /* Mobile Header CTA */
@@ -840,17 +849,21 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--bg-primary);
+    background-color: rgb(40, 40, 40);
+    background: rgb(40, 40, 40);
     flex-direction: column;
     padding: var(--space-3) var(--space-4) var(--space-3) var(--space-4);
     z-index: 1001;
     gap: 0;
     align-items: flex-start !important;
     list-style: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
   
   .nav-menu.active {
     display: flex !important;
+    opacity: 1;
   }
   
   .nav-menu li:not(.mobile-menu-header):not(.mobile-menu-buttons) {
