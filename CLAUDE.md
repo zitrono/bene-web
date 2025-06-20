@@ -182,6 +182,19 @@ Before pushing changes:
 "Test dropdown animation: screenshot closed, trigger open, capture 5 frames during transition, screenshot open"
 ```
 
+### iOS Testing
+```bash
+# Note: Use screenshots instead of video for easier analysis
+# Basic iOS simulator testing
+"Open http://localhost:8080 in iOS simulator and take screenshot"
+
+# Test mobile interactions with Puppeteer (recommended)
+"Navigate to http://localhost:8080 with 390x844 viewport (iPhone 14 Pro), test mobile menu functionality"
+
+# iOS-specific viewport testing
+"Test at iPhone SE (375x667), iPhone 14 (390x844), and iPad (768x1024) viewports"
+```
+
 ### Custom Slash Commands
 Create reusable testing commands in `.claude/commands/`:
 
