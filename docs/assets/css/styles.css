@@ -182,14 +182,14 @@ nav {
   align-items: center;
 }
 
-.nav-menu a {
+.nav-menu a:not(.btn) {
   color: rgba(255, 246, 238, 0.72);
   font-size: 16px;
   font-weight: 600;
   transition: var(--transition-hover);
 }
 
-.nav-menu a:hover {
+.nav-menu a:not(.btn):hover {
   color: var(--text-primary);
 }
 
@@ -218,7 +218,7 @@ nav {
 /* Primary Button */
 .btn-primary {
   background-color: var(--accent-yellow);
-  color: rgb(41, 48, 69);
+  color: rgb(41, 48, 69) !important;
   font-weight: 500;
 }
 
@@ -240,7 +240,7 @@ nav {
 /* Secondary Button */
 .btn-secondary {
   background-color: rgb(53, 53, 53);
-  color: rgb(255, 246, 238);
+  color: rgb(255, 246, 238) !important;
   border: 1px solid rgba(255, 255, 255, 0.1);
   font-weight: 500;
 }
