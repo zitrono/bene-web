@@ -18,12 +18,16 @@ function initMobileMenu() {
     navMenu.classList.add('active');
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
     updateMenuIcon(true);
+    menuToggle.setAttribute('aria-expanded', 'true');
+    navMenu.setAttribute('aria-hidden', 'false');
   }
   
   function closeMenu() {
     navMenu.classList.remove('active');
     document.body.style.overflow = ''; // Restore scrolling
     updateMenuIcon(false);
+    menuToggle.setAttribute('aria-expanded', 'false');
+    navMenu.setAttribute('aria-hidden', 'true');
   }
   
   if (menuToggle && navMenu) {
@@ -31,6 +35,10 @@ function initMobileMenu() {
     if (menuToggle.textContent.trim() === '☰') {
       menuToggle.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>';
     }
+    
+    // Set initial ARIA attributes
+    menuToggle.setAttribute('aria-expanded', 'false');
+    navMenu.setAttribute('aria-hidden', 'true');
     
     menuToggle.addEventListener('click', () => {
       if (navMenu.classList.contains('active')) {
@@ -58,6 +66,26 @@ function initMobileMenu() {
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && navMenu.classList.contains('active')) {
         closeMenu();
+        menuToggle.focus(); // Return focus to toggle button
+      }
+    });
+    
+    // Trap focus within menu when open
+    navMenu.addEventListener('keydown', (e) => {
+      if (!navMenu.classList.contains('active')) return;
+      
+      const focusableElements = navMenu.querySelectorAll('a, button');
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+      
+      if (e.key === 'Tab') {
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
       }
     });
     
