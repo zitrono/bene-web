@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Requests | Hero Product</title>
+    <meta name="description" content="Submit feature requests and feedback for Hero Product">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="/" class="logo">hero</a>
+            <ul class="nav-menu">
+                <li><a href="/">Features</a></li>
+                <li><a href="/company.html">Company</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="#" class="btn btn-secondary">Log In</a></li>
+                <li><a href="#" class="btn btn-primary">Get Started for Free</a></li>
+            </ul>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 50vh;">
+        <div class="container">
+            <h1 data-animate>Help Shape Hero's Future</h1>
+            <p data-animate>Your feedback drives our product development. Tell us what features you'd like to see next.</p>
+        </div>
+    </section>
+
+    <!-- Popular Requests -->
+    <section class="features">
+        <div class="container">
+            <h2 class="text-center mb-5" data-animate>Popular Feature Requests</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-animate>
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <h3 style="margin: 0;">Dark Mode for Mobile App</h3>
+                        <span style="background: var(--accent-green); color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.75rem;">In Progress</span>
+                    </div>
+                    <p>Add dark mode support to the mobile application for better nighttime usage.</p>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem;">
+                        <button class="btn btn-secondary" style="padding: 0.5rem 1rem;">↑ 256 votes</button>
+                        <span style="color: var(--text-secondary); font-size: 0.875rem;">Planned for Q1 2024</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-animate>
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <h3 style="margin: 0;">Calendar Integration</h3>
+                        <span style="background: var(--accent-yellow); color: #293045; padding: 4px 12px; border-radius: 4px; font-size: 0.75rem;">Under Review</span>
+                    </div>
+                    <p>Sync with Google Calendar, Outlook, and other calendar services for better scheduling.</p>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem;">
+                        <button class="btn btn-secondary" style="padding: 0.5rem 1rem;">↑ 189 votes</button>
+                        <span style="color: var(--text-secondary); font-size: 0.875rem;">Under consideration</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-animate>
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <h3 style="margin: 0;">Team Collaboration</h3>
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.75rem;">Planned</span>
+                    </div>
+                    <p>Share email templates and collaborate on drafts with team members.</p>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem;">
+                        <button class="btn btn-secondary" style="padding: 0.5rem 1rem;">↑ 142 votes</button>
+                        <span style="color: var(--text-secondary); font-size: 0.875rem;">Coming soon</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submit Request Form -->
+    <section class="features" style="background-color: var(--bg-secondary);">
+        <div class="container">
+            <div style="max-width: 700px; margin: 0 auto;">
+                <h2 class="text-center mb-4" data-animate>Submit a Feature Request</h2>
+                <form data-validate data-animate>
+                    <div class="form-group">
+                        <label>Feature Title</label>
+                        <input type="text" required placeholder="Brief title for your feature idea">
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select style="width: 100%; padding: 0.75rem; background-color: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--border-radius); color: var(--text-primary);">
+                            <option>Email Management</option>
+                            <option>AI Features</option>
+                            <option>Integrations</option>
+                            <option>Mobile App</option>
+                            <option>Security</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea rows="6" required placeholder="Describe your feature request in detail. What problem does it solve? How would it work?"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Email (optional)</label>
+                        <input type="email" placeholder="email@example.com (to receive updates)">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Feature Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Preview -->
+    <section class="features">
+        <div class="container">
+            <h2 class="text-center mb-5" data-animate>Product Roadmap</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="feature-card" data-animate>
+                    <h3>🚀 Q1 2024</h3>
+                    <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                        <li>Mobile app dark mode</li>
+                        <li>Advanced email templates</li>
+                        <li>Slack integration</li>
+                    </ul>
+                </div>
+                <div class="feature-card mt-3" data-animate>
+                    <h3>🎯 Q2 2024</h3>
+                    <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                        <li>Team collaboration features</li>
+                        <li>API for developers</li>
+                        <li>Enhanced AI capabilities</li>
+                    </ul>
+                </div>
+                <div class="feature-card mt-3" data-animate>
+                    <h3>🔮 Future</h3>
+                    <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                        <li>Voice commands</li>
+                        <li>Advanced analytics</li>
+                        <li>Enterprise features</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Features</a></li>
+                        <li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="/company.html">About</a></li>
+                        <li><a href="/affiliate.html">Affiliate</a></li>
+                        <li><a href="/feedback.html">Feature Requests</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="/terms.html">Terms</a></li>
+                        <li><a href="/privacy.html">Privacy</a></li>
+                        <li><a href="/extension-privacy.html">Extension Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Hero Labs, Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner hidden">
+        <div class="cookie-content">
+            <h3>Cookie Preferences</h3>
+            <p>We use cookies to enhance your experience. Choose your preferences below. Read about our privacy policy <a href="/privacy.html" style="text-decoration: underline;">here</a>.</p>
+            <div class="cookie-buttons">
+                <button class="btn btn-secondary cookie-settings">Settings</button>
+                <button class="btn btn-secondary cookie-reject">Reject</button>
+                <button class="btn btn-primary cookie-accept">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -3,57 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World - Beneficious</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        
-        .container {
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-        
-        p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #FE530D;
-            margin-bottom: 2rem;
-        }
-        
-        .note {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-top: 2rem;
-        }
-    </style>
+    <title>Hero Product | AI Assistant That Understands Your Voice</title>
+    <meta name="description" content="Hero description text that captures the essence of your product in a compelling way">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Hero Product | AI Assistant">
+    <meta property="og:description" content="Hero description text">
+    <meta property="og:image" content="/assets/images/og-image.png">
+    <meta property="og:type" content="website">
 </head>
 <body>
-    <div class="container">
-        <div class="logo">Beneficious</div>
-        <h1>Hello World</h1>
-        <p>Welcome to the future of AI-native private equity.</p>
-        <div class="note">Site under construction...</div>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="/" class="logo">hero</a>
+            <ul class="nav-menu">
+                <li><a href="/">Features</a></li>
+                <li><a href="/company.html">Company</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="#" class="btn btn-secondary">Log In</a></li>
+                <li><a href="#" class="btn btn-primary">Get Started for Free</a></li>
+            </ul>
+            <a href="#" class="btn btn-primary mobile-cta">Get Started for Free</a>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 data-animate>Gain 2 Hours<br>Daily with Hero</h1>
+            <p data-animate>Start your day with emails organized, drafts ready in your voice, and daily brief for maximum efficiency.</p>
+            <a href="#" class="btn btn-primary" data-animate>Get Started for Free</a>
+            
+            <!-- Trust Badges -->
+            <div class="trust-badges" data-animate>
+                <div class="badge">
+                    <span class="badge-icon">🔒</span>
+                    <span>CASA TIER 3<br>CERTIFIED</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">🔒</span>
+                    <span>CCPA</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">🔒</span>
+                    <span>GDPR</span>
+                </div>
+                <div class="badge badge-users">
+                    <div class="user-avatars">
+                        <span class="user-avatar">👤</span>
+                        <span class="user-avatar">👤</span>
+                        <span class="user-avatar">👤</span>
+                        <span class="user-avatar">👤</span>
+                        <span class="user-avatar">👤</span>
+                    </div>
+                    <span>Join 1000+<br>enthusiasts</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companies Section -->
+    <section class="companies">
+        <div class="container text-center">
+            <p>Built by engineers from</p>
+            <div class="company-logos">
+                <div class="company-logo">Tesla</div>
+                <div class="company-logo">Moon</div>
+                <div class="company-logo">Optiver</div>
+                <div class="company-logo">Oculus</div>
+                <div class="company-logo">Oxford</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="text-center" data-animate>Powerful Features</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-animate>
+                    <div class="feature-icon gradient-bg-1">✉️</div>
+                    <h3>Auto Drafts</h3>
+                    <p>Automatically generate email drafts in your unique writing style and voice.</p>
+                </div>
+                <div class="feature-card" data-animate>
+                    <div class="feature-icon gradient-bg-2">📅</div>
+                    <h3>Smart Calendar</h3>
+                    <p>Schedule meetings effortlessly with intelligent time slot suggestions.</p>
+                </div>
+                <div class="feature-card" data-animate>
+                    <div class="feature-icon gradient-bg-1">🏷️</div>
+                    <h3>Labels & Organization</h3>
+                    <p>Auto-label and organize every email effortlessly with custom rules.</p>
+                </div>
+                <div class="feature-card" data-animate>
+                    <div class="feature-icon gradient-bg-2">💬</div>
+                    <h3>Intelligent Chat</h3>
+                    <p>Ask questions about your emails and attachments with AI assistance.</p>
+                </div>
+                <div class="feature-card" data-animate>
+                    <div class="feature-icon gradient-bg-1">⚡</div>
+                    <h3>Smart Rules</h3>
+                    <p>Automate your inbox with intelligent rules and workflows.</p>
+                </div>
+                <div class="feature-card" data-animate>
+                    <div class="feature-icon gradient-bg-2">🔗</div>
+                    <h3>Integrations</h3>
+                    <p>Seamlessly integrate with your favorite productivity tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 data-animate>Simple Pricing</h2>
+            <div class="pricing-toggle" data-animate>
+                <button class="toggle-option active" data-period="yearly">
+                    Yearly <span class="savings-badge" style="background: var(--accent-yellow); color: #293045; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-left: 0.5rem;">2 months free</span>
+                </button>
+                <button class="toggle-option" data-period="monthly">Monthly</button>
+            </div>
+            
+            <div class="pricing-card" data-animate>
+                <h3>Plus</h3>
+                <p>Level up your productivity and creativity</p>
+                <div class="price">
+                    $16.67<span class="price-period">/month</span>
+                </div>
+                <p style="font-size: 0.875rem; margin: 1rem 0;">Pay yearly, 7 day free trial</p>
+                
+                <a href="#" class="btn btn-primary" style="width: 100%; margin: 1rem 0;">Get Started for Free</a>
+                
+                <p style="font-size: 0.875rem; color: var(--text-secondary);">Unconditional 14-day money back guarantee</p>
+                
+                <ul class="features-list">
+                    <li>Hero drafts 24/7—so when you open your inbox, drafts are waiting for you</li>
+                    <li>AI agent that drafts emails in your unique style</li>
+                    <li>Ask questions about your emails and attachments</li>
+                    <li>Auto-label and organize every email effortlessly</li>
+                    <li>Create custom labels with a simple prompt</li>
+                    <li>Sync drafts and labels with Gmail for seamless mobile access</li>
+                    <li>Schedule meetings effortlessly—Hero suggests the best time slots</li>
+                    <li>Automate your inbox with intelligent rules</li>
+                    <li>Stay on top of your day with daily briefings</li>
+                    <li>AI-powered search that understands context, not just keywords</li>
+                    <li>Supercharge your workflow with seamless integrations</li>
+                    <li>3 years of email history</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="text-center" data-animate>What Users Say</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-animate>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.1);"></div>
+                        <div>
+                            <h4 style="margin: 0; font-size: 1rem;">User Name</h4>
+                            <p style="margin: 0; font-size: 0.875rem;">@username</p>
+                        </div>
+                    </div>
+                    <p>"This is placeholder testimonial text that describes how amazing the product is and how it has transformed their workflow."</p>
+                </div>
+                <div class="feature-card" data-animate>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.1);"></div>
+                        <div>
+                            <h4 style="margin: 0; font-size: 1rem;">Another User</h4>
+                            <p style="margin: 0; font-size: 0.875rem;">@anotheruser</p>
+                        </div>
+                    </div>
+                    <p>"More placeholder text about the incredible features and time-saving capabilities of this revolutionary product."</p>
+                </div>
+                <div class="feature-card" data-animate>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.1);"></div>
+                        <div>
+                            <h4 style="margin: 0; font-size: 1rem;">Third User</h4>
+                            <p style="margin: 0; font-size: 0.875rem;">@thirduser</p>
+                        </div>
+                    </div>
+                    <p>"Yet another glowing review about how this product has revolutionized email management and productivity."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Features</a></li>
+                        <li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="/company.html">About</a></li>
+                        <li><a href="/affiliate.html">Affiliate</a></li>
+                        <li><a href="/feedback.html">Feature Requests</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="/terms.html">Terms</a></li>
+                        <li><a href="/privacy.html">Privacy</a></li>
+                        <li><a href="/extension-privacy.html">Extension Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Hero Labs, Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner hidden">
+        <div class="cookie-content">
+            <h3>Cookie Preferences</h3>
+            <p>We use cookies to enhance your experience. Choose your preferences below. Read about our privacy policy <a href="/privacy.html" style="text-decoration: underline;">here</a>.</p>
+            <div class="cookie-buttons">
+                <button class="btn btn-secondary cookie-settings">Settings</button>
+                <button class="btn btn-secondary cookie-reject">Reject</button>
+                <button class="btn btn-primary cookie-accept">Accept</button>
+            </div>
+        </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
