@@ -1157,3 +1157,55 @@ footer {
 .hidden {
   display: none !important;
 }
+
+/* Typography utilities */
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+/* Layout utilities */
+.max-w-800 {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pt-8 {
+  padding-top: 8rem;
+}
+
+/* Background utilities */
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+/* List utilities */
+.list-indent {
+  margin-left: 2rem;
+  color: var(--text-secondary);
+}
+
+/* Flex utilities */
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.flex-center-gap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Width utilities */
+.w-full {
+  width: 100%;
+}
