@@ -1,5 +1,18 @@
 // Main JavaScript file for site functionality
 
+// Debounce utility function
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
 // Mobile Menu Toggle
 function initMobileMenu() {
   const menuToggle = document.querySelector('.mobile-menu-toggle');
@@ -89,12 +102,33 @@ function initMobileMenu() {
       }
     });
     
-    // Close mobile menu when resizing to desktop
-    window.addEventListener('resize', () => {
+  }
+}
+
+// Store resize handler reference to prevent multiple listeners
+let resizeHandler = null;
+
+// Initialize resize handler for mobile menu
+function initResizeHandler() {
+  const navMenu = document.querySelector('.nav-menu');
+  
+  if (!resizeHandler && navMenu) {
+    resizeHandler = debounce(() => {
       if (window.innerWidth > 1023 && navMenu.classList.contains('active')) {
-        closeMenu();
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        if (menuToggle) {
+          menuToggle.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>';
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+        
+        navMenu.setAttribute('aria-hidden', 'true');
       }
-    });
+    }, 250);
+    
+    window.addEventListener('resize', resizeHandler);
   }
 }
 
@@ -252,6 +286,7 @@ function initVideoPlayer() {
 // Initialize all functions when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
+  initResizeHandler();
   initPricingToggle();
   initCookieBanner();
   initSmoothScroll();
