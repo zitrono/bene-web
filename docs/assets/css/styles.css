@@ -162,7 +162,7 @@ nav {
 }
 
 .nav-menu a {
-  color: var(--text-secondary);
+  color: rgba(255, 246, 238, 0.72);
   font-size: 16px;
   font-weight: 600;
   transition: var(--transition-hover);
@@ -219,7 +219,7 @@ nav {
 /* Secondary Button */
 .btn-secondary {
   background-color: rgb(53, 53, 53);
-  color: var(--text-primary);
+  color: rgb(255, 246, 238);
   border: 1px solid rgba(255, 255, 255, 0.1);
   font-weight: 500;
 }
@@ -479,6 +479,12 @@ nav {
 /* Pricing Section */
 .pricing {
   padding: var(--space-16) var(--container-padding) 0px;
+  text-align: center;
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: var(--space-20) var(--container-padding) 0px;
   text-align: center;
 }
 
@@ -842,7 +848,8 @@ footer {
   }
   
   .mobile-cta {
-    display: block;
+    display: flex;
+    align-items: center;
     margin-right: var(--space-2);
   }
   
