@@ -14,6 +14,10 @@ function initMobileMenu() {
     navMenu.classList.add('active');
     document.body.classList.add('menu-open');
     
+    // Force background color with inline style for iOS
+    navMenu.style.backgroundColor = 'rgb(40, 40, 40)';
+    navMenu.style.background = 'rgb(40, 40, 40)';
+    
     // iOS Safari fix - prevent background scrolling
     document.body.style.top = `-${scrollY}px`;
     menuToggle.textContent = '✕';
@@ -22,6 +26,10 @@ function initMobileMenu() {
   function closeMenu() {
     navMenu.classList.remove('active');
     document.body.classList.remove('menu-open');
+    
+    // Clear inline styles
+    navMenu.style.backgroundColor = '';
+    navMenu.style.background = '';
     
     // Restore scroll position for iOS
     const scrollY = parseInt(document.body.dataset.scrollY || '0');
