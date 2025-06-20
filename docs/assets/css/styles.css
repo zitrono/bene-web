@@ -114,6 +114,7 @@ a {
   color: var(--text-primary);
   text-decoration: none;
   transition: var(--transition-hover);
+  font-weight: 600;
 }
 
 a:hover {
@@ -859,8 +860,7 @@ footer {
   }
   
   .nav-menu li:not(.mobile-menu-buttons) a:not(.btn) {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 1.5rem;
     color: var(--text-primary);
   }
   
@@ -896,24 +896,27 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--space-6);
-    padding: var(--space-2) 0 var(--space-3);
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-3);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   .mobile-menu-close {
     background: none;
     border: none;
-    color: var(--text-primary);
-    font-size: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    font-weight: 400;
     cursor: pointer;
-    width: 44px;
-    height: 44px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 6px;
     transition: var(--transition-hover);
+    padding: 0;
+    line-height: 1;
   }
   
   .mobile-menu-close:hover {
