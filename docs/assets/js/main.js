@@ -51,17 +51,42 @@ function initMobileMenu() {
   }
   
   if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
+    let touchHandled = false;
+    
+    // Handle menu toggle with debouncing for iOS
+    const handleMenuToggle = (e) => {
+      // Prevent double firing on iOS
+      if (e.type === 'touchend') {
+        touchHandled = true;
+        setTimeout(() => { touchHandled = false; }, 300);
+      } else if (e.type === 'click' && touchHandled) {
+        return;
+      }
+      
+      e.preventDefault();
+      e.stopPropagation();
+      
       if (navMenu.classList.contains('active')) {
         closeMenu();
       } else {
         openMenu();
       }
-    });
+    };
+    
+    // iOS prefers touchend over click
+    menuToggle.addEventListener('touchend', handleMenuToggle, { passive: false });
+    menuToggle.addEventListener('click', handleMenuToggle);
     
     // Close button
     if (menuClose) {
-      menuClose.addEventListener('click', closeMenu);
+      const handleClose = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        closeMenu();
+      };
+      
+      menuClose.addEventListener('click', handleClose);
+      menuClose.addEventListener('touchend', handleClose);
     }
     
     // Close menu when clicking outside

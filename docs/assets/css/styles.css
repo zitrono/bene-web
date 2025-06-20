@@ -863,6 +863,17 @@ footer {
 @supports (-webkit-touch-callout: none) {
   .mobile-menu-toggle {
     background-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* iOS Safari menu fixes */
+  .nav-menu {
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+  }
+  
+  .nav-menu.active {
+    -webkit-overflow-scrolling: touch;
     border: 1px solid rgba(255, 255, 255, 0.15);
   }
 }
@@ -942,6 +953,10 @@ footer {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    /* iOS-specific fixes */
+    -webkit-overflow-scrolling: auto;
+    height: 100vh;
+    height: -webkit-fill-available;
   }
   
   /* Hide all page content when menu is open */
@@ -1013,6 +1028,9 @@ footer {
     visibility: visible;
     background-color: rgb(40, 40, 40) !important;
     background: rgb(40, 40, 40) !important;
+    /* iOS safe area support */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
   }
   
   .nav-menu li:not(.mobile-menu-header):not(.mobile-menu-buttons) {

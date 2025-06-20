@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>iOS Menu Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #282828;
+            color: white;
+            font-family: -apple-system, sans-serif;
+        }
+        
+        .test-container {
+            padding: 20px;
+        }
+        
+        .test-hamburger {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 20px;
+        }
+        
+        .test-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgb(40, 40, 40);
+            transform: translateX(-100%);
+            transition: transform 0.3s;
+            padding: 20px;
+            z-index: 9999;
+        }
+        
+        .test-menu.active {
+            transform: translateX(0);
+        }
+        
+        .log {
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h2>Simple iOS Menu Test</h2>
+        
+        <button class="test-hamburger" id="testHamburger">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M3 12h18M3 6h18M3 18h18"></path>
+            </svg>
+        </button>
+        
+        <div class="test-menu" id="testMenu">
+            <h3>Test Menu</h3>
+            <button onclick="closeTestMenu()">Close Menu</button>
+            <p>Menu content here</p>
+        </div>
+        
+        <div class="log" id="log"></div>
+    </div>
+    
+    <script>
+        const log = (msg) => {
+            const logEl = document.getElementById('log');
+            const time = new Date().toLocaleTimeString();
+            logEl.textContent += `[${time}] ${msg}\n`;
+        };
+        
+        const hamburger = document.getElementById('testHamburger');
+        const menu = document.getElementById('testMenu');
+        
+        log('Page loaded');
+        log('Touch support: ' + ('ontouchstart' in window));
+        
+        // Track all events
+        ['touchstart', 'touchend', 'click', 'mousedown', 'mouseup'].forEach(eventType => {
+            hamburger.addEventListener(eventType, (e) => {
+                log(`Hamburger ${eventType} event fired`);
+            }, { passive: false });
+        });
+        
+        // Main handler
+        const toggleMenu = (e) => {
+            e.preventDefault();
+            log('Toggle menu called');
+            
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                log('Menu closed');
+            } else {
+                menu.classList.add('active');
+                log('Menu opened');
+            }
+        };
+        
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('touchend', toggleMenu);
+        
+        window.closeTestMenu = () => {
+            menu.classList.remove('active');
+            log('Menu closed via button');
+        };
+    </script>
+</body>
+</html>
