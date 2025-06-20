@@ -823,19 +823,25 @@ footer {
     bottom: 0;
     background-color: var(--bg-primary);
     flex-direction: column;
-    padding: var(--space-12) var(--space-4) var(--space-4);
+    padding: var(--space-3) var(--space-3) var(--space-3);
     z-index: 1001;
-    gap: var(--space-4);
+    gap: 0;
+    align-items: flex-start;
   }
   
   .nav-menu.active {
     display: flex;
   }
   
-  .nav-menu a {
-    font-size: 18px;
-    font-weight: 600;
+  .nav-menu li:not(.mobile-menu-header):not(.mobile-menu-buttons) {
     padding: var(--space-2) 0;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .nav-menu a {
+    font-size: 24px;
+    font-weight: 600;
     color: var(--text-primary);
   }
   
@@ -853,27 +859,27 @@ footer {
     margin-right: var(--space-2);
   }
   
-  .nav-menu .btn {
-    align-self: flex-start;
-    margin-top: var(--space-6);
+  .mobile-menu-buttons {
+    display: flex;
+    gap: var(--space-2);
+    margin-top: auto;
+    align-self: stretch;
+    padding-top: var(--space-3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
   
-  .nav-menu .btn-primary {
-    display: flex;
-  }
-  
-  .nav-menu .btn-secondary {
-    display: flex;
-    margin-bottom: var(--space-2);
+  .mobile-menu-buttons .btn {
+    flex: 1;
+    text-align: center;
   }
   
   .mobile-menu-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--space-4);
-    padding-bottom: var(--space-3);
-    border-bottom: 1px solid var(--border-standard);
+    margin-bottom: var(--space-6);
+    padding: var(--space-2) 0 var(--space-3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   .mobile-menu-close {
