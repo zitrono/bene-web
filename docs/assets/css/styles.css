@@ -815,7 +815,7 @@ footer {
   }
   
   .nav-menu {
-    display: none;
+    display: none !important;
     position: fixed;
     top: 0;
     left: 0;
@@ -823,14 +823,15 @@ footer {
     bottom: 0;
     background-color: var(--bg-primary);
     flex-direction: column;
-    padding: var(--space-3) var(--space-3) var(--space-3);
+    padding: var(--space-3) var(--space-4) var(--space-3) var(--space-4);
     z-index: 1001;
     gap: 0;
-    align-items: flex-start;
+    align-items: flex-start !important;
+    list-style: none;
   }
   
   .nav-menu.active {
-    display: flex;
+    display: flex !important;
   }
   
   .nav-menu li:not(.mobile-menu-header):not(.mobile-menu-buttons) {
