@@ -114,7 +114,6 @@ a {
   color: var(--text-primary);
   text-decoration: none;
   transition: var(--transition-hover);
-  font-weight: 600;
 }
 
 a:hover {
@@ -174,7 +173,7 @@ nav {
 .nav-menu a:not(.btn) {
   color: rgba(255, 246, 238, 0.72) !important;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   transition: var(--transition-hover);
 }
 
@@ -862,6 +861,7 @@ footer {
   .nav-menu li:not(.mobile-menu-buttons) a:not(.btn) {
     font-size: 1.5rem;
     color: var(--text-primary);
+    font-weight: 400;
   }
   
   .nav-menu li:not(.mobile-menu-buttons) a:not(.btn):hover {
