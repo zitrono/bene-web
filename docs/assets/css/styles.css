@@ -766,7 +766,7 @@ footer {
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
   display: none;
-  background: none;
+  background-color: transparent;
   border: none;
   color: var(--text-primary);
   font-size: 1.5rem;
@@ -778,6 +778,7 @@ footer {
   align-items: center;
   justify-content: center;
   transition: var(--transition-hover);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-menu-toggle:hover {
@@ -859,7 +860,7 @@ footer {
   }
   
   .nav-menu li:not(.mobile-menu-buttons) a:not(.btn) {
-    font-size: 1.5rem;
+    font-size: 18px;
     color: var(--text-primary);
     font-weight: 400;
   }
@@ -917,6 +918,7 @@ footer {
     transition: var(--transition-hover);
     padding: 0;
     line-height: 1;
+    margin-right: -8px;
   }
   
   .mobile-menu-close:hover {
