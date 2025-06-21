@@ -314,6 +314,219 @@ class JaceHomePage {
       return false;
     }
   }
+  
+  // Get detailed element measurements
+  async getElementMeasurements(selector) {
+    return await this.page.evaluate((sel) => {
+      const element = document.querySelector(sel);
+      if (!element) return null;
+      
+      const rect = element.getBoundingClientRect();
+      const styles = getComputedStyle(element);
+      
+      return {
+        dimensions: {
+          width: rect.width,
+          height: rect.height,
+          top: rect.top,
+          left: rect.left
+        },
+        spacing: {
+          padding: styles.padding,
+          paddingTop: styles.paddingTop,
+          paddingRight: styles.paddingRight,
+          paddingBottom: styles.paddingBottom,
+          paddingLeft: styles.paddingLeft,
+          margin: styles.margin,
+          marginTop: styles.marginTop,
+          marginRight: styles.marginRight,
+          marginBottom: styles.marginBottom,
+          marginLeft: styles.marginLeft
+        },
+        typography: {
+          fontSize: styles.fontSize,
+          fontWeight: styles.fontWeight,
+          lineHeight: styles.lineHeight,
+          letterSpacing: styles.letterSpacing,
+          textTransform: styles.textTransform
+        },
+        appearance: {
+          backgroundColor: styles.backgroundColor,
+          color: styles.color,
+          borderRadius: styles.borderRadius,
+          border: styles.border,
+          boxShadow: styles.boxShadow
+        }
+      };
+    }, selector);
+  }
+  
+  // Get all button styles and sizes
+  async getButtonStyles() {
+    return await this.page.evaluate(() => {
+      const buttons = Array.from(document.querySelectorAll('a.btn, a[class*="button"], button'));
+      
+      return buttons.map(btn => {
+        const rect = btn.getBoundingClientRect();
+        const styles = getComputedStyle(btn);
+        
+        return {
+          text: btn.textContent.trim(),
+          selector: btn.className || btn.tagName.toLowerCase(),
+          dimensions: {
+            width: rect.width,
+            height: rect.height
+          },
+          typography: {
+            fontSize: styles.fontSize,
+            fontWeight: styles.fontWeight,
+            lineHeight: styles.lineHeight,
+            textTransform: styles.textTransform
+          },
+          spacing: {
+            padding: styles.padding,
+            paddingX: `${styles.paddingLeft} ${styles.paddingRight}`,
+            paddingY: `${styles.paddingTop} ${styles.paddingBottom}`
+          },
+          appearance: {
+            backgroundColor: styles.backgroundColor,
+            color: styles.color,
+            borderRadius: styles.borderRadius,
+            border: styles.border,
+            boxShadow: styles.boxShadow
+          },
+          hover: btn.matches(':hover') ? 'checking' : 'use DevTools'
+        };
+      });
+    });
+  }
+  
+  // Get comprehensive layout measurements
+  async getLayoutMeasurements() {
+    return await this.page.evaluate(() => {
+      const measurements = {
+        viewport: {
+          width: window.innerWidth,
+          height: window.innerHeight
+        },
+        container: null,
+        navigation: null,
+        hero: null,
+        sections: []
+      };
+      
+      // Measure container
+      const container = document.querySelector('.container, .max-w-7xl, [class*="container"]');
+      if (container) {
+        const rect = container.getBoundingClientRect();
+        const styles = getComputedStyle(container);
+        measurements.container = {
+          width: rect.width,
+          maxWidth: styles.maxWidth,
+          padding: styles.padding,
+          margin: styles.margin
+        };
+      }
+      
+      // Measure navigation
+      const nav = document.querySelector('nav, header');
+      if (nav) {
+        const rect = nav.getBoundingClientRect();
+        const styles = getComputedStyle(nav);
+        measurements.navigation = {
+          height: rect.height,
+          padding: styles.padding,
+          position: styles.position,
+          backgroundColor: styles.backgroundColor
+        };
+      }
+      
+      // Measure hero section
+      const hero = document.querySelector('h1')?.closest('section, div[class*="hero"], main > div');
+      if (hero) {
+        const rect = hero.getBoundingClientRect();
+        const styles = getComputedStyle(hero);
+        measurements.hero = {
+          height: rect.height,
+          padding: styles.padding,
+          marginTop: styles.marginTop,
+          marginBottom: styles.marginBottom
+        };
+      }
+      
+      // Measure all sections
+      const sections = document.querySelectorAll('section, main > div');
+      sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        const styles = getComputedStyle(section);
+        measurements.sections.push({
+          index: index,
+          height: rect.height,
+          padding: styles.padding,
+          margin: styles.margin,
+          backgroundColor: styles.backgroundColor
+        });
+      });
+      
+      return measurements;
+    });
+  }
+  
+  // Get text element sizes throughout the page
+  async getTextElementSizes() {
+    return await this.page.evaluate(() => {
+      const textElements = {
+        h1: [],
+        h2: [],
+        h3: [],
+        p: [],
+        links: []
+      };
+      
+      // Helper to extract text metrics
+      const getTextMetrics = (element) => {
+        const styles = getComputedStyle(element);
+        const rect = element.getBoundingClientRect();
+        
+        return {
+          text: element.textContent.trim().substring(0, 50) + '...',
+          fontSize: styles.fontSize,
+          fontWeight: styles.fontWeight,
+          lineHeight: styles.lineHeight,
+          color: styles.color,
+          width: rect.width,
+          height: rect.height
+        };
+      };
+      
+      // Collect all text elements
+      document.querySelectorAll('h1').forEach(el => {
+        textElements.h1.push(getTextMetrics(el));
+      });
+      
+      document.querySelectorAll('h2').forEach(el => {
+        textElements.h2.push(getTextMetrics(el));
+      });
+      
+      document.querySelectorAll('h3').forEach(el => {
+        textElements.h3.push(getTextMetrics(el));
+      });
+      
+      document.querySelectorAll('p').forEach(el => {
+        if (el.textContent.trim()) {
+          textElements.p.push(getTextMetrics(el));
+        }
+      });
+      
+      document.querySelectorAll('a:not(.btn):not([class*="button"])').forEach(el => {
+        if (el.textContent.trim()) {
+          textElements.links.push(getTextMetrics(el));
+        }
+      });
+      
+      return textElements;
+    });
+  }
 }
 
 module.exports = JaceHomePage;
