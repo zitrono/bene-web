@@ -1,5 +1,5 @@
 {
-  "captureDate": "2025-06-21T04:19:00.353Z",
+  "captureDate": "2025-06-21T04:27:04.586Z",
   "pageTitle": "Jace AI | Email Assistant That Understands Your Voice",
   "viewports": {
     "desktop": {
@@ -26,46 +26,6 @@
             "text": "Log In",
             "href": "https://app.jace.ai/signin",
             "isButton": true
-          },
-          {
-            "text": "Company",
-            "href": "https://jace.ai/about",
-            "isButton": false
-          },
-          {
-            "text": "Pricing",
-            "href": "https://jace.ai/#pricing",
-            "isButton": false
-          },
-          {
-            "text": "Blog",
-            "href": "https://jace.ai/blog",
-            "isButton": false
-          },
-          {
-            "text": "Affiliate",
-            "href": "https://jace.ai/affiliate",
-            "isButton": false
-          },
-          {
-            "text": "Feature Requests",
-            "href": "https://app.jace.ai/feedback",
-            "isButton": false
-          },
-          {
-            "text": "Terms",
-            "href": "https://jace.ai/terms",
-            "isButton": false
-          },
-          {
-            "text": "Privacy",
-            "href": "https://jace.ai/privacy",
-            "isButton": false
-          },
-          {
-            "text": "Extension Policy",
-            "href": "https://jace.ai/extension-privacy",
-            "isButton": false
           }
         ]
       },
@@ -94,7 +54,13 @@
           "Company",
           "Pricing",
           "Blog",
-          "Log In",
+          "Log In"
+        ],
+        "hero": [],
+        "features": [
+          "Save hours daily"
+        ],
+        "footer": [
           "Features",
           "Company",
           "Pricing",
@@ -104,12 +70,7 @@
           "Terms",
           "Privacy",
           "Extension Policy"
-        ],
-        "hero": [],
-        "features": [
-          "Save hours daily"
-        ],
-        "footer": []
+        ]
       }
     },
     "tablet": {
@@ -136,46 +97,6 @@
             "text": "Log In",
             "href": "https://app.jace.ai/signin",
             "isButton": true
-          },
-          {
-            "text": "Company",
-            "href": "https://jace.ai/about",
-            "isButton": false
-          },
-          {
-            "text": "Pricing",
-            "href": "https://jace.ai/#pricing",
-            "isButton": false
-          },
-          {
-            "text": "Blog",
-            "href": "https://jace.ai/blog",
-            "isButton": false
-          },
-          {
-            "text": "Affiliate",
-            "href": "https://jace.ai/affiliate",
-            "isButton": false
-          },
-          {
-            "text": "Feature Requests",
-            "href": "https://app.jace.ai/feedback",
-            "isButton": false
-          },
-          {
-            "text": "Terms",
-            "href": "https://jace.ai/terms",
-            "isButton": false
-          },
-          {
-            "text": "Privacy",
-            "href": "https://jace.ai/privacy",
-            "isButton": false
-          },
-          {
-            "text": "Extension Policy",
-            "href": "https://jace.ai/extension-privacy",
-            "isButton": false
           }
         ]
       },
@@ -204,7 +125,13 @@
           "Company",
           "Pricing",
           "Blog",
-          "Log In",
+          "Log In"
+        ],
+        "hero": [],
+        "features": [
+          "Save hours daily"
+        ],
+        "footer": [
           "Features",
           "Company",
           "Pricing",
@@ -214,12 +141,7 @@
           "Terms",
           "Privacy",
           "Extension Policy"
-        ],
-        "hero": [],
-        "features": [
-          "Save hours daily"
-        ],
-        "footer": []
+        ]
       }
     },
     "mobile": {
@@ -253,46 +175,6 @@
             "text": "Log In",
             "href": "https://app.jace.ai/signin",
             "isButton": true
-          },
-          {
-            "text": "Company",
-            "href": "https://jace.ai/about",
-            "isButton": false
-          },
-          {
-            "text": "Pricing",
-            "href": "https://jace.ai/#pricing",
-            "isButton": false
-          },
-          {
-            "text": "Blog",
-            "href": "https://jace.ai/blog",
-            "isButton": false
-          },
-          {
-            "text": "Affiliate",
-            "href": "https://jace.ai/affiliate",
-            "isButton": false
-          },
-          {
-            "text": "Feature Requests",
-            "href": "https://app.jace.ai/feedback",
-            "isButton": false
-          },
-          {
-            "text": "Terms",
-            "href": "https://jace.ai/terms",
-            "isButton": false
-          },
-          {
-            "text": "Privacy",
-            "href": "https://jace.ai/privacy",
-            "isButton": false
-          },
-          {
-            "text": "Extension Policy",
-            "href": "https://jace.ai/extension-privacy",
-            "isButton": false
           }
         ]
       },
@@ -321,7 +203,13 @@
           "Company",
           "Pricing",
           "Blog",
-          "Log In",
+          "Log In"
+        ],
+        "hero": [],
+        "features": [
+          "Save hours daily"
+        ],
+        "footer": [
           "Features",
           "Company",
           "Pricing",
@@ -331,12 +219,7 @@
           "Terms",
           "Privacy",
           "Extension Policy"
-        ],
-        "hero": [],
-        "features": [
-          "Save hours daily"
-        ],
-        "footer": []
+        ]
       }
     }
   },

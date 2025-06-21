@@ -81,18 +81,26 @@ class JaceHomePage {
   // Navigation Methods
   async getNavigationStructure() {
     return await this.page.evaluate((selectors) => {
-      const nav = document.querySelector(selectors.nav.container);
+      // Get header nav specifically
+      const nav = document.querySelector('header nav, nav:first-of-type');
       if (!nav) return null;
       
-      const links = Array.from(document.querySelectorAll(selectors.nav.menuItems));
+      // Get links only from the header nav
+      const links = Array.from(nav.querySelectorAll('a:not([href="/"])')).filter(link => {
+        // Exclude the logo link
+        return !link.querySelector('img') && !link.classList.contains('logo');
+      });
+      
       return {
         exists: true,
-        logo: !!document.querySelector(selectors.nav.logo),
+        logo: !!nav.querySelector(selectors.nav.logo),
         links: links.map(link => ({
           text: link.textContent.trim(),
           href: link.href,
           isButton: link.classList.toString().includes('btn') || 
-                   link.classList.toString().includes('button')
+                   link.classList.toString().includes('button') ||
+                   link.textContent.includes('Get Started') ||
+                   link.textContent.includes('Log In')
         }))
       };
     }, this.selectors);
@@ -225,13 +233,16 @@ class JaceHomePage {
         footer: []
       };
       
-      // Navigation text
-      document.querySelectorAll('nav a').forEach(link => {
-        texts.navigation.push(link.textContent.trim());
-      });
+      // Navigation text - header nav only
+      const headerNav = document.querySelector('header nav, nav:first-of-type');
+      if (headerNav) {
+        headerNav.querySelectorAll('a').forEach(link => {
+          texts.navigation.push(link.textContent.trim());
+        });
+      }
       
       // Hero text
-      const heroSection = document.querySelector('main > section:first-child, section:has(h1)');
+      const heroSection = document.querySelector('main > section:first-child, section:first-of-type');
       if (heroSection) {
         heroSection.querySelectorAll('h1, h2, p').forEach(el => {
           texts.hero.push(el.textContent.trim());
@@ -246,6 +257,14 @@ class JaceHomePage {
           texts.features.push(heading.textContent.trim());
         }
       });
+      
+      // Footer text - specifically from footer nav
+      const footerNav = document.querySelector('footer nav, nav:nth-of-type(2)');
+      if (footerNav) {
+        footerNav.querySelectorAll('a').forEach(link => {
+          texts.footer.push(link.textContent.trim());
+        });
+      }
       
       return texts;
     });

@@ -1,12 +1,12 @@
 # Jace.ai Reference Capture
     
-Captured: 2025-06-21T04:19:00.353Z
+Captured: 2025-06-21T04:27:04.586Z
 
 ## Page Structure
 
 ### Navigation
 - Logo: ✓
-- Links: Company, Pricing, Blog, Log In, Company, Pricing, Blog, Affiliate, Feature Requests, Terms, Privacy, Extension Policy
+- Links: Company, Pricing, Blog, Log In
 
 ### Hero Section
 - Headline: "Gain 2 Hours Daily with Jace"
