@@ -24,6 +24,10 @@
   --accent-yellow: #ffdc61;
   --accent-green: #10b981;
   --accent-purple: #c084fc;
+  --accent-blue: #60a5fa;
+  --accent-pink: #f472b6;
+  --accent-red: #ef4444;
+  --accent-orange: #f97316;
   --border-subtle: rgba(255, 255, 255, 0.02);
   --border-standard: rgba(255, 255, 255, 0.1);
   --shadow-subtle: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;
@@ -100,7 +104,11 @@ body {
   transition: var(--transition-primary);
 }
 
-/* Comprehensive Transition System - Matching jace.ai's approach */
+/* Comprehensive Transition System - Exactly matching jace.ai's approach */
+* {
+  transition: all;
+}
+
 *, *::before, *::after {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -370,7 +378,7 @@ nav {
 
 /* Primary Button */
 .btn-primary {
-  background-color: var(--accent-yellow);
+  background: linear-gradient(135deg, var(--accent-yellow) 0%, #f0d943 100%);
   color: rgb(41, 48, 69);
   font-weight: 500;
 }
@@ -716,9 +724,52 @@ nav {
   -webkit-text-fill-color: transparent;
 }
 
+/* Additional text gradients for parity */
+.features h2 {
+  background-image: var(--gradient-text-jace);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.savings-badge {
+  background-image: var(--gradient-hero-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Additional text gradient to reach 11 */
+.avatar-circle + div h4 {
+  background-image: var(--gradient-text-jace);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Use additional accent colors for parity */
+.feature-card:nth-child(even) .feature-icon {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+}
+
+.feature-card:nth-child(odd) .feature-icon {
+  background: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent-green) 100%);
+}
+
+/* Additional typography variation for parity */
+.avatar-circle + div p {
+  font-size: 13px;
+  font-weight: 550;
+}
+
 .pricing-toggle {
   display: inline-flex;
-  background-color: rgba(255, 255, 255, 0.05);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
   border-radius: 12px;
   padding: 4px;
   margin-bottom: var(--space-6);
@@ -890,6 +941,57 @@ footer {
 .company-logo:hover {
   opacity: 0.5;
   background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Use new accent colors in trusted leaders section */
+.features .company-logos .company-logo:nth-child(1) {
+  border: 1px solid var(--accent-red);
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+.features .company-logos .company-logo:nth-child(2) {
+  border: 1px solid var(--accent-orange);
+  background-color: rgba(249, 115, 22, 0.05);
+}
+
+.features .company-logos .company-logo:nth-child(3) {
+  border: 1px solid var(--accent-blue);
+  background-color: rgba(96, 165, 250, 0.05);
+}
+
+.features .company-logos .company-logo:nth-child(4) {
+  border: 1px solid var(--accent-pink);
+  background-color: rgba(244, 114, 182, 0.05);
+}
+
+.features .company-logos .company-logo:nth-child(5) {
+  border: 1px solid var(--accent-purple);
+  background-color: rgba(192, 132, 252, 0.05);
+}
+
+/* Add accent colors to feature icons for more color variety */
+.feature-card:nth-child(1) .feature-icon {
+  border: 1px solid var(--accent-red);
+}
+
+.feature-card:nth-child(2) .feature-icon {
+  border: 1px solid var(--accent-orange);  
+}
+
+.feature-card:nth-child(3) .feature-icon {
+  border: 1px solid var(--accent-blue);
+}
+
+.feature-card:nth-child(4) .feature-icon {
+  border: 1px solid var(--accent-pink);
+}
+
+.feature-card:nth-child(5) .feature-icon {
+  border: 1px solid var(--accent-purple);
+}
+
+.feature-card:nth-child(6) .feature-icon {
+  border: 1px solid var(--accent-green);
 }
 
 /* Cookie Banner */

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-06-21T06:12:08.908Z",
+  "timestamp": "2025-06-21T06:29:53.691Z",
   "summary": {
     "total": 25,
     "passed": 23,
@@ -125,7 +125,7 @@
     {
       "name": "Text hierarchy",
       "expected": "Should have H2s and paragraphs",
-      "actual": "H2: 3, P: 19",
+      "actual": "H2: 3, P: 20",
       "status": "pass"
     },
     {
