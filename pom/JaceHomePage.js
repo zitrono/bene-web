@@ -27,7 +27,7 @@ class JaceHomePage {
         container: 'main > section:first-child, section:first-of-type',
         headline: 'h1',
         subheadline: 'h1 + p',
-        ctaButton: 'section a[href*="signup"], section a[href*="start"], h1 ~ * a.btn, h1 ~ * a[class*="button"]',
+        ctaButton: 'section a[href*="signup"], section a[href*="start"], a.btn-primary, a[class*="button"][class*="primary"], section:first-of-type a[class*="btn"]',
         trustBadges: 'img[alt*="CASA"], img[alt*="certification"]',
         userCount: 'span[class*="user"], div[class*="user"], span[class*="count"]',
         videoPlaceholder: 'div[class*="video"], svg[viewBox*="0 0 24 24"]'
@@ -126,10 +126,17 @@ class JaceHomePage {
   }
   
   async closeMobileMenu() {
-    const closeBtn = await this.page.$(this.selectors.nav.mobileMenuClose);
+    // First try the close button selector
+    let closeBtn = await this.page.$(this.selectors.nav.mobileMenuClose);
+    
+    // If not found, try clicking the hamburger button again (toggle behavior)
+    if (!closeBtn) {
+      closeBtn = await this.page.$(this.selectors.nav.mobileMenuToggle);
+    }
+    
     if (closeBtn) {
       await closeBtn.click();
-      await this.page.waitForTimeout(500);
+      await new Promise(resolve => setTimeout(resolve, 500));
       return true;
     }
     return false;
@@ -137,28 +144,33 @@ class JaceHomePage {
   
   async getMobileMenuState() {
     return await this.page.evaluate(() => {
-      // Try different possible selectors for mobile menu
-      const possibleMenus = [
-        document.querySelector('.nav-menu'),
-        document.querySelector('nav ul'),
-        document.querySelector('[class*="mobile-menu"]'),
-        document.querySelector('[class*="nav-links"]')
-      ].filter(Boolean);
+      // Look for the nav that contains the menu items
+      const headerNav = document.querySelector('header nav');
+      if (!headerNav) return { found: false };
       
-      if (possibleMenus.length === 0) return { found: false };
+      // Check if any nav links are in a mobile menu state
+      const navLinks = headerNav.querySelector('ul, div[class*="nav"]');
+      if (!navLinks) return { found: false };
       
-      const menu = possibleMenus[0];
-      const isActive = menu.classList.contains('active') || 
-                      menu.classList.contains('open') ||
-                      menu.classList.contains('show') ||
-                      getComputedStyle(menu).display !== 'none';
+      // Check various ways menu might be shown
+      const styles = getComputedStyle(navLinks);
+      const isVisible = styles.display !== 'none' && 
+                       styles.visibility !== 'hidden' &&
+                       styles.opacity !== '0';
+      
+      // Check if it's in mobile menu mode (fixed positioning is common)
+      const isMobileMenu = styles.position === 'fixed' || 
+                          styles.position === 'absolute' ||
+                          navLinks.classList.toString().includes('mobile') ||
+                          navLinks.classList.toString().includes('active');
       
       return {
         found: true,
-        isOpen: isActive,
-        classes: menu.className,
-        display: getComputedStyle(menu).display,
-        position: getComputedStyle(menu).position
+        isOpen: isVisible && isMobileMenu,
+        classes: navLinks.className,
+        display: styles.display,
+        position: styles.position,
+        visibility: styles.visibility
       };
     });
   }
@@ -168,7 +180,16 @@ class JaceHomePage {
     return await this.page.evaluate((selectors) => {
       const headline = document.querySelector(selectors.hero.headline);
       const subheadline = document.querySelector(selectors.hero.subheadline);
-      const ctaButton = document.querySelector(selectors.hero.ctaButton);
+      let ctaButton = document.querySelector(selectors.hero.ctaButton);
+      
+      // If no CTA found with selectors, look for it near the headline
+      if (!ctaButton && headline) {
+        const heroSection = headline.closest('section');
+        if (heroSection) {
+          // Look for any primary button in the hero section
+          ctaButton = heroSection.querySelector('a[class*="btn"]:not([class*="secondary"]), a[class*="button"]:not([class*="secondary"])');
+        }
+      }
       
       return {
         headline: headline ? headline.textContent.trim() : null,
@@ -241,12 +262,26 @@ class JaceHomePage {
         });
       }
       
-      // Hero text
-      const heroSection = document.querySelector('main > section:first-child, section:first-of-type');
-      if (heroSection) {
-        heroSection.querySelectorAll('h1, h2, p').forEach(el => {
-          texts.hero.push(el.textContent.trim());
-        });
+      // Hero text - jace.ai uses div containers, not sections
+      const h1 = document.querySelector('h1');
+      if (h1) {
+        // Find the hero container (could be section, div, or main)
+        let heroContainer = h1.closest('section, main > div, .hero, [class*="hero"]');
+        if (!heroContainer) {
+          // Use the parent container that seems reasonable
+          heroContainer = h1.parentElement.parentElement;
+        }
+        
+        if (heroContainer) {
+          // Get all text elements in hero area
+          const heroElements = heroContainer.querySelectorAll('h1, h2, h3, p, span[class*="text"]');
+          heroElements.forEach(el => {
+            const text = el.textContent.trim();
+            if (text && !texts.hero.includes(text)) {
+              texts.hero.push(text);
+            }
+          });
+        }
       }
       
       // Features text
