@@ -1,0 +1,1071 @@
+{
+  "navigation": {
+    "exists": true,
+    "logo": true,
+    "links": [
+      {
+        "text": "Features",
+        "href": "http://localhost:8080/index.html",
+        "isButton": false
+      },
+      {
+        "text": "Company",
+        "href": "http://localhost:8080/company.html",
+        "isButton": false
+      },
+      {
+        "text": "Pricing",
+        "href": "http://localhost:8080/#pricing",
+        "isButton": false
+      },
+      {
+        "text": "Blog",
+        "href": "http://localhost:8080/blog.html",
+        "isButton": false
+      },
+      {
+        "text": "Log In",
+        "href": "http://localhost:8080/#",
+        "isButton": true
+      },
+      {
+        "text": "Get Started for Free",
+        "href": "http://localhost:8080/#",
+        "isButton": true
+      },
+      {
+        "text": "Get Started for Free",
+        "href": "http://localhost:8080/#",
+        "isButton": true
+      }
+    ]
+  },
+  "hero": {
+    "headline": "Gain 2 HoursDaily with Hero",
+    "subheadline": "Start your day with emails organized, drafts ready in your voice, and daily brief for maximum efficiency.",
+    "ctaButton": {
+      "text": "Get Started for Free",
+      "href": "http://localhost:8080/#"
+    }
+  },
+  "colors": {
+    "body": {
+      "background": "rgb(40, 40, 40)",
+      "color": "rgb(255, 255, 255)",
+      "font": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    },
+    "nav": {
+      "background": "rgb(40, 40, 40)",
+      "color": "rgb(255, 255, 255)",
+      "font": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    },
+    "hero": {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "font": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  "buttons": [
+    {
+      "text": "✕",
+      "selector": "mobile-menu-close",
+      "dimensions": {
+        "width": 0,
+        "height": 0
+      },
+      "typography": {
+        "fontSize": "24px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "textTransform": "none"
+      },
+      "spacing": {
+        "padding": "0px",
+        "paddingX": "0px 0px",
+        "paddingY": "0px 0px"
+      },
+      "appearance": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "borderRadius": "6px",
+        "border": "0px none rgb(255, 255, 255)",
+        "boxShadow": "none"
+      },
+      "hover": "use DevTools"
+    },
+    {
+      "text": "Log In",
+      "selector": "btn btn-secondary",
+      "dimensions": {
+        "width": 0,
+        "height": 0
+      },
+      "typography": {
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "textTransform": "none"
+      },
+      "spacing": {
+        "padding": "0px 24px",
+        "paddingX": "24px 24px",
+        "paddingY": "0px 0px"
+      },
+      "appearance": {
+        "backgroundColor": "rgb(53, 53, 53)",
+        "color": "rgb(255, 246, 238)",
+        "borderRadius": "8px",
+        "border": "1px solid rgba(255, 255, 255, 0.1)",
+        "boxShadow": "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px"
+      },
+      "hover": "use DevTools"
+    },
+    {
+      "text": "Get Started for Free",
+      "selector": "btn btn-primary",
+      "dimensions": {
+        "width": 0,
+        "height": 0
+      },
+      "typography": {
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "textTransform": "none"
+      },
+      "spacing": {
+        "padding": "0px 24px",
+        "paddingX": "24px 24px",
+        "paddingY": "0px 0px"
+      },
+      "appearance": {
+        "backgroundColor": "rgb(255, 220, 97)",
+        "color": "rgb(41, 48, 69)",
+        "borderRadius": "8px",
+        "border": "0px none rgb(41, 48, 69)",
+        "boxShadow": "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px"
+      },
+      "hover": "use DevTools"
+    },
+    {
+      "text": "Get Started for Free",
+      "selector": "btn btn-primary mobile-cta",
+      "dimensions": {
+        "width": 195.375,
+        "height": 40
+      },
+      "typography": {
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "textTransform": "none"
+      },
+      "spacing": {
+        "padding": "0px 24px",
+        "paddingX": "24px 24px",
+        "paddingY": "0px 0px"
+      },
+      "appearance": {
+        "backgroundColor": "rgb(255, 220, 97)",
+        "color": "rgb(41, 48, 69)",
+        "borderRadius": "8px",
+        "border": "0px none rgb(41, 48, 69)",
+        "boxShadow": "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px"
+      },
+      "hover": "use DevTools"
+    },
+    {
+      "text": "",
+      "selector": "mobile-menu-toggle",
+      "dimensions": {
+        "width": 44,
+        "height": 44
+      },
+      "typography": {
+        "fontSize": "13.3333px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "textTransform": "none"
+      },
+      "spacing": {
+        "padding": "10px",
+        "paddingX": "10px 10px",
+        "paddingY": "10px 10px"
+      },
+      "appearance": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "borderRadius": "6px",
+        "border": "0px none rgb(255, 255, 255)",
+        "boxShadow": "none"
+      },
+      "hover": "use DevTools"
+    },
+    {
+      "text": "Get Started for Free",
+      "selector": "btn btn-primary fade-in",
+      "dimensions": {
+        "width": 195.375,
+        "height": 40
+      },
+      "typography": {
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "textTransform": "none"
+      },
+      "spacing": {
+        "padding": "0px 24px",
+        "paddingX": "24px 24px",
+        "paddingY": "0px 0px"
+      },
+      "appearance": {
+        "backgroundColor": "rgb(255, 220, 97)",
+        "color": "rgb(41, 48, 69)",
+        "borderRadius": "8px",
+        "border": "0px none rgb(41, 48, 69)",
+        "boxShadow": "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px"
+      },
+      "hover": "use DevTools"
+    },
+    {
+      "text": "Yearly 2 months free",
+      "selector": "toggle-option active",
+      "dimensions": {
+        "width": 168.90625,
+        "height": 32
+      },
+      "typography": {
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "normal",
+        "textTransform": "none"
+      },
+      "spacing": {
+        "padding": "8px 12px",
+        "paddingX": "12px 12px",
+        "paddingY": "8px 8px"
+      },
+      "appearance": {
+        "backgroundColor": "rgb(255, 220, 97)",
+        "color": "rgb(41, 48, 69)",
+        "borderRadius": "12px",
+        "border": "0px none rgb(41, 48, 69)",
+        "boxShadow": "none"
+      },
+      "hover": "use DevTools"
+    },
+    {
+      "text": "Monthly",
+      "selector": "toggle-option",
+      "dimensions": {
+        "width": 77.484375,
+        "height": 32
+      },
+      "typography": {
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "normal",
+        "textTransform": "none"
+      },
+      "spacing": {
+        "padding": "8px 12px",
+        "paddingX": "12px 12px",
+        "paddingY": "8px 8px"
+      },
+      "appearance": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "borderRadius": "12px",
+        "border": "0px none rgba(255, 246, 238, 0.72)",
+        "boxShadow": "none"
+      },
+      "hover": "use DevTools"
+    },
+    {
+      "text": "Get Started for Free",
+      "selector": "btn btn-primary w-full my-4",
+      "dimensions": {
+        "width": 402,
+        "height": 40
+      },
+      "typography": {
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "textTransform": "none"
+      },
+      "spacing": {
+        "padding": "0px 24px",
+        "paddingX": "24px 24px",
+        "paddingY": "0px 0px"
+      },
+      "appearance": {
+        "backgroundColor": "rgb(255, 220, 97)",
+        "color": "rgb(41, 48, 69)",
+        "borderRadius": "8px",
+        "border": "0px none rgb(41, 48, 69)",
+        "boxShadow": "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px"
+      },
+      "hover": "use DevTools"
+    },
+    {
+      "text": "Settings",
+      "selector": "btn btn-secondary cookie-settings",
+      "dimensions": {
+        "width": 145.328125,
+        "height": 36
+      },
+      "typography": {
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "14px",
+        "textTransform": "none"
+      },
+      "spacing": {
+        "padding": "0px 16px",
+        "paddingX": "16px 16px",
+        "paddingY": "0px 0px"
+      },
+      "appearance": {
+        "backgroundColor": "rgba(255, 255, 255, 0.05)",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "borderRadius": "8px",
+        "border": "1px solid rgba(255, 255, 255, 0.1)",
+        "boxShadow": "none"
+      },
+      "hover": "use DevTools"
+    },
+    {
+      "text": "Reject",
+      "selector": "btn btn-secondary cookie-reject",
+      "dimensions": {
+        "width": 145.328125,
+        "height": 36
+      },
+      "typography": {
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "14px",
+        "textTransform": "none"
+      },
+      "spacing": {
+        "padding": "0px 16px",
+        "paddingX": "16px 16px",
+        "paddingY": "0px 0px"
+      },
+      "appearance": {
+        "backgroundColor": "rgba(255, 255, 255, 0.05)",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "borderRadius": "8px",
+        "border": "1px solid rgba(255, 255, 255, 0.1)",
+        "boxShadow": "none"
+      },
+      "hover": "use DevTools"
+    },
+    {
+      "text": "Accept",
+      "selector": "btn btn-primary cookie-accept",
+      "dimensions": {
+        "width": 143.328125,
+        "height": 36
+      },
+      "typography": {
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "14px",
+        "textTransform": "none"
+      },
+      "spacing": {
+        "padding": "0px 16px",
+        "paddingX": "16px 16px",
+        "paddingY": "0px 0px"
+      },
+      "appearance": {
+        "backgroundColor": "rgb(255, 220, 97)",
+        "color": "rgb(41, 48, 69)",
+        "borderRadius": "8px",
+        "border": "0px none rgb(41, 48, 69)",
+        "boxShadow": "none"
+      },
+      "hover": "use DevTools"
+    }
+  ],
+  "layout": {
+    "viewport": {
+      "width": 800,
+      "height": 600
+    },
+    "container": {
+      "width": 800,
+      "maxWidth": "1280px",
+      "padding": "0px 16px",
+      "margin": "0px"
+    },
+    "navigation": {
+      "height": 88,
+      "padding": "8px 0px",
+      "position": "static",
+      "backgroundColor": "rgb(40, 40, 40)"
+    },
+    "hero": {
+      "height": 480,
+      "padding": "64px 16px 0px",
+      "marginTop": "0px",
+      "marginBottom": "0px"
+    },
+    "sections": [
+      {
+        "index": 0,
+        "height": 480,
+        "padding": "64px 16px 0px",
+        "margin": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "index": 1,
+        "height": 161,
+        "padding": "64px 16px 0px",
+        "margin": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "index": 2,
+        "height": 1648.390625,
+        "padding": "64px 16px 0px",
+        "margin": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "index": 3,
+        "height": 1425.390625,
+        "padding": "64px 16px 0px",
+        "margin": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "index": 4,
+        "height": 828.390625,
+        "padding": "0px",
+        "margin": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)"
+      }
+    ]
+  },
+  "typography": {
+    "h1": [
+      {
+        "text": "Gain 2 HoursDaily with Hero...",
+        "fontSize": "36px",
+        "fontWeight": "600",
+        "lineHeight": "36px",
+        "color": "rgba(0, 0, 0, 0)",
+        "width": 736,
+        "height": 72
+      }
+    ],
+    "h2": [
+      {
+        "text": "Powerful Features...",
+        "fontSize": "32px",
+        "fontWeight": "600",
+        "lineHeight": "38.4px",
+        "color": "rgb(255, 255, 255)",
+        "width": 736,
+        "height": 38.390625
+      },
+      {
+        "text": "Simple Pricing...",
+        "fontSize": "32px",
+        "fontWeight": "600",
+        "lineHeight": "38.4px",
+        "color": "rgb(255, 255, 255)",
+        "width": 736,
+        "height": 38.390625
+      },
+      {
+        "text": "What Users Say...",
+        "fontSize": "32px",
+        "fontWeight": "600",
+        "lineHeight": "38.4px",
+        "color": "rgb(255, 255, 255)",
+        "width": 768,
+        "height": 38.390625
+      }
+    ],
+    "h3": [
+      {
+        "text": "Auto Drafts...",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "normal",
+        "color": "rgba(0, 0, 0, 0)",
+        "width": 670,
+        "height": 21
+      },
+      {
+        "text": "Smart Calendar...",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "normal",
+        "color": "rgba(0, 0, 0, 0)",
+        "width": 670,
+        "height": 21
+      },
+      {
+        "text": "Labels & Organization...",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "normal",
+        "color": "rgba(0, 0, 0, 0)",
+        "width": 670,
+        "height": 21
+      },
+      {
+        "text": "Intelligent Chat...",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "normal",
+        "color": "rgba(0, 0, 0, 0)",
+        "width": 670,
+        "height": 21
+      },
+      {
+        "text": "Smart Rules...",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "normal",
+        "color": "rgba(0, 0, 0, 0)",
+        "width": 670,
+        "height": 21
+      },
+      {
+        "text": "Integrations...",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "normal",
+        "color": "rgba(0, 0, 0, 0)",
+        "width": 670,
+        "height": 21
+      },
+      {
+        "text": "Plus...",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "normal",
+        "color": "rgb(255, 255, 255)",
+        "width": 402,
+        "height": 21
+      },
+      {
+        "text": "Cookie Preferences...",
+        "fontSize": "16px",
+        "fontWeight": "600",
+        "lineHeight": "normal",
+        "color": "rgb(255, 255, 255)",
+        "width": 450,
+        "height": 18
+      }
+    ],
+    "p": [
+      {
+        "text": "Start your day with emails organized, drafts ready...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 600,
+        "height": 48
+      },
+      {
+        "text": "Built by engineers from...",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 736,
+        "height": 24
+      },
+      {
+        "text": "Automatically generate email drafts in your unique...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "width": 670,
+        "height": 24
+      },
+      {
+        "text": "Schedule meetings effortlessly with intelligent ti...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "width": 670,
+        "height": 24
+      },
+      {
+        "text": "Auto-label and organize every email effortlessly w...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "width": 670,
+        "height": 24
+      },
+      {
+        "text": "Ask questions about your emails and attachments wi...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "width": 670,
+        "height": 24
+      },
+      {
+        "text": "Automate your inbox with intelligent rules and wor...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "width": 670,
+        "height": 24
+      },
+      {
+        "text": "Seamlessly integrate with your favorite productivi...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "width": 670,
+        "height": 24
+      },
+      {
+        "text": "Level up your productivity and creativity...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 402,
+        "height": 24
+      },
+      {
+        "text": "Pay yearly, 7 day free trial...",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 402,
+        "height": 24
+      },
+      {
+        "text": "Unconditional 14-day money back guarantee...",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 402,
+        "height": 24
+      },
+      {
+        "text": "@username...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "width": 86.203125,
+        "height": 24
+      },
+      {
+        "text": "\"This is placeholder testimonial text that describ...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "width": 702,
+        "height": 48
+      },
+      {
+        "text": "@anotheruser...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "width": 101.96875,
+        "height": 24
+      },
+      {
+        "text": "\"More placeholder text about the incredible featur...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "width": 702,
+        "height": 48
+      },
+      {
+        "text": "@thirduser...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "width": 79.515625,
+        "height": 24
+      },
+      {
+        "text": "\"Yet another glowing review about how this product...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "width": 702,
+        "height": 48
+      },
+      {
+        "text": "© 2024 Hero Labs, Inc. All rights reserved....",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 736,
+        "height": 24
+      },
+      {
+        "text": "We use cookies to enhance your experience. Choose ...",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "21px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 450,
+        "height": 42
+      }
+    ],
+    "links": [
+      {
+        "text": "Skip to main content...",
+        "fontSize": "16px",
+        "fontWeight": "600",
+        "lineHeight": "24px",
+        "color": "rgb(41, 48, 69)",
+        "width": 203.640625,
+        "height": 56
+      },
+      {
+        "text": "hero...",
+        "fontSize": "28px",
+        "fontWeight": "700",
+        "lineHeight": "24px",
+        "color": "rgb(255, 255, 255)",
+        "width": 56.953125,
+        "height": 24
+      },
+      {
+        "text": "hero...",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "24px",
+        "color": "rgb(255, 255, 255)",
+        "width": 0,
+        "height": 0
+      },
+      {
+        "text": "Features...",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "24px",
+        "color": "rgb(255, 255, 255)",
+        "width": 0,
+        "height": 0
+      },
+      {
+        "text": "Company...",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "24px",
+        "color": "rgb(255, 255, 255)",
+        "width": 0,
+        "height": 0
+      },
+      {
+        "text": "Pricing...",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "24px",
+        "color": "rgb(255, 255, 255)",
+        "width": 0,
+        "height": 0
+      },
+      {
+        "text": "Blog...",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "24px",
+        "color": "rgb(255, 255, 255)",
+        "width": 0,
+        "height": 0
+      },
+      {
+        "text": "Features...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 63.15625,
+        "height": 18
+      },
+      {
+        "text": "Pricing...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 50.015625,
+        "height": 18
+      },
+      {
+        "text": "Blog...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 32.515625,
+        "height": 18
+      },
+      {
+        "text": "About...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 43.65625,
+        "height": 18
+      },
+      {
+        "text": "Affiliate...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 54.9375,
+        "height": 18
+      },
+      {
+        "text": "Feature Requests...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 126.6875,
+        "height": 18
+      },
+      {
+        "text": "Terms...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 44.703125,
+        "height": 18
+      },
+      {
+        "text": "Privacy...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 52.859375,
+        "height": 18
+      },
+      {
+        "text": "Extension Policy...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 117.734375,
+        "height": 18
+      },
+      {
+        "text": "Twitter...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 50.03125,
+        "height": 18
+      },
+      {
+        "text": "LinkedIn...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 60.765625,
+        "height": 18
+      },
+      {
+        "text": "Email...",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgba(255, 246, 238, 0.72)",
+        "width": 38.71875,
+        "height": 18
+      },
+      {
+        "text": "here...",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "21px",
+        "color": "rgb(255, 255, 255)",
+        "width": 28.765625,
+        "height": 17
+      }
+    ]
+  },
+  "visualDesign": {
+    "gradients": 6,
+    "animations": 0,
+    "cards": 10,
+    "iconCount": 10,
+    "hasVideoBackground": false,
+    "hasBlurEffects": false,
+    "cssAnimations": 204
+  },
+  "spacing": {
+    "sectionSpacings": [
+      {
+        "paddingTop": "64px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px"
+      },
+      {
+        "paddingTop": "64px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px"
+      },
+      {
+        "paddingTop": "64px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px"
+      },
+      {
+        "paddingTop": "64px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px"
+      },
+      {
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px"
+      }
+    ],
+    "headingRhythm": [
+      {
+        "marginTop": "0px",
+        "marginBottom": "24px",
+        "lineHeight": "36px"
+      },
+      {
+        "marginTop": "0px",
+        "marginBottom": "16px",
+        "lineHeight": "38.4px"
+      },
+      {
+        "marginTop": "0px",
+        "marginBottom": "8px",
+        "lineHeight": "normal"
+      },
+      {
+        "marginTop": "0px",
+        "marginBottom": "8px",
+        "lineHeight": "normal"
+      },
+      {
+        "marginTop": "0px",
+        "marginBottom": "8px",
+        "lineHeight": "normal"
+      },
+      {
+        "marginTop": "0px",
+        "marginBottom": "8px",
+        "lineHeight": "normal"
+      },
+      {
+        "marginTop": "0px",
+        "marginBottom": "8px",
+        "lineHeight": "normal"
+      },
+      {
+        "marginTop": "0px",
+        "marginBottom": "8px",
+        "lineHeight": "normal"
+      },
+      {
+        "marginTop": "0px",
+        "marginBottom": "16px",
+        "lineHeight": "38.4px"
+      },
+      {
+        "marginTop": "0px",
+        "marginBottom": "16px",
+        "lineHeight": "normal"
+      },
+      {
+        "marginTop": "0px",
+        "marginBottom": "16px",
+        "lineHeight": "38.4px"
+      },
+      {
+        "marginTop": "0px",
+        "marginBottom": "8px",
+        "lineHeight": "normal"
+      }
+    ],
+    "consistentSpacing": false
+  },
+  "interactive": {
+    "dropdowns": 0,
+    "toggles": 4,
+    "tooltips": 0,
+    "modals": 0,
+    "focusableElements": 32
+  },
+  "accessibility": {
+    "imagesWithAlt": 0,
+    "totalImages": 0,
+    "buttonsWithAriaLabel": 2,
+    "totalButtons": 7,
+    "linksWithAriaLabel": 2,
+    "skipLinks": 1,
+    "ariaLiveRegions": 0,
+    "focusableCount": 32
+  },
+  "performance": {
+    "lazyLoadedImages": 0,
+    "totalImages": 0,
+    "asyncScripts": 0,
+    "totalScripts": 1,
+    "preloadedResources": 0,
+    "criticalStyles": 0
+  },
+  "cookieCompliance": {
+    "hasCookieBanner": true,
+    "hasAcceptButton": true,
+    "hasRejectButton": true,
+    "hasPrivacyLink": true,
+    "hasCookieSettings": true,
+    "bannerVisible": true
+  },
+  "responsiveImages": [],
+  "microInteractions": {
+    "hoverEffects": 32,
+    "transitions": 32,
+    "transforms": 0
+  }
+}

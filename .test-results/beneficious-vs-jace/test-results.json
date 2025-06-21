@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-06-21T05:09:54.962Z",
+  "timestamp": "2025-06-21T05:29:19.716Z",
   "summary": {
-    "total": 21,
-    "passed": 18,
+    "total": 25,
+    "passed": 22,
     "failed": 1,
     "warnings": 2,
-    "passRate": 86
+    "passRate": 88
   },
   "details": [
     {
@@ -71,8 +71,26 @@
     {
       "name": "Mobile menu at mobile (375px)",
       "expected": "Should be visible",
-      "actual": "Hidden",
+      "actual": "Visible",
+      "status": "pass"
+    },
+    {
+      "name": "Mobile menu opens",
+      "expected": "Should open on click",
+      "actual": "Opened successfully",
+      "status": "pass"
+    },
+    {
+      "name": "Mobile menu state after open",
+      "expected": "Should be open",
+      "actual": "Closed",
       "status": "fail"
+    },
+    {
+      "name": "Mobile menu closes",
+      "expected": "Should close on click",
+      "actual": "Closed successfully",
+      "status": "pass"
     },
     {
       "name": "Buttons found",
@@ -130,6 +148,12 @@
     },
     {
       "name": "Mobile screenshot",
+      "expected": "Should capture",
+      "actual": "Captured",
+      "status": "pass"
+    },
+    {
+      "name": "Mobile menu screenshot",
       "expected": "Should capture",
       "actual": "Captured",
       "status": "pass"
