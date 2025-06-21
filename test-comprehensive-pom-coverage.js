@@ -67,7 +67,7 @@ async function testComprehensivePOMCoverage() {
     console.log(`${colors.cyan}🧪 Comprehensive POM Method Coverage Test${colors.reset}`);
     console.log(`${colors.blue}============================================${colors.reset}\n`);
     
-    console.log(`${colors.cyan}📍 Starting comprehensive test of all 40 POM methods${colors.reset}\n`);
+    console.log(`${colors.cyan}📍 Starting comprehensive test of all 42 POM methods${colors.reset}\n`);
     
     // 1. BASIC NAVIGATION METHODS
     console.log(`${colors.bright}${colors.blue}1️⃣ Basic Navigation Methods${colors.reset}`);
@@ -116,9 +116,9 @@ async function testComprehensivePOMCoverage() {
       logTest('getNavigationStructure()', 'fail', `Failed to get navigation: ${error.message}`);
     }
     
-    // 3. MOBILE MENU METHODS
+    // 3. MOBILE MENU METHODS (12 total with new layout and transparency)
     console.log(`\n${colors.bright}${colors.blue}3️⃣ Mobile Menu Methods${colors.reset}`);
-    console.log(`${colors.blue}======================={colors.reset}`);
+    console.log(`${colors.blue}==============================${colors.reset}`);
     
     // Test at mobile viewport
     await pomInstance.setViewport(375, 667);
@@ -204,6 +204,24 @@ async function testComprehensivePOMCoverage() {
         `${keyboardNav?.length || 0} keyboard navigation tests performed`);
     } catch (error) {
       logTest('testMobileMenuKeyboardNavigation()', 'fail', `Failed to test keyboard navigation: ${error.message}`);
+    }
+    
+    // Test new mobile menu layout method
+    try {
+      const layoutAnalysis = await pomInstance.getMobileMenuLayout();
+      logTest('getMobileMenuLayout()', 'pass', 'Mobile menu layout analyzed', 'Array of layout objects', 
+        `${layoutAnalysis.length} layout elements found`);
+    } catch (error) {
+      logTest('getMobileMenuLayout()', 'fail', `Failed to analyze layout: ${error.message}`);
+    }
+    
+    // Test new mobile menu transparency method
+    try {
+      const transparencyAnalysis = await pomInstance.getMobileMenuTransparency();
+      logTest('getMobileMenuTransparency()', 'pass', 'Mobile menu transparency analyzed', 'Array of transparency objects', 
+        `${transparencyAnalysis.length} transparency elements analyzed`);
+    } catch (error) {
+      logTest('getMobileMenuTransparency()', 'fail', `Failed to analyze transparency: ${error.message}`);
     }
     
     // Reset to desktop viewport

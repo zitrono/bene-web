@@ -965,6 +965,179 @@ class JaceHomePage {
     return results;
   }
   
+  async getMobileMenuLayout() {
+    return await this.page.evaluate(() => {
+      // Find all mobile menu related elements
+      const selectors = [
+        '.nav-menu',
+        '[class*="mobile-menu"]',
+        '[class*="nav-menu"]',
+        'nav ul.active',
+        '[role="navigation"].active'
+      ];
+      
+      const menuElements = [];
+      
+      selectors.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+          const rect = element.getBoundingClientRect();
+          const styles = window.getComputedStyle(element);
+          
+          // Check if this is a mobile menu element
+          if (rect.width > 0 || styles.position === 'fixed' || styles.position === 'absolute') {
+            menuElements.push({
+              selector: element.className || element.tagName.toLowerCase(),
+              layout: {
+                type: styles.position === 'fixed' ? 'fixed-overlay' : 
+                      styles.position === 'absolute' ? 'absolute-overlay' :
+                      rect.width === window.innerWidth ? 'full-width' :
+                      rect.width < 400 ? 'sidebar' : 'partial',
+                position: {
+                  top: rect.top,
+                  left: rect.left,
+                  right: window.innerWidth - rect.right,
+                  bottom: window.innerHeight - rect.bottom
+                },
+                dimensions: {
+                  width: rect.width,
+                  height: rect.height,
+                  viewportPercentage: {
+                    width: (rect.width / window.innerWidth) * 100,
+                    height: (rect.height / window.innerHeight) * 100
+                  }
+                },
+                positioning: {
+                  position: styles.position,
+                  top: styles.top,
+                  right: styles.right,
+                  bottom: styles.bottom,
+                  left: styles.left,
+                  transform: styles.transform,
+                  zIndex: styles.zIndex
+                },
+                spacing: {
+                  padding: styles.padding,
+                  margin: styles.margin,
+                  gap: styles.gap
+                },
+                overflow: {
+                  x: styles.overflowX,
+                  y: styles.overflowY,
+                  scrollable: styles.overflowY === 'auto' || styles.overflowY === 'scroll'
+                }
+              },
+              state: {
+                isOpen: styles.display !== 'none' && styles.visibility !== 'hidden' && 
+                       (element.classList.contains('active') || element.classList.contains('open'))
+              }
+            });
+          }
+        });
+      });
+      
+      return menuElements;
+    });
+  }
+  
+  async getMobileMenuTransparency() {
+    return await this.page.evaluate(() => {
+      // Find all mobile menu related elements including overlays
+      const selectors = [
+        '.nav-menu',
+        '[class*="mobile-menu"]',
+        '[class*="overlay"]',
+        '[class*="backdrop"]',
+        '.nav-overlay',
+        'nav ul.active'
+      ];
+      
+      const transparencyData = [];
+      
+      selectors.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+          const styles = window.getComputedStyle(element);
+          const rect = element.getBoundingClientRect();
+          
+          // Parse background color and opacity
+          const bgColor = styles.backgroundColor;
+          const opacity = parseFloat(styles.opacity);
+          
+          // Extract RGBA values
+          let rgba = { r: 0, g: 0, b: 0, a: 1 };
+          let hasTransparency = false;
+          
+          if (bgColor.startsWith('rgba')) {
+            const matches = bgColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
+            if (matches) {
+              rgba = {
+                r: parseInt(matches[1]),
+                g: parseInt(matches[2]),
+                b: parseInt(matches[3]),
+                a: parseFloat(matches[4] || 1)
+              };
+              hasTransparency = rgba.a < 1;
+            }
+          } else if (bgColor.startsWith('rgb')) {
+            const matches = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+            if (matches) {
+              rgba = {
+                r: parseInt(matches[1]),
+                g: parseInt(matches[2]),
+                b: parseInt(matches[3]),
+                a: opacity
+              };
+              hasTransparency = opacity < 1;
+            }
+          }
+          
+          // Check for backdrop filters
+          const backdropFilter = styles.backdropFilter || styles.webkitBackdropFilter || 'none';
+          const hasBackdropBlur = backdropFilter.includes('blur');
+          
+          // Check if element is visible and relevant
+          if (rect.width > 0 || styles.position === 'fixed' || styles.position === 'absolute') {
+            transparencyData.push({
+              selector: element.className || element.tagName.toLowerCase(),
+              transparency: {
+                backgroundColor: bgColor,
+                opacity: opacity,
+                rgba: rgba,
+                hasTransparency: hasTransparency || opacity < 1,
+                effectiveOpacity: rgba.a * opacity,
+                isOverlay: element.className.includes('overlay') || 
+                          element.className.includes('backdrop') ||
+                          (hasTransparency && styles.position === 'fixed')
+              },
+              effects: {
+                backdropFilter: backdropFilter,
+                hasBackdropBlur: hasBackdropBlur,
+                filter: styles.filter,
+                mixBlendMode: styles.mixBlendMode,
+                boxShadow: styles.boxShadow
+              },
+              visibility: {
+                display: styles.display,
+                visibility: styles.visibility,
+                pointerEvents: styles.pointerEvents
+              },
+              classification: {
+                isBackdrop: hasTransparency && styles.pointerEvents !== 'none' && 
+                           (styles.position === 'fixed' || styles.position === 'absolute'),
+                isGlassmorphism: hasBackdropBlur && hasTransparency,
+                isSemiTransparent: hasTransparency && !hasBackdropBlur,
+                isOpaque: !hasTransparency && opacity === 1
+              }
+            });
+          }
+        });
+      });
+      
+      return transparencyData;
+    });
+  }
+  
   // Hero Section Methods
   async getHeroContent() {
     return await this.page.evaluate((selectors) => {
