@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-06-21T05:29:19.716Z",
+  "timestamp": "2025-06-21T06:12:08.908Z",
   "summary": {
     "total": 25,
-    "passed": 22,
-    "failed": 1,
+    "passed": 23,
+    "failed": 0,
     "warnings": 2,
-    "passRate": 88
+    "passRate": 92
   },
   "details": [
     {
@@ -83,8 +83,8 @@
     {
       "name": "Mobile menu state after open",
       "expected": "Should be open",
-      "actual": "Closed",
-      "status": "fail"
+      "actual": "Open",
+      "status": "pass"
     },
     {
       "name": "Mobile menu closes",
