@@ -5,7 +5,7 @@
       "width": 1440,
       "height": 900
     },
-    "timestamp": "2025-06-21T04:41:48.736Z",
+    "timestamp": "2025-06-21T06:12:26.640Z",
     "buttons": [
       {
         "text": "Get Started for Free",
@@ -143,10 +143,10 @@
         "hover": "use DevTools"
       },
       {
-        "text": "Yearly2 months free",
+        "text": "Yearly3 months free",
         "selector": "relative rounded-xl px-3 py-2 text-base font-medium transition-all border bg-surface-bg text-white border-white/10",
         "dimensions": {
-          "width": 164.046875,
+          "width": 163.984375,
           "height": 38
         },
         "typography": {
@@ -902,7 +902,7 @@
           "height": 24
         },
         {
-          "text": "$16.67/month...",
+          "text": "$21.75/month...",
           "fontSize": "16px",
           "fontWeight": "400",
           "lineHeight": "24px",
@@ -938,7 +938,7 @@
           "height": 24
         },
         {
-          "text": "$54.17/month...",
+          "text": "$36.75/month...",
           "fontSize": "16px",
           "fontWeight": "400",
           "lineHeight": "24px",
@@ -1412,7 +1412,7 @@
       "width": 768,
       "height": 1024
     },
-    "timestamp": "2025-06-21T04:41:52.755Z",
+    "timestamp": "2025-06-21T06:12:30.291Z",
     "buttons": [
       {
         "text": "Get Started for Free",
@@ -1550,10 +1550,10 @@
         "hover": "use DevTools"
       },
       {
-        "text": "Yearly2 months free",
+        "text": "Yearly3 months free",
         "selector": "relative rounded-xl px-3 py-2 text-base font-medium transition-all border bg-surface-bg text-white border-white/10",
         "dimensions": {
-          "width": 164.046875,
+          "width": 163.984375,
           "height": 38
         },
         "typography": {
@@ -2309,7 +2309,7 @@
           "height": 24
         },
         {
-          "text": "$16.67/month...",
+          "text": "$21.75/month...",
           "fontSize": "16px",
           "fontWeight": "400",
           "lineHeight": "24px",
@@ -2345,7 +2345,7 @@
           "height": 24
         },
         {
-          "text": "$54.17/month...",
+          "text": "$36.75/month...",
           "fontSize": "16px",
           "fontWeight": "400",
           "lineHeight": "24px",
@@ -2819,7 +2819,7 @@
       "width": 375,
       "height": 667
     },
-    "timestamp": "2025-06-21T04:41:56.600Z",
+    "timestamp": "2025-06-21T06:12:34.207Z",
     "buttons": [
       {
         "text": "Get Started for Free",
@@ -2957,10 +2957,10 @@
         "hover": "use DevTools"
       },
       {
-        "text": "Yearly2 months free",
+        "text": "Yearly3 months free",
         "selector": "relative rounded-xl px-3 py-2 text-base font-medium transition-all border bg-surface-bg text-white border-white/10",
         "dimensions": {
-          "width": 164.046875,
+          "width": 163.984375,
           "height": 38
         },
         "typography": {
@@ -3716,7 +3716,7 @@
           "height": 48
         },
         {
-          "text": "$16.67/month...",
+          "text": "$21.75/month...",
           "fontSize": "16px",
           "fontWeight": "400",
           "lineHeight": "24px",
@@ -3752,7 +3752,7 @@
           "height": 24
         },
         {
-          "text": "$54.17/month...",
+          "text": "$36.75/month...",
           "fontSize": "16px",
           "fontWeight": "400",
           "lineHeight": "24px",

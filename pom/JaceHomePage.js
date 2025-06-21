@@ -228,7 +228,19 @@ class JaceHomePage {
   }
   
   async openMobileMenu() {
-    // Find the visible mobile menu toggle button
+    // Try Beneficious-style selector first
+    try {
+      const beneficiousButton = await this.page.$('.mobile-menu-toggle');
+      if (beneficiousButton && await beneficiousButton.isVisible()) {
+        await beneficiousButton.click();
+        await new Promise(resolve => setTimeout(resolve, 500)); // Wait for animation
+        return true;
+      }
+    } catch (error) {
+      console.log('Beneficious button not found, trying jace.ai selectors');
+    }
+    
+    // Find the visible mobile menu toggle button using jace.ai selectors
     const buttons = await this.page.$$(this.selectors.nav.mobileMenuToggle);
     for (const button of buttons) {
       if (await button.isVisible()) {
@@ -241,6 +253,30 @@ class JaceHomePage {
   }
   
   async closeMobileMenu() {
+    // Try Beneficious-style close button first
+    try {
+      const beneficiousClose = await this.page.$('.mobile-menu-close');
+      if (beneficiousClose && await beneficiousClose.isVisible()) {
+        await beneficiousClose.click();
+        await new Promise(resolve => setTimeout(resolve, 500));
+        return true;
+      }
+    } catch (error) {
+      console.log('Beneficious close button not found');
+    }
+    
+    // Try Beneficious toggle button (for toggle behavior)
+    try {
+      const beneficiousToggle = await this.page.$('.mobile-menu-toggle');
+      if (beneficiousToggle && await beneficiousToggle.isVisible()) {
+        await beneficiousToggle.click();
+        await new Promise(resolve => setTimeout(resolve, 500));
+        return true;
+      }
+    } catch (error) {
+      console.log('Beneficious toggle button not found');
+    }
+    
     // First try the close button selector
     let closeBtn = await this.page.$(this.selectors.nav.mobileMenuClose);
     
@@ -259,6 +295,48 @@ class JaceHomePage {
   
   async getMobileMenuState() {
     return await this.page.evaluate(() => {
+      // Check for Beneficious-style mobile menu first (.nav-menu.active)
+      const beneficiousMenu = document.querySelector('.nav-menu.active');
+      if (beneficiousMenu) {
+        const links = beneficiousMenu.querySelectorAll('a');
+        const styles = getComputedStyle(beneficiousMenu);
+        const isVisible = styles.display !== 'none' && 
+                         styles.visibility !== 'hidden' &&
+                         styles.opacity !== '0';
+        
+        return {
+          found: true,
+          isOpen: isVisible && links.length >= 3,
+          classes: beneficiousMenu.className,
+          display: styles.display,
+          position: styles.position,
+          visibility: styles.visibility,
+          linkCount: links.length,
+          type: 'beneficious'
+        };
+      }
+      
+      // Check for any nav menu with active class
+      const activeMenu = document.querySelector('nav ul.active, nav .nav-menu.active');
+      if (activeMenu) {
+        const links = activeMenu.querySelectorAll('a');
+        const styles = getComputedStyle(activeMenu);
+        const isVisible = styles.display !== 'none' && 
+                         styles.visibility !== 'hidden' &&
+                         styles.opacity !== '0';
+        
+        return {
+          found: true,
+          isOpen: isVisible && links.length >= 3,
+          classes: activeMenu.className,
+          display: styles.display,
+          position: styles.position,
+          visibility: styles.visibility,
+          linkCount: links.length,
+          type: 'generic-active'
+        };
+      }
+      
       // jace.ai uses a fixed positioned div for the mobile menu
       // Look for: fixed inset-y-0 right-0 z-50
       const mobileMenu = document.querySelector('div[class*="fixed"][class*="inset-y-0"], div[class*="fixed"][class*="right-0"]');
@@ -280,7 +358,8 @@ class JaceHomePage {
           display: styles.display,
           position: styles.position,
           visibility: styles.visibility,
-          linkCount: links.length
+          linkCount: links.length,
+          type: 'jace'
         };
       }
       
@@ -294,7 +373,8 @@ class JaceHomePage {
           classes: dialog.className,
           display: styles.display,
           position: styles.position,
-          visibility: styles.visibility
+          visibility: styles.visibility,
+          type: 'dialog'
         };
       }
       
