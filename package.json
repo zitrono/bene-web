@@ -1,0 +1,29 @@
+{
+  "name": "bene",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "python3 -m http.server 8080",
+    "visual-test": "node visual-test.js",
+    "test-puppeteer": "node test-puppeteer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zitrono/bene-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zitrono/bene-web/issues"
+  },
+  "homepage": "https://github.com/zitrono/bene-web#readme",
+  "description": "",
+  "dependencies": {
+    "puppeteer": "^24.10.2"
+  }
+}
