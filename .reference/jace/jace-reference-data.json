@@ -1,0 +1,382 @@
+{
+  "captureDate": "2025-06-21T04:19:00.353Z",
+  "pageTitle": "Jace AI | Email Assistant That Understands Your Voice",
+  "viewports": {
+    "desktop": {
+      "navigation": {
+        "exists": true,
+        "logo": true,
+        "links": [
+          {
+            "text": "Company",
+            "href": "https://jace.ai/about",
+            "isButton": false
+          },
+          {
+            "text": "Pricing",
+            "href": "https://jace.ai/#pricing",
+            "isButton": false
+          },
+          {
+            "text": "Blog",
+            "href": "https://jace.ai/blog",
+            "isButton": false
+          },
+          {
+            "text": "Log In",
+            "href": "https://app.jace.ai/signin",
+            "isButton": true
+          },
+          {
+            "text": "Company",
+            "href": "https://jace.ai/about",
+            "isButton": false
+          },
+          {
+            "text": "Pricing",
+            "href": "https://jace.ai/#pricing",
+            "isButton": false
+          },
+          {
+            "text": "Blog",
+            "href": "https://jace.ai/blog",
+            "isButton": false
+          },
+          {
+            "text": "Affiliate",
+            "href": "https://jace.ai/affiliate",
+            "isButton": false
+          },
+          {
+            "text": "Feature Requests",
+            "href": "https://app.jace.ai/feedback",
+            "isButton": false
+          },
+          {
+            "text": "Terms",
+            "href": "https://jace.ai/terms",
+            "isButton": false
+          },
+          {
+            "text": "Privacy",
+            "href": "https://jace.ai/privacy",
+            "isButton": false
+          },
+          {
+            "text": "Extension Policy",
+            "href": "https://jace.ai/extension-privacy",
+            "isButton": false
+          }
+        ]
+      },
+      "hero": {
+        "headline": "Gain 2 Hours Daily with Jace",
+        "subheadline": "Start your day with emails organized, drafts ready in your voice, and daily brief for maximum efficiency.",
+        "ctaButton": null
+      },
+      "colors": {
+        "body": {
+          "background": "rgb(40, 40, 40)",
+          "color": "rgb(0, 0, 0)",
+          "font": "Geist, \"Geist Fallback\""
+        },
+        "nav": {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "font": "Geist, \"Geist Fallback\""
+        },
+        "hero": null
+      },
+      "textContent": {
+        "navigation": [
+          "Jace AIJace Logo",
+          "Features",
+          "Company",
+          "Pricing",
+          "Blog",
+          "Log In",
+          "Features",
+          "Company",
+          "Pricing",
+          "Blog",
+          "Affiliate",
+          "Feature Requests",
+          "Terms",
+          "Privacy",
+          "Extension Policy"
+        ],
+        "hero": [],
+        "features": [
+          "Save hours daily"
+        ],
+        "footer": []
+      }
+    },
+    "tablet": {
+      "navigation": {
+        "exists": true,
+        "logo": true,
+        "links": [
+          {
+            "text": "Company",
+            "href": "https://jace.ai/about",
+            "isButton": false
+          },
+          {
+            "text": "Pricing",
+            "href": "https://jace.ai/#pricing",
+            "isButton": false
+          },
+          {
+            "text": "Blog",
+            "href": "https://jace.ai/blog",
+            "isButton": false
+          },
+          {
+            "text": "Log In",
+            "href": "https://app.jace.ai/signin",
+            "isButton": true
+          },
+          {
+            "text": "Company",
+            "href": "https://jace.ai/about",
+            "isButton": false
+          },
+          {
+            "text": "Pricing",
+            "href": "https://jace.ai/#pricing",
+            "isButton": false
+          },
+          {
+            "text": "Blog",
+            "href": "https://jace.ai/blog",
+            "isButton": false
+          },
+          {
+            "text": "Affiliate",
+            "href": "https://jace.ai/affiliate",
+            "isButton": false
+          },
+          {
+            "text": "Feature Requests",
+            "href": "https://app.jace.ai/feedback",
+            "isButton": false
+          },
+          {
+            "text": "Terms",
+            "href": "https://jace.ai/terms",
+            "isButton": false
+          },
+          {
+            "text": "Privacy",
+            "href": "https://jace.ai/privacy",
+            "isButton": false
+          },
+          {
+            "text": "Extension Policy",
+            "href": "https://jace.ai/extension-privacy",
+            "isButton": false
+          }
+        ]
+      },
+      "hero": {
+        "headline": "Gain 2 Hours Daily with Jace",
+        "subheadline": "Start your day with emails organized, drafts ready in your voice, and daily brief for maximum efficiency.",
+        "ctaButton": null
+      },
+      "colors": {
+        "body": {
+          "background": "rgb(40, 40, 40)",
+          "color": "rgb(0, 0, 0)",
+          "font": "Geist, \"Geist Fallback\""
+        },
+        "nav": {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "font": "Geist, \"Geist Fallback\""
+        },
+        "hero": null
+      },
+      "textContent": {
+        "navigation": [
+          "Jace AIJace Logo",
+          "Features",
+          "Company",
+          "Pricing",
+          "Blog",
+          "Log In",
+          "Features",
+          "Company",
+          "Pricing",
+          "Blog",
+          "Affiliate",
+          "Feature Requests",
+          "Terms",
+          "Privacy",
+          "Extension Policy"
+        ],
+        "hero": [],
+        "features": [
+          "Save hours daily"
+        ],
+        "footer": []
+      }
+    },
+    "mobile": {
+      "mobileMenu": {
+        "visible": true,
+        "state": {
+          "found": false
+        },
+        "links": []
+      },
+      "navigation": {
+        "exists": true,
+        "logo": true,
+        "links": [
+          {
+            "text": "Company",
+            "href": "https://jace.ai/about",
+            "isButton": false
+          },
+          {
+            "text": "Pricing",
+            "href": "https://jace.ai/#pricing",
+            "isButton": false
+          },
+          {
+            "text": "Blog",
+            "href": "https://jace.ai/blog",
+            "isButton": false
+          },
+          {
+            "text": "Log In",
+            "href": "https://app.jace.ai/signin",
+            "isButton": true
+          },
+          {
+            "text": "Company",
+            "href": "https://jace.ai/about",
+            "isButton": false
+          },
+          {
+            "text": "Pricing",
+            "href": "https://jace.ai/#pricing",
+            "isButton": false
+          },
+          {
+            "text": "Blog",
+            "href": "https://jace.ai/blog",
+            "isButton": false
+          },
+          {
+            "text": "Affiliate",
+            "href": "https://jace.ai/affiliate",
+            "isButton": false
+          },
+          {
+            "text": "Feature Requests",
+            "href": "https://app.jace.ai/feedback",
+            "isButton": false
+          },
+          {
+            "text": "Terms",
+            "href": "https://jace.ai/terms",
+            "isButton": false
+          },
+          {
+            "text": "Privacy",
+            "href": "https://jace.ai/privacy",
+            "isButton": false
+          },
+          {
+            "text": "Extension Policy",
+            "href": "https://jace.ai/extension-privacy",
+            "isButton": false
+          }
+        ]
+      },
+      "hero": {
+        "headline": "Gain 2 Hours Daily with Jace",
+        "subheadline": "Start your day with emails organized, drafts ready in your voice, and daily brief for maximum efficiency.",
+        "ctaButton": null
+      },
+      "colors": {
+        "body": {
+          "background": "rgb(40, 40, 40)",
+          "color": "rgb(0, 0, 0)",
+          "font": "Geist, \"Geist Fallback\""
+        },
+        "nav": {
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "font": "Geist, \"Geist Fallback\""
+        },
+        "hero": null
+      },
+      "textContent": {
+        "navigation": [
+          "Jace AIJace Logo",
+          "Features",
+          "Company",
+          "Pricing",
+          "Blog",
+          "Log In",
+          "Features",
+          "Company",
+          "Pricing",
+          "Blog",
+          "Affiliate",
+          "Feature Requests",
+          "Terms",
+          "Privacy",
+          "Extension Policy"
+        ],
+        "hero": [],
+        "features": [
+          "Save hours daily"
+        ],
+        "footer": []
+      }
+    }
+  },
+  "typography": {
+    "body": {
+      "family": "Geist, \"Geist Fallback\"",
+      "size": "16px",
+      "weight": "400",
+      "lineHeight": "24px"
+    },
+    "h1": {
+      "family": "Geist, \"Geist Fallback\"",
+      "size": "36px",
+      "weight": "600",
+      "lineHeight": "40px"
+    },
+    "h2": {
+      "family": "Geist, \"Geist Fallback\"",
+      "size": "16px",
+      "weight": "600",
+      "lineHeight": "28px"
+    },
+    "p": {
+      "family": "Geist, \"Geist Fallback\"",
+      "size": "18px",
+      "weight": "500",
+      "lineHeight": "28px"
+    },
+    "a": {
+      "family": "Geist, \"Geist Fallback\"",
+      "size": "16px",
+      "weight": "400",
+      "lineHeight": "24px"
+    },
+    "button": {
+      "family": "Geist, \"Geist Fallback\"",
+      "size": "14px",
+      "weight": "500",
+      "lineHeight": "20px"
+    }
+  },
+  "designTokens": {}
+}
