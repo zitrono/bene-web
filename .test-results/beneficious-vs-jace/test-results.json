@@ -1,0 +1,138 @@
+{
+  "timestamp": "2025-06-21T05:09:54.962Z",
+  "summary": {
+    "total": 21,
+    "passed": 18,
+    "failed": 1,
+    "warnings": 2,
+    "passRate": 86
+  },
+  "details": [
+    {
+      "name": "Page has title",
+      "expected": "Should contain \"Beneficious\" or similar",
+      "actual": "Hero Product | AI Assistant That Understands Your Voice",
+      "status": "pass"
+    },
+    {
+      "name": "Navigation exists",
+      "expected": "true",
+      "actual": "true",
+      "status": "pass"
+    },
+    {
+      "name": "Logo present",
+      "expected": "true",
+      "actual": true,
+      "status": "pass"
+    },
+    {
+      "name": "Navigation links count",
+      "expected": "4-6 links (like jace.ai)",
+      "actual": 7,
+      "status": "warning"
+    },
+    {
+      "name": "Hero headline exists",
+      "expected": "Should have h1",
+      "actual": "Found",
+      "status": "pass"
+    },
+    {
+      "name": "Hero subheadline exists",
+      "expected": "Should have subtitle",
+      "actual": "Found",
+      "status": "pass"
+    },
+    {
+      "name": "Hero CTA button",
+      "expected": "Should have primary CTA",
+      "actual": "\"Get Started for Free\"",
+      "status": "pass"
+    },
+    {
+      "name": "Dark background",
+      "expected": "#282828 or similar",
+      "actual": "rgb(40, 40, 40)",
+      "status": "pass"
+    },
+    {
+      "name": "Geist font family",
+      "expected": "Should use Geist font",
+      "actual": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "status": "pass"
+    },
+    {
+      "name": "Mobile menu at desktop (1440px)",
+      "expected": "Should be hidden",
+      "actual": "Hidden",
+      "status": "pass"
+    },
+    {
+      "name": "Mobile menu at mobile (375px)",
+      "expected": "Should be visible",
+      "actual": "Hidden",
+      "status": "fail"
+    },
+    {
+      "name": "Buttons found",
+      "expected": "Should have buttons",
+      "actual": "12 buttons",
+      "status": "pass"
+    },
+    {
+      "name": "Container max-width",
+      "expected": "Should have container",
+      "actual": "1280px",
+      "status": "pass"
+    },
+    {
+      "name": "Navigation height",
+      "expected": "Should have navigation",
+      "actual": "88px",
+      "status": "pass"
+    },
+    {
+      "name": "Hero section",
+      "expected": "Should have hero section",
+      "actual": "533.59375px height",
+      "status": "pass"
+    },
+    {
+      "name": "H1 elements",
+      "expected": "Should have at least one H1",
+      "actual": "1 found",
+      "status": "pass"
+    },
+    {
+      "name": "Text hierarchy",
+      "expected": "Should have H2s and paragraphs",
+      "actual": "H2: 3, P: 19",
+      "status": "pass"
+    },
+    {
+      "name": "Navigation text items",
+      "expected": "4-8 items",
+      "actual": "9 items",
+      "status": "warning"
+    },
+    {
+      "name": "Hero content",
+      "expected": "Should have hero text",
+      "actual": "2 text elements",
+      "status": "pass"
+    },
+    {
+      "name": "Desktop screenshot",
+      "expected": "Should capture",
+      "actual": "Captured",
+      "status": "pass"
+    },
+    {
+      "name": "Mobile screenshot",
+      "expected": "Should capture",
+      "actual": "Captured",
+      "status": "pass"
+    }
+  ]
+}

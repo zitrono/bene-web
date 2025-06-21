@@ -256,3 +256,6 @@ This project benefits from visual Test-Driven Development using Puppeteer MCP. K
 ```
 
 See `Puppeteer-mcp.md` for detailed visual testing workflows and advanced techniques.
+
+## Workspace Rules
+- never change POM without my explicit permission
