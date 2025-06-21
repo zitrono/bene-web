@@ -867,10 +867,251 @@ class JaceHomePage {
       performance: await this.getPerformanceIndicators(),
       cookieCompliance: await this.getCookieCompliance(),
       responsiveImages: await this.getResponsiveImages(),
-      microInteractions: await this.getMicroInteractions()
+      microInteractions: await this.getMicroInteractions(),
+      
+      // Enhanced detailed metrics
+      gradients: await this.getGradientAnalysis(),
+      animationDetails: await this.getAnimationAnalysis(),
+      colorPalette: await this.getColorPalette(),
+      fontAnalysis: await this.getFontAnalysis(),
+      semantics: await this.getSemanticAnalysis()
     };
     
     return metrics;
+  }
+  
+  // Get detailed gradient analysis
+  async getGradientAnalysis() {
+    return await this.page.evaluate(() => {
+      const elements = Array.from(document.querySelectorAll('*'));
+      const gradients = {
+        backgrounds: [],
+        texts: [],
+        shadows: []
+      };
+      
+      elements.forEach(el => {
+        const styles = getComputedStyle(el);
+        
+        // Background gradients
+        if (styles.backgroundImage && styles.backgroundImage.includes('gradient')) {
+          gradients.backgrounds.push({
+            selector: el.className || el.tagName.toLowerCase(),
+            gradient: styles.backgroundImage,
+            element: el.tagName
+          });
+        }
+        
+        // Text gradients
+        if (styles.webkitBackgroundClip === 'text' || styles.backgroundClip === 'text') {
+          gradients.texts.push({
+            selector: el.className || el.tagName.toLowerCase(),
+            gradient: styles.backgroundImage
+          });
+        }
+        
+        // Box shadows with color
+        if (styles.boxShadow && styles.boxShadow !== 'none') {
+          gradients.shadows.push({
+            selector: el.className || el.tagName.toLowerCase(),
+            shadow: styles.boxShadow
+          });
+        }
+      });
+      
+      return gradients;
+    });
+  }
+  
+  // Get detailed animation analysis
+  async getAnimationAnalysis() {
+    return await this.page.evaluate(() => {
+      const elements = Array.from(document.querySelectorAll('*'));
+      const animations = {
+        cssAnimations: [],
+        transitions: [],
+        transforms: []
+      };
+      
+      elements.forEach(el => {
+        const styles = getComputedStyle(el);
+        
+        if (styles.animation && styles.animation !== 'none') {
+          animations.cssAnimations.push({
+            selector: el.className || el.tagName.toLowerCase(),
+            animation: styles.animation,
+            duration: styles.animationDuration
+          });
+        }
+        
+        if (styles.transition && styles.transition !== 'all 0s ease 0s') {
+          animations.transitions.push({
+            selector: el.className || el.tagName.toLowerCase(),
+            transition: styles.transition,
+            duration: styles.transitionDuration
+          });
+        }
+        
+        if (styles.transform && styles.transform !== 'none') {
+          animations.transforms.push({
+            selector: el.className || el.tagName.toLowerCase(),
+            transform: styles.transform
+          });
+        }
+      });
+      
+      return animations;
+    });
+  }
+  
+  // Get detailed color palette
+  async getColorPalette() {
+    return await this.page.evaluate(() => {
+      const elements = Array.from(document.querySelectorAll('*'));
+      const colors = {
+        backgrounds: new Set(),
+        texts: new Set(),
+        borders: new Set(),
+        primary: [],
+        accent: []
+      };
+      
+      elements.forEach(el => {
+        const styles = getComputedStyle(el);
+        
+        if (styles.backgroundColor && styles.backgroundColor !== 'rgba(0, 0, 0, 0)') {
+          colors.backgrounds.add(styles.backgroundColor);
+        }
+        
+        if (styles.color) {
+          colors.texts.add(styles.color);
+        }
+        
+        if (styles.borderColor && styles.borderColor !== 'rgba(0, 0, 0, 0)') {
+          colors.borders.add(styles.borderColor);
+        }
+        
+        // Detect primary/accent colors
+        if (el.classList.contains('btn-primary')) {
+          colors.primary.push({
+            background: styles.backgroundColor,
+            text: styles.color
+          });
+        }
+        
+        if (styles.backgroundColor?.includes('255, 220, 97')) {
+          colors.accent.push({
+            element: el.className,
+            color: styles.backgroundColor
+          });
+        }
+      });
+      
+      // Get CSS variables
+      const rootStyles = getComputedStyle(document.documentElement);
+      const cssVars = {};
+      
+      ['--bg-', '--text-', '--border-', '--accent-'].forEach(prefix => {
+        for (let i = 0; i < rootStyles.length; i++) {
+          const prop = rootStyles[i];
+          if (prop.startsWith(prefix)) {
+            cssVars[prop] = rootStyles.getPropertyValue(prop);
+          }
+        }
+      });
+      
+      return {
+        backgrounds: Array.from(colors.backgrounds),
+        texts: Array.from(colors.texts),
+        borders: Array.from(colors.borders),
+        primary: colors.primary,
+        accent: colors.accent,
+        cssVariables: cssVars,
+        totalUniqueColors: colors.backgrounds.size + colors.texts.size + colors.borders.size
+      };
+    });
+  }
+  
+  // Get detailed font analysis
+  async getFontAnalysis() {
+    return await this.page.evaluate(() => {
+      const elements = Array.from(document.querySelectorAll('*'));
+      const fonts = {
+        families: new Set(),
+        sizes: new Map(),
+        weights: new Map(),
+        lineHeights: new Map()
+      };
+      
+      elements.forEach(el => {
+        const styles = getComputedStyle(el);
+        const text = el.textContent?.trim();
+        
+        if (text && text.length > 0 && el.children.length === 0) {
+          fonts.families.add(styles.fontFamily);
+          
+          const size = styles.fontSize;
+          fonts.sizes.set(size, (fonts.sizes.get(size) || 0) + 1);
+          
+          const weight = styles.fontWeight;
+          fonts.weights.set(weight, (fonts.weights.get(weight) || 0) + 1);
+          
+          const lineHeight = styles.lineHeight;
+          fonts.lineHeights.set(lineHeight, (fonts.lineHeights.get(lineHeight) || 0) + 1);
+        }
+      });
+      
+      return {
+        families: Array.from(fonts.families),
+        sizes: Object.fromEntries(fonts.sizes),
+        weights: Object.fromEntries(fonts.weights),
+        lineHeights: Object.fromEntries(fonts.lineHeights),
+        totalVariations: fonts.sizes.size + fonts.weights.size
+      };
+    });
+  }
+  
+  // Get semantic HTML analysis
+  async getSemanticAnalysis() {
+    return await this.page.evaluate(() => {
+      const semanticTags = [
+        'header', 'nav', 'main', 'article', 'section', 'aside', 
+        'footer', 'figure', 'time', 'mark'
+      ];
+      
+      const results = {};
+      
+      semanticTags.forEach(tag => {
+        const elements = document.querySelectorAll(tag);
+        if (elements.length > 0) {
+          results[tag] = {
+            count: elements.length,
+            examples: Array.from(elements).slice(0, 2).map(el => ({
+              class: el.className,
+              role: el.getAttribute('role')
+            }))
+          };
+        }
+      });
+      
+      // Heading hierarchy
+      const headings = [];
+      for (let i = 1; i <= 6; i++) {
+        const h = document.querySelectorAll(`h${i}`);
+        if (h.length > 0) {
+          headings.push({
+            level: i,
+            count: h.length,
+            texts: Array.from(h).map(el => el.textContent.trim().substring(0, 30))
+          });
+        }
+      }
+      
+      return {
+        semanticElements: results,
+        headingHierarchy: headings
+      };
+    });
   }
 }
 

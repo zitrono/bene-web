@@ -1,0 +1,42 @@
+{
+  "timestamp": "2025-06-21T05:52:51.908Z",
+  "totals": {
+    "gradients": {
+      "backgrounds": 17,
+      "texts": 11,
+      "shadows": 37
+    },
+    "animations": {
+      "cssAnimations": 2111,
+      "transitions": 2111,
+      "transforms": 572
+    },
+    "colors": {
+      "unique": 33,
+      "backgrounds": 9,
+      "texts": 11,
+      "accents": 7
+    },
+    "typography": {
+      "families": 2,
+      "sizes": 9,
+      "weights": 4,
+      "variations": 13
+    },
+    "semantics": {
+      "elements": 5,
+      "headingLevels": 3
+    },
+    "performance": {
+      "lazyImages": "0/42",
+      "asyncScripts": "37/51"
+    }
+  },
+  "keyInsights": [
+    "jace.ai uses 17 background gradients for visual depth",
+    "2111 transition effects create smooth interactions",
+    "Typography system with 13 size/weight combinations",
+    "33 unique colors in sophisticated palette",
+    "Strong semantic structure with 5 different HTML5 elements"
+  ]
+}
