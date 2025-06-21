@@ -1,0 +1,396 @@
+{
+  "siteName": "jace.ai",
+  "url": "https://jace.ai",
+  "timestamp": "2025-06-21T07:29:48.407Z",
+  "summary": {
+    "total": 23,
+    "passed": 13,
+    "failed": 1,
+    "warnings": 9,
+    "passRate": 57,
+    "successRate": 96
+  },
+  "coverage": {
+    "toggleButtons": [
+      {
+        "selector": "inline-flex items-center justify-center gap-2 border border-[rgba(255,255,255,0.02)] whitespace-nowrap rounded-md font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transition-all duration-200 active:scale-[.99] bg-surface-highlight text-text-body-inverted shadow-sm hover:bg-surface-highlight-hover h-8 text-sm px-2 sm:px-6 cursor-pointer md:hidden",
+        "ariaLabel": null,
+        "visible": true,
+        "position": {
+          "x": 158.4375,
+          "y": 24,
+          "width": 148.5625,
+          "height": 32
+        },
+        "styles": {
+          "display": "flex",
+          "position": "static",
+          "zIndex": "auto",
+          "backgroundColor": "rgb(255, 220, 97)",
+          "borderRadius": "6px",
+          "padding": "0px 8px"
+        },
+        "content": "Get Started for Free",
+        "hasIcon": false,
+        "isClickable": true
+      },
+      {
+        "selector": "-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white",
+        "ariaLabel": null,
+        "visible": true,
+        "position": {
+          "x": 317,
+          "y": 14,
+          "width": 44,
+          "height": 52
+        },
+        "styles": {
+          "display": "flex",
+          "position": "static",
+          "zIndex": "auto",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderRadius": "6px",
+          "padding": "10px"
+        },
+        "content": "<span class=\"sr-only\">Open main menu</span><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" aria-hidden=\"true\" data-slot=\"icon\" class=\"size-6\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5\"></path></svg>",
+        "hasIcon": true,
+        "isClickable": true
+      }
+    ],
+    "menuContainers": [
+      {
+        "selector": "fixed inset-x-0 bottom-0 z-50",
+        "role": null,
+        "visible": true,
+        "dimensions": {
+          "width": 375,
+          "height": 0,
+          "x": 0,
+          "y": 667
+        },
+        "styles": {
+          "position": "fixed",
+          "zIndex": "50",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "transform": "none",
+          "transition": "all",
+          "opacity": "1"
+        },
+        "navigation": {
+          "linkCount": 1,
+          "links": [
+            {
+              "text": "here",
+              "href": "https://jace.ai/privacy",
+              "classes": "text-white hover:text-gray-300 underline",
+              "isButton": false
+            }
+          ],
+          "buttonCount": 3,
+          "buttons": [
+            {
+              "text": "Settings",
+              "classes": "inline-flex items-center justify-center gap-2 border-[rgba(255,255,255,0.02)] whitespace-nowrap rounded-md font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 transition-all duration-200 active:scale-[.99] underline-offset-4 hover:underline border-0 h-7 px-3 text-sm [&_svg]:size-3 cursor-pointer text-white hover:text-gray-300",
+              "ariaLabel": null
+            },
+            {
+              "text": "Reject",
+              "classes": "inline-flex items-center justify-center gap-2 border whitespace-nowrap rounded-md font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 transition-all duration-200 active:scale-[.99] border-button-border-base shadow-sm h-7 px-3 text-sm [&_svg]:size-3 cursor-pointer text-white hover:bg-white/10",
+              "ariaLabel": null
+            },
+            {
+              "text": "Accept",
+              "classes": "inline-flex items-center justify-center gap-2 border border-[rgba(255,255,255,0.02)] whitespace-nowrap rounded-md font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 transition-all duration-200 active:scale-[.99] bg-surface-highlight text-text-body-inverted shadow-sm hover:bg-surface-highlight-hover h-7 px-3 text-sm [&_svg]:size-3 cursor-pointer",
+              "ariaLabel": null
+            }
+          ]
+        },
+        "hasCloseButton": false,
+        "hasBackdrop": false
+      }
+    ],
+    "animations": [
+      {
+        "selector": "fixed inset-x-0 bottom-0 z-50",
+        "animations": {
+          "transition": "all",
+          "transitionDuration": "0s",
+          "transitionTimingFunction": "ease",
+          "transitionProperty": "all",
+          "transform": "none",
+          "animation": "none 0s ease 0s 1 normal none running",
+          "animationDuration": "0s"
+        },
+        "visibility": {
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overflow": "visible"
+        },
+        "positioning": {
+          "position": "fixed",
+          "top": "667px",
+          "right": "0px",
+          "bottom": "0px",
+          "left": "0px",
+          "zIndex": "50"
+        }
+      }
+    ],
+    "accessibility": {
+      "menuContainers": [
+        {
+          "selector": "fixed inset-x-0 bottom-0 z-50",
+          "accessibility": {
+            "role": null,
+            "ariaLabel": null,
+            "ariaLabelledBy": null,
+            "ariaHidden": null,
+            "tabIndex": null,
+            "hasKeyboardFocus": false
+          },
+          "focusableElements": 4,
+          "hasSkipLinks": false,
+          "hasProperHeadings": true
+        }
+      ],
+      "toggleButtons": [
+        {
+          "selector": "inline-flex items-center justify-center gap-2 border border-[rgba(255,255,255,0.02)] whitespace-nowrap rounded-md font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transition-all duration-200 active:scale-[.99] bg-surface-highlight text-text-body-inverted shadow-sm hover:bg-surface-highlight-hover h-8 text-sm px-2 sm:px-6 cursor-pointer md:hidden",
+          "accessibility": {
+            "ariaLabel": null,
+            "ariaExpanded": null,
+            "ariaControls": null,
+            "ariaHaspopup": null,
+            "role": null,
+            "tabIndex": null
+          },
+          "hasKeyboardSupport": true,
+          "hasProperLabeling": true,
+          "visuallyHidden": false
+        },
+        {
+          "selector": "-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white",
+          "accessibility": {
+            "ariaLabel": null,
+            "ariaExpanded": null,
+            "ariaControls": null,
+            "ariaHaspopup": null,
+            "role": null,
+            "tabIndex": null
+          },
+          "hasKeyboardSupport": true,
+          "hasProperLabeling": true,
+          "visuallyHidden": false
+        }
+      ]
+    },
+    "interactionFlow": {
+      "toggleButtons": [
+        {
+          "element": "inline-flex items-center justify-center gap-2 border border-[rgba(255,255,255,0.02)] whitespace-nowrap rounded-md font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transition-all duration-200 active:scale-[.99] bg-surface-highlight text-text-body-inverted shadow-sm hover:bg-surface-highlight-hover h-8 text-sm px-2 sm:px-6 cursor-pointer md:hidden",
+          "ariaLabel": null,
+          "ariaExpanded": null,
+          "ariaControls": null,
+          "visible": true,
+          "clickable": true
+        },
+        {
+          "element": "-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white",
+          "ariaLabel": null,
+          "ariaExpanded": null,
+          "ariaControls": null,
+          "visible": true,
+          "clickable": true
+        }
+      ],
+      "closeButtons": [],
+      "menuContainers": [
+        {
+          "element": "fixed inset-x-0 bottom-0 z-50",
+          "isOpen": true,
+          "hasNavigationLinks": false,
+          "hasCloseButton": false,
+          "outsideClickClosing": true
+        }
+      ],
+      "backdrop": null,
+      "interactions": []
+    },
+    "keyboardNavigation": [
+      {
+        "test": "Tab to mobile toggle",
+        "passed": null,
+        "details": {
+          "tagName": "BUTTON",
+          "className": "absolute right-4 top-4 text-text-muted hover:text-white",
+          "ariaLabel": null,
+          "isMobileToggle": null
+        }
+      }
+    ]
+  },
+  "details": [
+    {
+      "category": "Detection",
+      "name": "Desktop menu hidden",
+      "expected": "Should be hidden at 1440px",
+      "actual": "Visible",
+      "status": "warning"
+    },
+    {
+      "category": "Detection",
+      "name": "Mobile menu visible",
+      "expected": "Should be visible at 375px",
+      "actual": "Visible",
+      "status": "pass"
+    },
+    {
+      "category": "Toggle",
+      "name": "Toggle buttons found",
+      "expected": "At least 1",
+      "actual": 2,
+      "status": "pass"
+    },
+    {
+      "category": "Toggle",
+      "name": "Has aria-label",
+      "expected": "Should have accessibility label",
+      "actual": "Missing",
+      "status": "warning"
+    },
+    {
+      "category": "Toggle",
+      "name": "Is clickable",
+      "expected": "Should be clickable",
+      "actual": "Yes",
+      "status": "pass"
+    },
+    {
+      "category": "Toggle",
+      "name": "Has icon",
+      "expected": "Should have visual icon",
+      "actual": "No",
+      "status": "warning"
+    },
+    {
+      "category": "Structure",
+      "name": "Menu containers found",
+      "expected": "At least 1",
+      "actual": 1,
+      "status": "pass"
+    },
+    {
+      "category": "Structure",
+      "name": "Has navigation links",
+      "expected": "At least 3 links",
+      "actual": 1,
+      "status": "warning"
+    },
+    {
+      "category": "Structure",
+      "name": "Has close button",
+      "expected": "Should have close mechanism",
+      "actual": "No",
+      "status": "warning"
+    },
+    {
+      "category": "Structure",
+      "name": "Proper positioning",
+      "expected": "Should use fixed/absolute",
+      "actual": "fixed",
+      "status": "pass"
+    },
+    {
+      "category": "Animation",
+      "name": "Elements with transitions",
+      "expected": "At least 1",
+      "actual": 1,
+      "status": "pass"
+    },
+    {
+      "category": "Animation",
+      "name": "Advanced transitions",
+      "expected": "Should use cubic-bezier or similar",
+      "actual": "No",
+      "status": "warning"
+    },
+    {
+      "category": "A11y",
+      "name": "Toggle buttons labeled",
+      "expected": "All should have labels",
+      "actual": "2/2",
+      "status": "pass"
+    },
+    {
+      "category": "A11y",
+      "name": "Menus accessible",
+      "expected": "Should have roles or focusable elements",
+      "actual": "1/1",
+      "status": "pass"
+    },
+    {
+      "category": "A11y",
+      "name": "ARIA expanded state",
+      "expected": "Should track expanded state",
+      "actual": "No",
+      "status": "warning"
+    },
+    {
+      "category": "Interaction",
+      "name": "Toggle buttons available",
+      "expected": "At least 1",
+      "actual": 2,
+      "status": "pass"
+    },
+    {
+      "category": "Interaction",
+      "name": "Menu containers available",
+      "expected": "At least 1",
+      "actual": 1,
+      "status": "pass"
+    },
+    {
+      "category": "Interaction",
+      "name": "Close mechanisms",
+      "expected": "Should have close buttons or backdrop",
+      "actual": "No",
+      "status": "warning"
+    },
+    {
+      "category": "Function",
+      "name": "Menu opens",
+      "expected": "Should open on click",
+      "actual": "Success",
+      "status": "pass"
+    },
+    {
+      "category": "Function",
+      "name": "Menu state after open",
+      "expected": "Should report as open",
+      "actual": "Closed",
+      "status": "fail"
+    },
+    {
+      "category": "Function",
+      "name": "Menu closes",
+      "expected": "Should close on click",
+      "actual": "Success",
+      "status": "pass"
+    },
+    {
+      "category": "Function",
+      "name": "Menu state after close",
+      "expected": "Should report as closed",
+      "actual": "Closed",
+      "status": "pass"
+    },
+    {
+      "category": "Keyboard",
+      "name": "Tab to mobile toggle",
+      "expected": "Should work with keyboard",
+      "actual": "Failed",
+      "status": "warning"
+    }
+  ]
+}

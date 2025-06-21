@@ -67,7 +67,7 @@ async function testComprehensivePOMCoverage() {
     console.log(`${colors.cyan}🧪 Comprehensive POM Method Coverage Test${colors.reset}`);
     console.log(`${colors.blue}============================================${colors.reset}\n`);
     
-    console.log(`${colors.cyan}📍 Starting comprehensive test of all 33 POM methods${colors.reset}\n`);
+    console.log(`${colors.cyan}📍 Starting comprehensive test of all 40 POM methods${colors.reset}\n`);
     
     // 1. BASIC NAVIGATION METHODS
     console.log(`${colors.bright}${colors.blue}1️⃣ Basic Navigation Methods${colors.reset}`);
@@ -154,6 +154,56 @@ async function testComprehensivePOMCoverage() {
         'Boolean true', closed.toString());
     } catch (error) {
       logTest('closeMobileMenu()', 'fail', `Failed to close mobile menu: ${error.message}`);
+    }
+    
+    // Add the 6 missing mobile menu methods
+    try {
+      const toggleDetails = await pomInstance.getMobileMenuToggleDetails();
+      logTest('getMobileMenuToggleDetails()', 'pass', 'Mobile menu toggle details retrieved', 'Array of toggle objects', 
+        `${toggleDetails.length} toggle buttons analyzed`);
+    } catch (error) {
+      logTest('getMobileMenuToggleDetails()', 'fail', `Failed to get toggle details: ${error.message}`);
+    }
+    
+    try {
+      const menuStructure = await pomInstance.getMobileMenuStructure();
+      logTest('getMobileMenuStructure()', 'pass', 'Mobile menu structure analyzed', 'Array of menu containers', 
+        `${menuStructure.length} menu containers found`);
+    } catch (error) {
+      logTest('getMobileMenuStructure()', 'fail', `Failed to get menu structure: ${error.message}`);
+    }
+    
+    try {
+      const animationDetails = await pomInstance.getMobileMenuAnimationDetails();
+      logTest('getMobileMenuAnimationDetails()', 'pass', 'Mobile menu animations analyzed', 'Array of animated elements', 
+        `${animationDetails.length} animated elements found`);
+    } catch (error) {
+      logTest('getMobileMenuAnimationDetails()', 'fail', `Failed to get animation details: ${error.message}`);
+    }
+    
+    try {
+      const accessibility = await pomInstance.getMobileMenuAccessibility();
+      logTest('getMobileMenuAccessibility()', 'pass', 'Mobile menu accessibility analyzed', 'Object with a11y data', 
+        `${accessibility.toggleButtons?.length || 0} accessible toggle buttons`);
+    } catch (error) {
+      logTest('getMobileMenuAccessibility()', 'fail', `Failed to get accessibility data: ${error.message}`);
+    }
+    
+    try {
+      const interactionFlow = await pomInstance.getMobileMenuInteractionFlow();
+      logTest('getMobileMenuInteractionFlow()', 'pass', 'Mobile menu interaction flow mapped', 'Object with interaction data', 
+        `${interactionFlow.toggleButtons?.length || 0} interactive toggle buttons`);
+    } catch (error) {
+      logTest('getMobileMenuInteractionFlow()', 'fail', `Failed to get interaction flow: ${error.message}`);
+    }
+    
+    try {
+      const keyboardNav = await pomInstance.testMobileMenuKeyboardNavigation();
+      logTest('testMobileMenuKeyboardNavigation()', keyboardNav?.length > 0 ? 'pass' : 'warning', 
+        'Mobile menu keyboard navigation tested', 'Array of test results', 
+        `${keyboardNav?.length || 0} keyboard navigation tests performed`);
+    } catch (error) {
+      logTest('testMobileMenuKeyboardNavigation()', 'fail', `Failed to test keyboard navigation: ${error.message}`);
     }
     
     // Reset to desktop viewport

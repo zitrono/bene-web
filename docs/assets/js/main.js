@@ -54,6 +54,11 @@ function initMobileMenu() {
     menuToggle.setAttribute('aria-expanded', 'false');
     navMenu.setAttribute('aria-hidden', 'true');
     
+    // Ensure button is keyboard accessible
+    if (!menuToggle.hasAttribute('tabindex')) {
+      menuToggle.setAttribute('tabindex', '0');
+    }
+    
     // Ensure menu starts closed
     navMenu.classList.remove('active');
     
@@ -68,9 +73,29 @@ function initMobileMenu() {
       }
     });
     
+    // Add keyboard support for toggle button
+    menuToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (navMenu.classList.contains('active')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      }
+    });
+    
     // Close button
     if (menuClose) {
       menuClose.addEventListener('click', closeMenu);
+      
+      // Add keyboard support for close button
+      menuClose.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          closeMenu();
+        }
+      });
     }
     
     // Close menu when clicking outside (on overlay area)

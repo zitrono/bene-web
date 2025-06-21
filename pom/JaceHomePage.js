@@ -214,42 +214,145 @@ class JaceHomePage {
   
   async isMobileMenuVisible() {
     try {
-      // Check all matching buttons and return true if any are visible
-      const buttons = await this.page.$$(this.selectors.nav.mobileMenuToggle);
-      for (const button of buttons) {
-        if (await button.isVisible()) {
-          return true;
+      // Enhanced detection for jace.ai and other implementations
+      const visible = await this.page.evaluate(() => {
+        // Try specific selectors first
+        const selectors = [
+          'button[class*="mobile"]',
+          'button[class*="menu"]', 
+          'button[aria-label*="menu"]',
+          'button[aria-label*="navigation"]',
+          '.mobile-menu-toggle'
+        ];
+        
+        let toggleButtons = [];
+        
+        for (const selector of selectors) {
+          try {
+            const buttons = Array.from(document.querySelectorAll(selector));
+            toggleButtons = toggleButtons.concat(buttons);
+          } catch (e) {
+            // Continue if selector fails
+          }
         }
-      }
-      return false;
+        
+        // If no specific selectors worked, check all buttons for menu-related content
+        if (toggleButtons.length === 0) {
+          const allButtons = Array.from(document.querySelectorAll('button'));
+          
+          // First priority: buttons with explicit menu text/aria
+          let menuButtons = allButtons.filter(btn => {
+            const text = btn.textContent.toLowerCase();
+            const ariaLabel = (btn.getAttribute('aria-label') || '').toLowerCase();
+            return text.includes('menu') || 
+                   text.includes('navigation') ||
+                   text.includes('nav') ||
+                   ariaLabel.includes('menu') ||
+                   ariaLabel.includes('navigation') ||
+                   btn.querySelector('svg') && (text.includes('menu') || ariaLabel.includes('menu'));
+          });
+          
+          // If we found explicit menu buttons, use those
+          if (menuButtons.length > 0) {
+            toggleButtons = menuButtons;
+          } else {
+            // Fallback: look for mobile-only buttons (but this might include false positives)
+            toggleButtons = allButtons.filter(btn => {
+              return btn.className.includes('md:hidden');
+            });
+          }
+        }
+        
+        // Remove duplicates and check if any are visible
+        toggleButtons = [...new Set(toggleButtons)];
+        
+        return toggleButtons.some(button => {
+          const styles = getComputedStyle(button);
+          return styles.display !== 'none' && styles.visibility !== 'hidden';
+        });
+      });
+      
+      return visible;
     } catch {
       return false;
     }
   }
   
   async openMobileMenu() {
-    // Try Beneficious-style selector first
     try {
-      const beneficiousButton = await this.page.$('.mobile-menu-toggle');
-      if (beneficiousButton && await beneficiousButton.isVisible()) {
-        await beneficiousButton.click();
+      // Enhanced detection and clicking
+      const success = await this.page.evaluate(() => {
+        // Try specific selectors first
+        const selectors = [
+          '.mobile-menu-toggle', // Beneficious style
+          'button[class*="mobile"]',
+          'button[class*="menu"]', 
+          'button[aria-label*="menu"]',
+          'button[aria-label*="navigation"]'
+        ];
+        
+        let toggleButtons = [];
+        
+        for (const selector of selectors) {
+          try {
+            const buttons = Array.from(document.querySelectorAll(selector));
+            toggleButtons = toggleButtons.concat(buttons);
+          } catch (e) {
+            // Continue if selector fails
+          }
+        }
+        
+        // If no specific selectors worked, check all buttons for menu-related content
+        if (toggleButtons.length === 0) {
+          const allButtons = Array.from(document.querySelectorAll('button'));
+          
+          // First priority: buttons with explicit menu text/aria
+          let menuButtons = allButtons.filter(btn => {
+            const text = btn.textContent.toLowerCase();
+            const ariaLabel = (btn.getAttribute('aria-label') || '').toLowerCase();
+            return text.includes('menu') || 
+                   text.includes('navigation') ||
+                   text.includes('nav') ||
+                   ariaLabel.includes('menu') ||
+                   ariaLabel.includes('navigation') ||
+                   btn.querySelector('svg') && (text.includes('menu') || ariaLabel.includes('menu'));
+          });
+          
+          // If we found explicit menu buttons, use those
+          if (menuButtons.length > 0) {
+            toggleButtons = menuButtons;
+          } else {
+            // Fallback: look for mobile-only buttons (but this might include false positives)
+            toggleButtons = allButtons.filter(btn => {
+              return btn.className.includes('md:hidden');
+            });
+          }
+        }
+        
+        // Remove duplicates and find first visible button
+        toggleButtons = [...new Set(toggleButtons)];
+        
+        for (const button of toggleButtons) {
+          const styles = getComputedStyle(button);
+          if (styles.display !== 'none' && styles.visibility !== 'hidden') {
+            button.click();
+            return true;
+          }
+        }
+        
+        return false;
+      });
+      
+      if (success) {
         await new Promise(resolve => setTimeout(resolve, 500)); // Wait for animation
         return true;
       }
+      
+      return false;
     } catch (error) {
-      console.log('Beneficious button not found, trying jace.ai selectors');
+      console.log('Error opening mobile menu:', error);
+      return false;
     }
-    
-    // Find the visible mobile menu toggle button using jace.ai selectors
-    const buttons = await this.page.$$(this.selectors.nav.mobileMenuToggle);
-    for (const button of buttons) {
-      if (await button.isVisible()) {
-        await button.click();
-        await new Promise(resolve => setTimeout(resolve, 500)); // Wait for animation
-        return true;
-      }
-    }
-    return false;
   }
   
   async closeMobileMenu() {
@@ -337,14 +440,65 @@ class JaceHomePage {
         };
       }
       
-      // jace.ai uses a fixed positioned div for the mobile menu
-      // Look for: fixed inset-y-0 right-0 z-50
+      // jace.ai specific: Check for slide-out menu panel (appears after clicking toggle)
+      // The actual menu is "fixed inset-y-0 right-0 z-50" with multiple links
+      const jaceMenu = document.querySelector('div[class*="fixed inset-y-0 right-0"], div[class*="fixed"][class*="right-0"][class*="inset-y-0"]');
+      
+      if (jaceMenu) {
+        const links = jaceMenu.querySelectorAll('a');
+        const styles = getComputedStyle(jaceMenu);
+        const isVisible = styles.display !== 'none' && 
+                         styles.visibility !== 'hidden' &&
+                         styles.opacity !== '0';
+        
+        // jace.ai menu has 6+ links when open
+        const hasNavLinks = links.length >= 3;
+        
+        return {
+          found: true,
+          isOpen: isVisible && hasNavLinks,
+          classes: jaceMenu.className,
+          display: styles.display,
+          position: styles.position,
+          visibility: styles.visibility,
+          linkCount: links.length,
+          type: 'jace-slideout'
+        };
+      }
+      
+      // Fallback: jace.ai uses a fixed positioned div for the mobile menu
+      // Look for any fixed element with multiple navigation links
+      const allFixedElements = Array.from(document.querySelectorAll('div[class*="fixed"]'));
+      
+      for (const element of allFixedElements) {
+        const links = element.querySelectorAll('a');
+        const styles = getComputedStyle(element);
+        const isVisible = styles.display !== 'none' && 
+                         styles.visibility !== 'hidden' &&
+                         styles.opacity !== '0';
+        
+        // If this fixed element has many links and is visible, it's likely the menu
+        if (isVisible && links.length >= 5) {
+          return {
+            found: true,
+            isOpen: true,
+            classes: element.className,
+            display: styles.display,
+            position: styles.position,
+            visibility: styles.visibility,
+            linkCount: links.length,
+            type: 'jace-fixed-multi-link'
+          };
+        }
+      }
+      
+      // Original jace.ai fallback: Look for: fixed inset-y-0 right-0 z-50
       const mobileMenu = document.querySelector('div[class*="fixed"][class*="inset-y-0"], div[class*="fixed"][class*="right-0"]');
       
       if (mobileMenu) {
         // Check if it has navigation links
         const links = mobileMenu.querySelectorAll('a');
-        const hasNavLinks = links.length >= 3; // Should have at least Features, Company, Pricing
+        const hasNavLinks = links.length >= 3;
         
         const styles = getComputedStyle(mobileMenu);
         const isVisible = styles.display !== 'none' && 
@@ -359,7 +513,7 @@ class JaceHomePage {
           position: styles.position,
           visibility: styles.visibility,
           linkCount: links.length,
-          type: 'jace'
+          type: 'jace-original'
         };
       }
       
@@ -380,6 +534,435 @@ class JaceHomePage {
       
       return { found: false, isOpen: false };
     });
+  }
+
+  // Comprehensive Mobile Menu Analysis Methods
+  async getMobileMenuToggleDetails() {
+    return await this.page.evaluate(() => {
+      // Enhanced selectors for jace.ai and other implementations
+      const selectors = [
+        'button[class*="mobile"]',
+        'button[class*="menu"]', 
+        'button[aria-label*="menu"]',
+        'button[aria-label*="navigation"]',
+        '.mobile-menu-toggle',
+        // jace.ai specific: button with "Open main menu" text
+        'button:has-text("Open main menu")',
+        // Fallback: buttons with menu-related text content
+        'button'
+      ];
+      
+      let toggleButtons = [];
+      
+      // Try specific selectors first
+      for (const selector of selectors.slice(0, -1)) {
+        try {
+          const buttons = Array.from(document.querySelectorAll(selector));
+          toggleButtons = toggleButtons.concat(buttons);
+        } catch (e) {
+          // Selector might not be supported, continue
+        }
+      }
+      
+      // If no specific selectors worked, check all buttons for menu-related content
+      if (toggleButtons.length === 0) {
+        const allButtons = Array.from(document.querySelectorAll('button'));
+        
+        // First priority: buttons with explicit menu text/aria
+        let menuButtons = allButtons.filter(btn => {
+          const text = btn.textContent.toLowerCase();
+          const ariaLabel = (btn.getAttribute('aria-label') || '').toLowerCase();
+          return text.includes('menu') || 
+                 text.includes('navigation') ||
+                 text.includes('nav') ||
+                 ariaLabel.includes('menu') ||
+                 ariaLabel.includes('navigation') ||
+                 btn.querySelector('svg') && (text.includes('menu') || ariaLabel.includes('menu'));
+        });
+        
+        // If we found explicit menu buttons, use those
+        if (menuButtons.length > 0) {
+          toggleButtons = menuButtons;
+        } else {
+          // Fallback: look for mobile-only buttons (but this might include false positives)
+          toggleButtons = allButtons.filter(btn => {
+            return btn.querySelector('svg[class*="hamburger"]') ||
+                   btn.className.includes('md:hidden');
+          });
+        }
+      }
+      
+      // Remove duplicates
+      toggleButtons = [...new Set(toggleButtons)];
+      
+      return toggleButtons.map(button => {
+        const styles = getComputedStyle(button);
+        const rect = button.getBoundingClientRect();
+        
+        return {
+          selector: button.className || button.tagName.toLowerCase(),
+          ariaLabel: button.getAttribute('aria-label'),
+          visible: styles.display !== 'none' && styles.visibility !== 'hidden',
+          position: {
+            x: rect.x,
+            y: rect.y,
+            width: rect.width,
+            height: rect.height
+          },
+          styles: {
+            display: styles.display,
+            position: styles.position,
+            zIndex: styles.zIndex,
+            backgroundColor: styles.backgroundColor,
+            borderRadius: styles.borderRadius,
+            padding: styles.padding
+          },
+          content: button.innerHTML,
+          hasIcon: !!(button.querySelector('svg') || button.querySelector('span[class*="icon"]')),
+          isClickable: !button.disabled && styles.pointerEvents !== 'none'
+        };
+      });
+    });
+  }
+
+  async getMobileMenuStructure() {
+    return await this.page.evaluate(() => {
+      // Find all possible mobile menu containers
+      const menuContainers = Array.from(document.querySelectorAll(
+        '.nav-menu, [class*="mobile"][class*="menu"], [class*="drawer"], [role="dialog"], div[class*="fixed"][class*="inset"]'
+      ));
+      
+      return menuContainers.map(container => {
+        const styles = getComputedStyle(container);
+        const rect = container.getBoundingClientRect();
+        const links = Array.from(container.querySelectorAll('a'));
+        const buttons = Array.from(container.querySelectorAll('button'));
+        
+        return {
+          selector: container.className || container.tagName.toLowerCase(),
+          role: container.getAttribute('role'),
+          visible: styles.display !== 'none' && styles.visibility !== 'hidden' && styles.opacity !== '0',
+          dimensions: {
+            width: rect.width,
+            height: rect.height,
+            x: rect.x,
+            y: rect.y
+          },
+          styles: {
+            position: styles.position,
+            zIndex: styles.zIndex,
+            backgroundColor: styles.backgroundColor,
+            transform: styles.transform,
+            transition: styles.transition,
+            opacity: styles.opacity
+          },
+          navigation: {
+            linkCount: links.length,
+            links: links.map(link => ({
+              text: link.textContent.trim(),
+              href: link.href,
+              classes: link.className,
+              isButton: link.classList.toString().includes('btn')
+            })),
+            buttonCount: buttons.length,
+            buttons: buttons.map(btn => ({
+              text: btn.textContent.trim(),
+              classes: btn.className,
+              ariaLabel: btn.getAttribute('aria-label')
+            }))
+          },
+          hasCloseButton: !!(container.querySelector('[class*="close"]') || container.querySelector('[aria-label*="close"]')),
+          hasBackdrop: !!(container.previousElementSibling && container.previousElementSibling.classList.toString().includes('backdrop'))
+        };
+      });
+    });
+  }
+
+  async getMobileMenuAnimationDetails() {
+    return await this.page.evaluate(() => {
+      const menuElements = Array.from(document.querySelectorAll(
+        '.nav-menu, [class*="mobile"][class*="menu"], [class*="drawer"], div[class*="fixed"][class*="inset"]'
+      ));
+      
+      return menuElements.map(element => {
+        const styles = getComputedStyle(element);
+        
+        return {
+          selector: element.className || element.tagName.toLowerCase(),
+          animations: {
+            transition: styles.transition,
+            transitionDuration: styles.transitionDuration,
+            transitionTimingFunction: styles.transitionTimingFunction,
+            transitionProperty: styles.transitionProperty,
+            transform: styles.transform,
+            animation: styles.animation,
+            animationDuration: styles.animationDuration
+          },
+          visibility: {
+            display: styles.display,
+            visibility: styles.visibility,
+            opacity: styles.opacity,
+            overflow: styles.overflow
+          },
+          positioning: {
+            position: styles.position,
+            top: styles.top,
+            right: styles.right,
+            bottom: styles.bottom,
+            left: styles.left,
+            zIndex: styles.zIndex
+          }
+        };
+      });
+    });
+  }
+
+  async getMobileMenuAccessibility() {
+    return await this.page.evaluate(() => {
+      const menuElements = Array.from(document.querySelectorAll(
+        '.nav-menu, [class*="mobile"][class*="menu"], [class*="drawer"], div[class*="fixed"][class*="inset"]'
+      ));
+      
+      // Find toggle buttons using enhanced detection
+      let toggleButtons = [];
+      
+      const selectors = [
+        'button[class*="mobile"]',
+        'button[class*="menu"]', 
+        'button[aria-label*="menu"]',
+        'button[aria-label*="navigation"]',
+        '.mobile-menu-toggle'
+      ];
+      
+      for (const selector of selectors) {
+        try {
+          const buttons = Array.from(document.querySelectorAll(selector));
+          toggleButtons = toggleButtons.concat(buttons);
+        } catch (e) {
+          // Continue if selector fails
+        }
+      }
+      
+      // If no specific selectors worked, check all buttons for menu-related content
+      if (toggleButtons.length === 0) {
+        const allButtons = Array.from(document.querySelectorAll('button'));
+        toggleButtons = allButtons.filter(btn => {
+          const text = btn.textContent.toLowerCase();
+          const ariaLabel = (btn.getAttribute('aria-label') || '').toLowerCase();
+          return text.includes('menu') || 
+                 text.includes('navigation') ||
+                 text.includes('nav') ||
+                 ariaLabel.includes('menu') ||
+                 ariaLabel.includes('navigation') ||
+                 btn.className.includes('md:hidden');
+        });
+      }
+      
+      // Remove duplicates
+      toggleButtons = [...new Set(toggleButtons)];
+      
+      return {
+        menuContainers: menuElements.map(element => ({
+          selector: element.className || element.tagName.toLowerCase(),
+          accessibility: {
+            role: element.getAttribute('role'),
+            ariaLabel: element.getAttribute('aria-label'),
+            ariaLabelledBy: element.getAttribute('aria-labelledby'),
+            ariaHidden: element.getAttribute('aria-hidden'),
+            tabIndex: element.getAttribute('tabindex'),
+            hasKeyboardFocus: element === document.activeElement
+          },
+          focusableElements: Array.from(element.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])')).length,
+          hasSkipLinks: !!element.querySelector('[class*="skip"], [href="#main"]'),
+          hasProperHeadings: !!element.querySelector('h1, h2, h3, h4, h5, h6')
+        })),
+        toggleButtons: toggleButtons.map(button => ({
+          selector: button.className || button.tagName.toLowerCase(),
+          accessibility: {
+            ariaLabel: button.getAttribute('aria-label'),
+            ariaExpanded: button.getAttribute('aria-expanded'),
+            ariaControls: button.getAttribute('aria-controls'),
+            ariaHaspopup: button.getAttribute('aria-haspopup'),
+            role: button.getAttribute('role'),
+            tabIndex: button.getAttribute('tabindex')
+          },
+          hasKeyboardSupport: true, // buttons inherently support keyboard
+          hasProperLabeling: !!(button.getAttribute('aria-label') || button.textContent.trim()),
+          visuallyHidden: getComputedStyle(button).clip === 'rect(0px, 0px, 0px, 0px)'
+        }))
+      };
+    });
+  }
+
+  async getMobileMenuInteractionFlow() {
+    return await this.page.evaluate(() => {
+      const result = {
+        toggleButtons: [],
+        closeButtons: [],
+        menuContainers: [],
+        backdrop: null,
+        interactions: []
+      };
+      
+      // Find toggle buttons using enhanced detection
+      let toggles = [];
+      
+      // Try specific selectors first
+      const selectors = [
+        'button[class*="mobile"]',
+        'button[class*="menu"]', 
+        'button[aria-label*="menu"]',
+        'button[aria-label*="navigation"]',
+        '.mobile-menu-toggle'
+      ];
+      
+      for (const selector of selectors) {
+        try {
+          const buttons = Array.from(document.querySelectorAll(selector));
+          toggles = toggles.concat(buttons);
+        } catch (e) {
+          // Continue if selector fails
+        }
+      }
+      
+      // If no specific selectors worked, check all buttons for menu-related content
+      if (toggles.length === 0) {
+        const allButtons = Array.from(document.querySelectorAll('button'));
+        toggles = allButtons.filter(btn => {
+          const text = btn.textContent.toLowerCase();
+          const ariaLabel = (btn.getAttribute('aria-label') || '').toLowerCase();
+          return text.includes('menu') || 
+                 text.includes('navigation') ||
+                 text.includes('nav') ||
+                 ariaLabel.includes('menu') ||
+                 ariaLabel.includes('navigation') ||
+                 btn.className.includes('md:hidden');
+        });
+      }
+      
+      // Remove duplicates
+      toggles = [...new Set(toggles)];
+      
+      result.toggleButtons = toggles.map(button => ({
+        element: button.className || button.tagName.toLowerCase(),
+        ariaLabel: button.getAttribute('aria-label'),
+        ariaExpanded: button.getAttribute('aria-expanded'),
+        ariaControls: button.getAttribute('aria-controls'),
+        visible: getComputedStyle(button).display !== 'none',
+        clickable: !button.disabled
+      }));
+      
+      // Find close buttons
+      const closeButtons = Array.from(document.querySelectorAll(
+        '.mobile-menu-close, button[class*="close"], button[aria-label*="close"]'
+      ));
+      
+      result.closeButtons = closeButtons.map(button => ({
+        element: button.className || button.tagName.toLowerCase(),
+        ariaLabel: button.getAttribute('aria-label'),
+        visible: getComputedStyle(button).display !== 'none',
+        inMenu: !!button.closest('.nav-menu, [class*="mobile"][class*="menu"]')
+      }));
+      
+      // Find menu containers
+      const menus = Array.from(document.querySelectorAll(
+        '.nav-menu, [class*="mobile"][class*="menu"], [class*="drawer"], div[class*="fixed"][class*="inset"]'
+      ));
+      
+      result.menuContainers = menus.map(menu => ({
+        element: menu.className || menu.tagName.toLowerCase(),
+        isOpen: menu.classList.contains('active') || getComputedStyle(menu).display !== 'none',
+        hasNavigationLinks: menu.querySelectorAll('a').length >= 3,
+        hasCloseButton: !!menu.querySelector('.mobile-menu-close, button[class*="close"]'),
+        outsideClickClosing: menu.getAttribute('data-outside-click') !== 'false'
+      }));
+      
+      // Check for backdrop
+      const backdrop = document.querySelector('[class*="backdrop"], [class*="overlay"]');
+      if (backdrop) {
+        result.backdrop = {
+          element: backdrop.className || backdrop.tagName.toLowerCase(),
+          visible: getComputedStyle(backdrop).display !== 'none',
+          clickable: getComputedStyle(backdrop).pointerEvents !== 'none'
+        };
+      }
+      
+      return result;
+    });
+  }
+
+  async testMobileMenuKeyboardNavigation() {
+    const results = [];
+    
+    try {
+      // Test Tab navigation to menu toggle - try up to 10 tabs
+      let foundToggle = false;
+      let focusedElement;
+      
+      for (let i = 0; i < 10; i++) {
+        await this.page.keyboard.press('Tab');
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
+        focusedElement = await this.page.evaluate(() => {
+          const focused = document.activeElement;
+          return {
+            tagName: focused.tagName,
+            className: focused.className,
+            ariaLabel: focused.getAttribute('aria-label'),
+            isMobileToggle: focused.classList.toString().includes('mobile') && 
+                           focused.classList.toString().includes('toggle') ||
+                           (focused.getAttribute('aria-label') && 
+                            focused.getAttribute('aria-label').toLowerCase().includes('menu'))
+          };
+        });
+        
+        if (focusedElement.isMobileToggle) {
+          foundToggle = true;
+          break;
+        }
+      }
+      
+      results.push({
+        test: 'Tab to mobile toggle',
+        passed: foundToggle,
+        details: focusedElement
+      });
+      
+      // Test Enter key to open menu
+      if (foundToggle && focusedElement.isMobileToggle) {
+        await this.page.keyboard.press('Enter');
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        const menuState = await this.getMobileMenuState();
+        results.push({
+          test: 'Enter key opens menu',
+          passed: menuState.isOpen,
+          details: menuState
+        });
+        
+        // Test Escape key to close menu
+        if (menuState.isOpen) {
+          await this.page.keyboard.press('Escape');
+          await new Promise(resolve => setTimeout(resolve, 500));
+          
+          const closedState = await this.getMobileMenuState();
+          results.push({
+            test: 'Escape key closes menu',
+            passed: !closedState.isOpen,
+            details: closedState
+          });
+        }
+      }
+      
+    } catch (error) {
+      results.push({
+        test: 'Keyboard navigation test',
+        passed: false,
+        error: error.message
+      });
+    }
+    
+    return results;
   }
   
   // Hero Section Methods
