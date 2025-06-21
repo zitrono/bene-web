@@ -30,11 +30,15 @@
   --shadow-hover: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px -1px;
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-text-jace: linear-gradient(to right, oklch(0.714 0.203 305.504) 0%, oklch(0.852 0.199 91.936) 100%);
+  --gradient-hero-text: linear-gradient(353deg, rgb(153, 153, 153) 36%, rgb(255, 255, 255) 90%);
   --border-radius: 6px;
   --border-radius-lg: 12px;
   --transition-primary: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-secondary: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-hover: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   
   /* 8px spacing system */
   --space-1: 8px;
@@ -93,6 +97,154 @@ body {
   color: var(--text-primary);
   background-color: var(--bg-primary);
   overflow-x: hidden;
+  transition: var(--transition-primary);
+}
+
+/* Comprehensive Transition System - Matching jace.ai's approach */
+*, *::before, *::after {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+head {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+meta {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+link {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+style {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+script {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+title {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Specific element transitions for enhanced smoothness */
+a, button, input, select, textarea, [role="button"], [tabindex] {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Interactive element transitions */
+a:hover, button:hover, [role="button"]:hover {
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Background and color transitions */
+div, section, header, footer, nav, main, article, aside {
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Typography transitions */
+h1, h2, h3, h4, h5, h6, p, span, strong, em {
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              font-size 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Image and media transitions */
+img, video, svg, picture {
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Form element transitions */
+input, textarea, select {
+  transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Additional transitions to match jace.ai scope */
+ul, ol, li, dl, dt, dd {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+table, thead, tbody, tr, td, th {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+form, fieldset, legend, label {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+blockquote, q, cite, abbr, time {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+figure, figcaption {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+details, summary {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+small, sub, sup {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+mark, ins, del {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+code, pre, kbd, samp {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+hr, br {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Utility class transitions */
+.container, .wrapper, .inner {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.row, .col, .column {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flex, .grid, .block, .inline {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-center, .text-left, .text-right {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hidden, .visible, .invisible {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* State-based transitions */
+:focus, :hover, :active, :visited {
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:focus-within, :focus-visible {
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:disabled, :checked, :selected {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Typography */
@@ -153,13 +305,14 @@ a:hover {
 /* Navigation */
 nav {
   position: static;
-  background-color: var(--bg-primary);
+  background: linear-gradient(180deg, rgba(40, 40, 40, 0.95) 0%, rgba(40, 40, 40, 0.8) 100%);
   z-index: 1000;
   padding: var(--space-1) 0;
   height: 88px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--border-standard);
+  backdrop-filter: blur(20px);
 }
 
 .nav-container {
@@ -441,6 +594,7 @@ nav {
 /* Features Grid */
 .features {
   padding: var(--space-16) var(--container-padding) 0px;
+  background: linear-gradient(to bottom, rgba(102, 126, 234, 0.05) 0%, transparent 100%);
 }
 
 .features-grid {
@@ -451,7 +605,7 @@ nav {
 }
 
 .feature-card {
-  background-color: var(--bg-card);
+  background: linear-gradient(135deg, rgba(53, 53, 53, 0.8) 0%, rgba(65, 65, 65, 0.6) 100%);
   padding: var(--space-5) var(--space-4);
   border-radius: var(--border-radius-lg);
   transition: var(--transition-hover);
@@ -512,12 +666,54 @@ nav {
 .pricing {
   padding: var(--space-16) var(--container-padding) 0px;
   text-align: center;
+  background: radial-gradient(ellipse at center, rgba(118, 75, 162, 0.08) 0%, transparent 60%);
+}
+
+.pricing h2 {
+  background-image: var(--gradient-text-jace);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.price-card h3 {
+  background-image: var(--gradient-text-jace);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.price-value {
+  background-image: var(--gradient-hero-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Testimonials Section */
 .testimonials {
   padding: var(--space-20) var(--container-padding) 0px;
   text-align: center;
+  background: linear-gradient(to bottom right, rgba(240, 147, 251, 0.06) 0%, rgba(102, 126, 234, 0.04) 100%);
+}
+
+.testimonials h2 {
+  background-image: var(--gradient-text-jace);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.testimonial-quote {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .pricing-toggle {
